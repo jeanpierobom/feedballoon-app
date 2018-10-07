@@ -1,0 +1,12 @@
+.login-form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.login-form > * {
+  margin: 10px;
+}
+
+.login-form input, .login-form button {
+  padding: 1rem;
+}
