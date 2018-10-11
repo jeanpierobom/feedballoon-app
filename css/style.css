@@ -11,7 +11,7 @@
   padding: 1rem;
 }
 
-footer ul {
+/* footer ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 1rem;
@@ -21,6 +21,359 @@ footer ul {
 
 footer ul li {
   text-align: center;
-}
+} */
 
 /**/
+
+
+/* GLOBAL STYLES - START ----------------------------*/
+
+  /* GOOGLE FONTS */
+  @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+  /* font-family: 'Roboto', sans-serif; */
+
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  h1 {
+    color: white;
+    font-weight: 500;
+    font-size: 2.3rem;
+    margin: 0;
+    align-self: center;
+    padding-left: 0.8rem;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  a {
+    list-style: none;
+    text-decoration: none;
+
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    text-decoration: none;
+  }
+
+/* GLOBAL STYLES - END ---------------------------- */
+
+
+
+
+
+/* HOME PAGE - START ----------------------------*/
+  .wrapper-index {
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  /* HEADER */
+
+  header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  header .header-top-home {
+    width: 100%;
+    height: 65px;
+
+    display: grid;
+
+    grid-template-columns: 3fr 1fr;
+
+    background-image: linear-gradient(#E10B90, #EF5759);
+  }
+
+  header .header-top-home a {
+    align-self: center;
+    text-align: right;
+    padding-right: 0.8rem;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0.5;
+  }
+
+  header .header-middle-home {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+    background-color: rgb(245, 245, 245);
+
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    padding-right: 1rem;
+  }
+
+  header .header-middle-home nav {
+    grid-column: 1 / 2;
+  }
+
+  header .header-middle-home nav ul {
+    display: grid;
+    padding-left: 0.8rem;
+    grid-template-columns: 50px 80px;
+    margin: 0;
+  }
+
+  header .header-middle-home nav ul li {
+    background-color: white;
+    padding-bottom: 0.2rem;
+
+  }
+
+  header .header-middle-home nav ul .feedback-sent {
+    border-radius: 7px 0 0 7px;
+    background-color: rgb(175,175,175);
+    border-top: 1px solid rgb(175,175,175);
+    border-bottom: 1px solid rgb(175,175,175);
+    border-left: 1px solid rgb(175,175,175);
+  }
+
+  header .header-middle-home nav ul .feedback-received {
+    border-top: 1px solid rgb(175,175,175);
+    border-right: 1px solid rgb(175,175,175);
+    border-bottom: 1px solid rgb(175,175,175);
+  }
+
+  header .header-middle-home .feedback-filter-white {
+    color: white;
+  }
+
+  header .header-middle-home nav ul .feedback-received {
+    border-radius: 0 7px 7px 0;
+  }
+
+
+  header .header-middle-home a {
+    grid-column: 2 / 3;
+    font-size: 0.7rem;
+    color: rgb(100,100,100);
+    text-align: right;
+  }
+
+  header .filter-icon .filter-subtitle {
+    padding-right: 0.3rem;
+    color: rgb(100,100,100);
+  }
+
+
+  /* MAIN */
+
+  main .feedback-list span {
+    display: block;
+  }
+
+  main img {
+    width: 70px;
+    margin-right: 1rem;
+  }
+
+  main .feedback-list .feedback-box {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 3fr 5px;
+    align-items: center;
+
+    border-top: 1px solid rgb(240,240,240);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    height: 110px;
+
+    padding-right:0.75rem;
+  }
+
+  main .feedback-list:last-child {
+    border-bottom: 1px solid rgb(240,240,240);
+  }
+
+  main .feedback-list .feedback-box .feedback-type {
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-weight: 300;
+  }
+
+  main .feedback-list .feedback-box .feedback-keep {
+    border: 1px solid #E10B90;
+    color: rgb(25, 25, 25);
+    font-size: 1.05rem;
+  }
+
+  main .feedback-list .feedback-box .feedback-improve {
+    border: 1px solid #3969D8;
+    color: rgb(25, 25, 25);
+    font-size: 0.9rem;
+  }
+
+  main .feedback-list .feedback-box .feedback-keep-improve {
+    border: 1px solid #595959;
+    color: rgb(25, 25, 25);
+    font-size: 0.9rem;
+  }
+
+  main .feedback-list .feedback-owner h3 {
+    font-size: 1rem;
+  }
+  main .feedback-list .feedback-owner .title-company {
+    color: rgb(100, 100, 100);
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  main .feedback-list .feedback-owner .feedback-time {
+    color: rgb(100, 100, 100);
+    font-size: 0.5rem;
+  }
+
+  main .feedback-list .feedback-box .favorite-icon {
+    align-self: start;
+    color: rgb(200,200,200);
+
+  }
+
+
+
+
+  /* FOOTER */
+  footer {
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-rows: 45px 20px;
+  }
+
+  footer .footer-feedballoon-icon {
+    width: 100%;
+    height: auto;
+    text-align: center;
+
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+
+  }
+
+  footer .feedballoon-icon {
+    width: 75px;
+  }
+
+  footer nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  footer .footer-icons ul li:nth-of-type(3n){
+    grid-column: 4 / 5;
+  }
+
+  footer nav ul li {
+    text-decoration: none;
+    list-style: none;
+  }
+
+  footer .footer-icons-subtitle ul li {
+    color: rgb(100,100,100);
+    font-weight: 300;
+    font-size: 0.7rem;
+  }
+
+  footer .footer-icons {
+    padding-top: 0.75rem;
+  }
+
+  footer .footer-icons ul li a {
+    color: rgb(200,200,200);
+    font-size: 1.5rem;
+  }
+
+/* HOME PAGE - END ---------------------------- */
+
+
+
+
+
+/* INDEX (LAUNCH) PAGE - START ----------------------*/
+  .launch-page {
+
+    display: grid;
+
+    align-items: center;
+
+    height: 100vh;
+    width: 100%;
+
+    background-image: linear-gradient(#E10B90, #FEA71E);
+
+  }
+
+  .icon {
+    -webkit-animation: ping 3s ease-in infinite both;
+            animation: ping 3s ease-in infinite both;
+  }
+
+  @-webkit-keyframes ping {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+      opacity: 0.8;
+    }
+    80% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(4);
+              transform: scale(4);
+      opacity: 0;
+    }
+  }
+  @keyframes ping {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+      opacity: 0.8;
+    }
+    80% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(3);
+              transform: scale(3);
+      opacity: 0;
+    }
+  }
+/* LAUNCH PAGE - END-------------------------*/
