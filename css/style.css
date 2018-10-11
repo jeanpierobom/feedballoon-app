@@ -46,7 +46,7 @@ footer ul li {
     font-size: 2.3rem;
     margin: 0;
     align-self: center;
-    padding-left: 0.8rem;
+    padding-left: 0.5rem;
   }
 
   h3 {
@@ -103,7 +103,7 @@ footer ul li {
   header .header-top-home a {
     align-self: center;
     text-align: right;
-    padding-right: 0.8rem;
+    padding-right: 0.5rem;
     color: white;
     font-size: 1.5rem;
     opacity: 0.5;
@@ -118,7 +118,7 @@ footer ul li {
     text-align: center;
     align-items: center;
     height: 40px;
-    padding-right: 1rem;
+    padding-right: 0.5rem;
   }
 
   header .header-middle-home nav {
@@ -127,8 +127,8 @@ footer ul li {
 
   header .header-middle-home nav ul {
     display: grid;
-    padding-left: 0.8rem;
-    grid-template-columns: 50px 80px;
+    padding-left: 0.5rem;
+    grid-template-columns: 50px 65px;
     margin: 0;
   }
 
@@ -144,6 +144,7 @@ footer ul li {
     border-top: 1px solid rgb(175,175,175);
     border-bottom: 1px solid rgb(175,175,175);
     border-left: 1px solid rgb(175,175,175);
+
   }
 
   header .header-middle-home nav ul .feedback-received {
@@ -171,6 +172,7 @@ footer ul li {
   header .filter-icon .filter-subtitle {
     padding-right: 0.3rem;
     color: rgb(100,100,100);
+    font-weight: 300;
   }
 
 
@@ -181,23 +183,21 @@ footer ul li {
   }
 
   main img {
-    width: 70px;
-    margin-right: 1rem;
+    width: 60px;
+    margin-right: 0.5rem;
   }
 
   main .feedback-list .feedback-box {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 3fr 5px;
+    grid-template-columns: 0.8fr 0.8fr 3.2fr 25px 25px;
     align-items: center;
 
     border-top: 1px solid rgb(240,240,240);
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.4rem solid transparent;
 
     height: 110px;
-
-    padding-right:0.75rem;
   }
 
   main .feedback-list:last-child {
@@ -205,14 +205,14 @@ footer ul li {
   }
 
   main .feedback-list .feedback-box .feedback-type {
-    width: 85px;
-    height: 85px;
+    width: 70px;
+    height: 70px;
     border-radius: 100%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     font-weight: 300;
   }
 
@@ -225,13 +225,13 @@ footer ul li {
   main .feedback-list .feedback-box .feedback-improve {
     border: 1px solid #3969D8;
     color: rgb(25, 25, 25);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   main .feedback-list .feedback-box .feedback-keep-improve {
     border: 1px solid #595959;
     color: rgb(25, 25, 25);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   main .feedback-list .feedback-owner h3 {
@@ -248,13 +248,15 @@ footer ul li {
     font-size: 0.5rem;
   }
 
-  main .feedback-list .feedback-box .favorite-icon {
+  main .feedback-list .feedback-box .favorite-icon, .repply-icon {
     align-self: start;
     color: rgb(200,200,200);
+    font-size: 1.2rem;
 
   }
-
-
+  main .repply-icon {
+    text-align: right;
+  }
 
 
   /* FOOTER */

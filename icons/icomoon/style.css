@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], a, .favorite-icon {
+[class^="icon-"], [class*=" icon-"], .icomoon, .favorite-icon, .repply-icon, .filter {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -29,7 +29,7 @@ a[href="#search"]:before {
   content: "\e909";
 }
 
-a[href="#filter"]:after {
+.filter:after {
   content: "\e902";
   font-size: 0.58rem;
   align-items: center;
@@ -39,7 +39,9 @@ a[href="#filter"]:after {
   content: "\e907";
 }
 
-
+.repply-icon::before {
+  content: "\e904";
+}
 
 /* FOOTER */
 a[href="#home"]:before {
