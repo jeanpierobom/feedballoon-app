@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- jquery mobile -->
-    <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" />
+    <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" />
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
-    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> -->
 
     <!-- javascript -->
     <script src="script/app.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- icomoon -->
+    <link rel="stylesheet" href="/icons/icomoon/style.css">
 
     <!-- custom css (only for this page) -->
     <style>
@@ -23,7 +26,31 @@
 
   </head>
   <body>
-    <div data-role="page">
+    <div data-role="page" class="sign-in-page">
+
+      <img src="icons/logo.svg" alt="">
+
+      <div class="sign-in-fields">
+        <h3>Sign in</h3>
+
+        <form>
+
+          <input class="sign-in-email" type="text" id="fname" name="email" placeholder="Email">
+
+          <input class="sign-in-password" type="text" id="email" name="password" placeholder="Password">
+
+          <a class="password" href="#">Forgot password?</a>
+
+          <button class="submit" type="submit">Sign in</button>
+
+        </form>
+
+        <span class="newAccount">Create an account</span>
+
+      </div>
+
+
+
     </div>
   </body>
 </html>
