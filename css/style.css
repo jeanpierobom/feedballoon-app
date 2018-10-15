@@ -339,6 +339,12 @@ footer ul li {
   background-image: linear-gradient(to bottom left, #E10B90, #FFAC1B);
   border-radius: 20px 20px 0 0;
   box-shadow:20px 20px 50px 10px rgb(200,200,200);
+
+  display: grid;
+
+  grid-template-rows: auto 1fr 50px;
+
+
 }
 
 
@@ -356,8 +362,9 @@ input, button {
 }
 
 form {
-  display: block;
-  display: grid;
+
+display: flex;
+flex-direction: column;
 
   margin-left: 1rem;
   margin-right: 1rem;
