@@ -339,6 +339,12 @@ footer ul li {
   background-image: linear-gradient(to bottom left, #E10B90, #FFAC1B);
   border-radius: 20px 20px 0 0;
   box-shadow:20px 20px 50px 10px rgb(200,200,200);
+
+  display: grid;
+
+  grid-template-rows: auto 1fr 50px;
+
+
 }
 
 
@@ -356,8 +362,9 @@ input, button {
 }
 
 form {
-  display: block;
-  display: grid;
+
+display: flex;
+flex-direction: column;
 
   margin-left: 1rem;
   margin-right: 1rem;
@@ -478,3 +485,171 @@ form {
     }
   }
 /* LAUNCH PAGE - END-------------------------*/
+
+
+
+/* GROUP LIST PAGE - START -------------------*/
+
+header .header-top-group {
+  width: 100%;
+  height: 65px;
+
+  display: grid;
+
+  grid-template-columns: 3fr 1fr;
+
+  background-image: linear-gradient(#E10B90, #EF5759);
+}
+
+header .header-top-group a {
+  align-self: center;
+  text-align: right;
+  padding-right: 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+header .header-middle-group {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(245, 245, 245);
+
+  text-align: center;
+  align-items: center;
+  height: 40px;
+  padding-right: 0.5rem;
+}
+header .header-middle-group .filter {
+  color: grey;
+  font-size: 20px;
+font-weight: 300;
+}
+header .header-middle-group .new-group {
+  color: grey;
+  font-size: 20px;
+font-weight: 300;
+}
+
+
+
+
+main .group-list span {
+  display: block;
+}
+main .group-list .group-box {
+  display: grid;
+
+  grid-template-columns: 0.8fr  3.2fr 25px 25px;
+  align-items: center;
+
+  border-top: 1px solid rgb(240,240,240);
+  border-left: 0.5rem solid transparent;
+  border-right: 0.4rem solid transparent;
+
+  height: 110px;
+}
+main .group-list .group-box .group-type {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  font-weight: 400;
+}
+
+main .group-list .group-box .group-keep {
+  border: 1px solid #E10B90;
+  color: grey;
+  font-size: 2.05rem;
+}
+main.member{
+  color: grey;
+  font-size: 1.05rem;
+}
+main .group-list .group-name .member {
+  color: grey;
+  font-size: 0.8rem;
+  padding-top: 7px;
+}
+main .group-list .group-name .status {
+  color: darkgreen;
+  font-size: 1rem;
+  padding-top: 7px;
+}
+main .group-list .group-name .request {
+  color: red;
+  font-size: 1rem;
+  padding-top: 7px;
+}
+/* GROUP LIST PAGE - END -------------------*/
+
+/* GROUP VIEW PAGE - START -------------------*/
+
+ header .header-top {
+  display: grid;
+
+  grid-template-columns: 0.8fr  3.2fr 25px 25px;
+  align-items: center;
+
+  border-top: 1px solid rgb(240,240,240);
+  border-left: 0.5rem solid transparent;
+  border-right: 0.4rem solid transparent;
+
+  height: 110px;
+}
+header .header-top .group-type {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  font-weight: 400;
+}
+
+header .header-top .group-keep {
+  color: white;
+  font-size: 1.05rem;
+  background-color: darkorange;
+}
+header  .group-name  {
+  font-size: 1.1rem;
+}
+
+header  .group-name .member {
+  color: grey;
+  font-size: 0.8rem;
+  padding-top: 7px;
+}
+
+header .header-top-next {
+  width: 100%;
+  height: 65px;
+
+  display: grid;
+
+  grid-template-columns: 3fr 1fr;
+
+}
+header .header-top-next .filter {
+  align-self: center;
+  color: grey;
+  font-size: 1.5rem;
+}
+header .header-top-next a {
+  align-self: center;
+  text-align: right;
+  color: darkgrey;
+  font-size: 1.5rem;
+}
+header .header-top-next{
+  border-bottom: 1px solid #E10B90;
+
+}
