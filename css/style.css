@@ -531,6 +531,10 @@ header .header-middle-group .new-group {
   font-size: 20px;
 font-weight: 300;
 }
+header .header-middle-group{
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
 
 
 
