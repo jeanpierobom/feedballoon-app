@@ -7,8 +7,8 @@
 
     <!-- jquery mobile -->
     <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" /> -->
-    <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
-    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> -->
+    <!-- <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
+    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> --> -->
 
     <!-- javascript -->
     <script src="script/app.js"></script>
@@ -20,32 +20,212 @@
     <!-- custom css (only for this page) -->
     <style>
 
+    .wrapper-group-list {
+      margin-top: 5.4rem;
+      margin-bottom: 7rem;
+    }
+
+      /* HEADER - START */
+      header .header-top-group {
+        width: 100%;
+        height: 65px;
+
+        display: grid;
+
+        grid-template-columns: 30px 3fr 1fr;
+
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+      }
+
+      header .header-top-group h1 {
+        padding-left: 0.5rem;
+      }
+
+      header .header-top-group a img {
+        display: block;
+        width: 90%;
+      }
+
+      header .header-top-group .arrow_left {
+        opacity: 1;
+        padding-right: 0;
+        padding-left: 0.1rem;
+      }
+
+      header .header-top-group a {
+        align-self: center;
+        padding-right: 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+        text-align: right;
+        opacity: 0.5;
+      }
+
+      header .header-middle-group {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+        background-color: rgb(245, 245, 245);
+
+        align-items: center;
+        height: 40px;
+        padding-right: 0.5rem;
+      }
+
+      header .header-middle-group a {
+        display: flex;
+        padding-left: 0.5rem;
+        font-size: 0.9rem;
+        color: rgb(100,100,100);
+        font-weight: 300;
+      }
+
+      header .header-middle-group img {
+        height: 10px;
+        padding-left: 0.3rem;
+        padding-top: 0.2rem;
+      }
+
+      header .header-middle-group .new-group {
+        display: block;
+        font-weight: 300;
+        text-align: right;
+        font-size: 0.9rem;
+        color: rgb(100,100,100);
+      }
+      /* HEADER - END */
+
+
+
+
+      /* MAIN - START*/
+      main .group-list span {
+        display: block;
+      }
+
+      main .group-list .group-box {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+
+        border-left: 0.5rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        height: 110px;
+        border-top: 1px solid rgb(240,240,240);
+        align-items: center;
+      }
+
+      main .group-list .group-box:last-child {
+        border-bottom: 1px solid rgb(240,240,240);
+      }
+
+      main .group-list .group-box .group-type {
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-weight: 400;
+        border: 1px solid #E10B90;
+        color: grey;
+        font-size: 2.05rem;
+      }
+
+      main .member{
+        color: rgb(125,125,125);
+        font-size: 0.8rem;
+        padding-top: 5px;
+      }
+
+      main .group-list .group-name .status {
+        color: darkgreen;
+        font-size: 1rem;
+        padding-top: 15px;
+      }
+
+      main .group-list .group-name .request {
+        color: red;
+        font-size: 1rem;
+        padding-top: 15px;
+      }
+
+
+      /* header .header-top .group-keep {
+        color: white;
+        font-size: 1.05rem;
+        background-color: darkorange;
+      } */
+      /* header  .group-name  {
+        font-size: 1.1rem;
+      } */
+
+      /* header  .group-name .member {
+        color: grey;
+        font-size: 0.8rem;
+        padding-top: 7px;
+      } */
+
+      /* header .header-top-next {
+        width: 100%;
+        height: 65px;
+
+        display: grid;
+
+        grid-template-columns: 3fr 1fr;
+
+      } */
+      /* header .header-top-next .filter {
+        align-self: center;
+        color: grey;
+        font-size: 1.5rem;
+      }
+      header .header-top-next a {
+        align-self: center;
+        text-align: right;
+        color: darkgrey;
+        font-size: 1.5rem;
+      }
+      header .header-top-next{
+        border-bottom: 1px solid #E10B90;
+
+      } */
+
+
+
     </style>
 
   </head>
   <body>
     <!-- <div data-role="page"> -->
-      <div data-role="page" class="wrapper-index">
+      <div data-role="page" class="wrapper-group-list">
+
         <header>
+
           <div class="header-top-group">
+            <a class="arrow_left" href=""><img src="icons/arrow_left.svg" alt=""></a>
             <h1>Groups</h1>
             <a class="icomoon" href="#search"></a>
           </div>
 
           <div class="header-middle-group">
-            <span class="filter">Filter</span>
 
-            <span class="new-group"> New Group +</span>
+              <a class="filter-subtitle" href="#">Filter
+                <img class="arrow_down" src="icons/arrow_down.svg" alt="arrow-icon">
+              </a>
+
+              <a class="new-group" href="#">New Group +</a>
 
           </div>
 
         </header>
+
         <main>
-
-
           <div class="group-list">
 
             <div class="group-box">
+
               <div class="group-type group-keep">
                 <span class="name">LC</span>
               </div>
@@ -54,7 +234,9 @@
                 <span class="member">15 Members</span>
                 <span class="status">Joined</span>
               </div>
+
             </div>
+
             <div class="group-box">
               <div class="group-type group-keep">
                 <span class="name">BH</span>
@@ -62,7 +244,7 @@
               <div class="group-name">
                 <h3>BC Hydro</h3>
                 <span class="member">12 Members</span>
-                <span class="request">Pending Request</span>
+                <span class="request">Pending</span>
               </div>
             </div>
             <div class="group-box">
@@ -72,7 +254,7 @@
               <div class="group-name">
                 <h3>Pepsi Co.</h3>
                 <span class="member">25 Members</span>
-                <span class="request">Pending Request</span>
+                <span class="request">Pending</span>
               </div>
             </div>
             <div class="group-box">
@@ -88,6 +270,9 @@
 
           </div>
         </main>
+
+
+
         <footer>
 
           <div class="footer-feedballoon-icon">
