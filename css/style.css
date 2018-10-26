@@ -178,7 +178,7 @@
     display: block;
   }
 
-  main img {
+  main .feedback-box img {
     width: 60px;
     margin-right: 0.5rem;
   }
@@ -359,7 +359,6 @@ input, button {
 }
 
 form {
-
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
