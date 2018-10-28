@@ -345,9 +345,14 @@
 }
 
 
-input, button {
+input {
   display: block;
 }
+
+
+/* input, button {
+  display: block;
+} */
 
 .sign-in-fields h3 {
   margin-left: 1rem;

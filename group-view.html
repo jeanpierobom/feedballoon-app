@@ -8,7 +8,7 @@
     <!-- jquery mobile -->
     <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" /> -->
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
-    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
 
     <!-- javascript -->
     <script src="script/app.js"></script>
@@ -19,105 +19,156 @@
 
     <!-- custom css (only for this page) -->
     <style>
-    header .header-top {
-     display: grid;
 
-     grid-template-columns: 0.8fr  3.2fr 25px 25px;
-     align-items: center;
+      header .header-top-group-view {
+        width: 100%;
+        height: 90px;
+        display: grid;
+        align-items: center;
+        border-bottom: 1px solid rgb(240,240,240);
+        background-color: white;
+      }
 
-     border-top: 1px solid rgb(240,240,240);
-     border-left: 0.5rem solid transparent;
-     border-right: 0.4rem solid transparent;
+      header .header-top-group-view .group-id-wrapper {
+        display: grid;
+        grid-template-columns: 30px 80px 2fr;
+        align-items: center;
+      }
 
-     height: 110px;
-    }
-    header .header-top .group-type {
-     width: 70px;
-     height: 70px;
-     border-radius: 100%;
-     text-align: center;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     margin-right: 0.5rem;
-     font-weight: 400;
-    }
+      header .header-top-group-view .group-id-wrapper .arrow_left {
+        opacity: 1;
+        padding-right: 0;
+        padding-left: 0.1rem;
+        align-self: center;
+        display: block;
+        width: 90%;
+      }
 
-    header .header-top .group-keep {
-     color: white;
-     font-size: 1.05rem;
-     background-color: darkorange;
-    }
-    header  .group-name  {
-     font-size: 1.1rem;
-    }
+      header .header-top-group-view .group-id-wrapper .group-id  {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        border: 2px solid darkorange;
+        color: black;
+        font-size: 70%;
+      }
+
+      header .header-top-group-view .group-id-wrapper .group-view-members {
+        color: rgb(100, 100, 100);
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+
+      header .header-middle-group-view {
+        background-color: rgb(245, 245, 245);
+        height: 50px;
+        display: grid;
+        grid-template-columns: 1fr 100px;
+        align-items: center;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        border-image-slice: 1;
+      }
+
+      header .header-middle-group-view .filter-subtitle {
+        display: block;
+        font-weight: 300;
+        text-align: right;
+        font-size: 0.9rem;
+        color: rgb(100,100,100);
+      }
+
+
+      header .header-middle-group-view .filter-subtitle .arrow_down {
+        height: 10px;
+        padding-right: 0.5rem;
+      }
 
 
 
-    header  .group-name .member {
-     color: grey;
-     font-size: 0.8rem;
-     padding-top: 7px;
-    }
+      header .header-middle-group-view .group-view-search {
+        display: flex;
+        width: 100%;
+        padding-bottom: 1px;
+      }
 
-    header .header-top-next {
-     width: 100%;
-     height: 65px;
+      header .header-middle-group-view .group-view-search .group-search-field {
+        display: block;
+        height: 25px;
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        padding: 0 0 0 0.5rem;
 
-     display: grid;
+      }
 
-     grid-template-columns: 3fr 1fr;
+      header .header-middle-group-view .group-view-search .group-search-field::placeholder {
+        font-size: 1rem;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        color: rgb(200,200,200);
+      }
 
-    }
-    header .header-top-next .filter {
-     align-self: center;
-     color: grey;
-     font-size: 1.5rem;
-    }
-    header .header-top-next a {
-     align-self: center;
-     text-align: right;
-     color: darkgrey;
-     font-size: 1.5rem;
-    }
-    header .header-top-next{
-     border-bottom: 1px solid #E10B90;
 
-    }
-    main .members-list{
-      padding-top: 3rem;
-    }
+      header .header-middle-group-view .group-view-search .icomoon {
+        align-self: center;
+        padding: 0 0.5rem;
+        color: rgb(220,220,220);
+        font-size: 1rem;
+        text-align: right;
+        opacity: 1;
+      }
 
-    main .member{
-      padding-top: 3rem;
-      padding-left: 2rem;
-    }
+      /* MAIN */
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 9.5rem 0.5rem 0 0.5rem;
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+        text-align: center;
 
-    main .member img{
-      width: 90px;
-    }
-    main .member .position{
-      font-size: 12px;;
-      font-weight: normal;
+      }
 
-    }
-      .feedback-button {
-      border: 1px solid white;
-      background-image: linear-gradient(to left, #E10B90, #FFAC1B);
-      color: white;
-      font-size: .7rem;
-      font-weight: 300;
+      main .group-members-list {
+        height: 170px;
+        width: 100%;
+        box-shadow: 0 0 10px 0 rgba(200,200,200,0.9);
+        text-align: center;
+      }
 
-      border-radius: 50px;
-      height: 2rem;
-      width: 6rem;
-    }
+      main .group-members-list img {
+        height: 70px;
+        margin-top: 0.5rem;
+      }
+      main .group-members-list .group-members-jobTitle {
+        color: rgb(100, 100, 100);
+        font-size: 0.7rem;
+      }
 
-    main .members-list{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-    }
+      main .group-members-list .group-members-feedbackBbutton {
+        border: none;
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+        border-radius: 100px;
+        height: 25px;
+        width: 100px;
+        margin: .5rem 0;
+        align-items: center;
+
+      }
 
 
 
@@ -125,72 +176,71 @@
 
   </head>
   <body>
-      <div data-role="page" class="wrapper-index">
+      <div data-role="page" class="wrapper-group-view">
         <header>
-          <div class="header-top">
-            <div class="group-type group-keep">
 
-              <span class="name">Langara</span>
-            </div>
-            <div class="group-name">
-              <h3>Langara College</h3>
-              <span class="member">15 Members</span>
+          <div class="header-top-group-view">
+
+            <div class="group-id-wrapper">
+
+              <a class="arrow_left" href="#home.html"><img  src="icons/arrow_left_grey.svg" alt="left arrrow icon"></a>
+              <span class="group-id">LANGARA</span>
+
+              <div class="group-view-info">
+                <h3>Langara College</h3>
+                <span class="group-view-members">15 Members</span>
+              </div>
+
             </div>
           </div>
 
-          <div class="header-top-next">
-            <span class="filter">Filter</span>
-            <a class="icomoon" href="#search"></a>
+          <div class="header-middle-group-view">
+
+            <div class="group-view-search">
+              <a class="icomoon" href="#search"></a>
+              <input class="group-search-field" type="text" name="group-subject" placeholder="Search">
+            </div>
+
+            <a class="filter-subtitle" href="#">Filter
+              <img class="arrow_down" src="icons/arrow_down.svg" alt="arrow-icon">
+            </a>
+
+
+
           </div>
         </header>
 
+
         <main>
-          <div class="members-list">
-            <div class="member">
-                <img src="images/joao.png" alt="feedback owner image">
-                <h3>John Mosby</h3>
-                <span class="position">Account Manager</span>
-                <button class="feedback-button" type="submit">FEEDBACK</button>
-              </div>
 
-              <div class="member">
-                  <img src="images/joao.png" alt="feedback owner image">
-                  <h3>John Mosby</h3>
-                  <span class="position">Account Manager</span>
-                  <button class="feedback-button" type="submit">FEEDBACK</button>
-                </div>
-
-                <div class="member">
-                    <img src="images/joao.png" alt="feedback owner image">
-                    <h3>John Mosby</h3>
-                    <span class="position">Account Manager</span>
-                    <button class="feedback-button" type="submit">FEEDBACK</button>
-                  </div>
-
-                  <div class="member">
-                      <img src="images/joao.png" alt="feedback owner image">
-                      <h3>John Mosby</h3>
-                      <span class="position">Account Manager</span>
-                      <button class="feedback-button" type="submit">FEEDBACK</button>
-                    </div>
-
-                    <div class="member">
-                        <img src="images/joao.png" alt="feedback owner image">
-                        <h3>John Mosby</h3>
-                        <span class="position">Account Manager</span>
-                        <button class="feedback-button" type="submit">FEEDBACK</button>
-                      </div>
-
-                      <div class="member">
-                          <img src="images/joao.png" alt="feedback owner image">
-                          <h3>John Mosby</h3>
-                          <span class="position">Account Manager</span>
-                          <button class="feedback-button" type="submit">FEEDBACK</button>
-                        </div>
-
-
-
+          <div class="group-members-list">
+            <img src="images/jean.png" alt="member-image">
+            <h3>Joao Caldas</h3>
+            <span class="group-members-jobTitle">Account Manager</span>
+            <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
           </div>
+
+          <div class="group-members-list">
+            <img src="images/jean.png" alt="member-image">
+            <h3>Joao Caldas</h3>
+            <span class="group-members-jobTitle">Account Manager</span>
+            <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
+          </div>
+
+          <div class="group-members-list">
+            <img src="images/jean.png" alt="member-image">
+            <h3>Joao Caldas</h3>
+            <span class="group-members-jobTitle">Account Manager</span>
+            <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
+          </div>
+
+          <div class="group-members-list">
+            <img src="images/jean.png" alt="member-image">
+            <h3>Joao Caldas</h3>
+            <span class="group-members-jobTitle">Account Manager</span>
+            <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
+          </div>
+
         </main>
           <footer>
 
