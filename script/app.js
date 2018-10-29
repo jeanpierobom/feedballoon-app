@@ -1,9 +1,3 @@
-var basicAuthInfo = (username, password) => {
-  var tok = username + ':' + password;
-  var hash = btoa(tok);
-  return "Basic " + hash;
-}
-
 $(document).ready(function() {
 
   // assign an action to the login button

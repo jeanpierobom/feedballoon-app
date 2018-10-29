@@ -21,7 +21,66 @@
 
     <!-- custom css (only for this page) -->
     <style>
+    /* INDEX (LAUNCH) PAGE STYLES - START ----------------------*/
+      .launch-page {
 
+        display: grid;
+
+        align-items: center;
+        justify-content: center;
+
+
+        height: 100vh;
+        width: 100%;
+
+        background-image: linear-gradient(to top right, #FEA71E,#F15F53, #EE3968, #E10B90);
+
+      }
+
+      .icon {
+        padding-top: 5rem;
+      }
+
+      .icon {
+        -webkit-animation: ping 3s ease-in infinite both;
+                animation: ping 3s ease-in infinite both;
+      }
+
+      @-webkit-keyframes ping {
+        0% {
+          -webkit-transform: scale(0.5);
+                  transform: scale(0.5);
+          opacity: 0.8;
+        }
+        80% {
+          -webkit-transform: scale(2);
+                  transform: scale(2);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: scale(4);
+                  transform: scale(4);
+          opacity: 0;
+        }
+      }
+      @keyframes ping {
+        0% {
+          -webkit-transform: scale(0.5);
+                  transform: scale(0.5);
+          opacity: 0.8;
+        }
+        80% {
+          -webkit-transform: scale(2);
+                  transform: scale(2);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: scale(3);
+                  transform: scale(3);
+          opacity: 0;
+        }
+      }
+    /* LAUNCH PAGE STYLES - END-------------------------*/
     </style>
 
   </head>
