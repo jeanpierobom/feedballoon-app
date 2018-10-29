@@ -40,4 +40,8 @@
     text-decoration: none;
   }
 
+  input {
+    display: block;
+  }
+
 /* GLOBAL STYLES - END ---------------------------- */
