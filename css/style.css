@@ -663,3 +663,79 @@ header .header-top-next{
   border-bottom: 1px solid #E10B90;
 
 }
+
+/* GROUP VIEW PAGE - END -------------------*/
+/* PROFILE PAGE - START -------------------*/
+
+header .header-part-1 {
+  width: 100%;
+  height: 65px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background-image: linear-gradient(#E10B90, #EF5759);
+}
+
+header .header-part-2 {
+
+  background-color: rgb(245, 245, 245);
+
+  height: 140px;
+}
+
+header .header-part-2 .name {
+  color: grey;
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: 300;
+
+  margin-top: 40px;
+}
+header .header-part-2 .mail {
+  color: grey;
+  font-size: 20px;
+  font-weight: 300;
+  padding-left: 10px;
+}
+
+img{
+  width:10%;
+  margin-right: 0%;
+}
+
+  main .group-list span {
+    display: block;
+  }
+  main .group-list .group-box {
+    display: grid;
+    grid-template-columns: 0.8fr  3.2fr 25px 25px;
+    align-items: center;
+    border-top: 1px solid rgb(240,240,240);
+    border-left: 0.5rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    height: 110px;
+  }
+
+  main.member{
+    color: grey;
+    font-size: 1.05rem;
+  }
+  main .group-list .group-name .info1 {
+    color: grey;
+    font-size: 0.8rem;
+    padding-top: 7px;
+  }
+  main .group-list .group-name .info2 {
+    color: darkgreen;
+    font-size: 1rem;
+    padding-top: 7px;
+  }
+  main .group-list .group-name .request {
+    color: red;
+    font-size: 1rem;
+    padding-top: 7px;
+  }
+
+footer{
+
+}
+/* PROFILE PAGE - END -------------------*/
