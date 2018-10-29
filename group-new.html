@@ -7,7 +7,7 @@
 
     <!-- jquery mobile -->
     <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" /> -->
-    <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
+    <!-- <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
     <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> -->
 
     <!-- javascript -->
@@ -20,11 +20,152 @@
     <!-- custom css (only for this page) -->
     <style>
 
-    </style>
+      /* HEADER */
+
+      header .header-top-group-new {
+        width: 100%;
+        height: 65px;
+
+        display: grid;
+        grid-template-columns: 30px 2fr;
+
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+      }
+
+
+      header .header-top-group-new a {
+        align-self: center;
+      }
+
+      header .header-top-group-new a .arrow_left {
+        opacity: 1;
+        padding-right: 0;
+        padding-left: 0.1rem;
+        align-self: center;
+        display: block;
+        width: 90%;
+      }
+
+      /* MAIN */
+      .group-new {
+        margin-top: 6.5rem;
+      }
+
+      .group-icon {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .group-icon img {
+        width: 40%;
+      }
+      .group-subject {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        border-image-slice: 1;
+
+        height: 2.5rem;
+      }
+
+      .group-description {
+        border: 1px solid transparent;
+        border-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        border-image-slice: 1;
+        margin-top: 2rem;
+
+        height: 4rem;
+        resize: none;
+        height: 150px;
+      }
+
+
+      .group-subject, .group-description  {
+          font-size: 1rem;
+          font-weight: 300;
+          padding-left: 0.5rem;
+          font-family: 'Roboto', sans-serif;
+          color: rgb(100,100,100);
+      }
+
+      .create {
+        border: none;
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 300;
+
+        border-radius: 100px;
+        height: 2.5rem;
+        width: 30%;
+        margin-top: 1rem;
+        align-self: center;
+      }
+
+      </style>
 
   </head>
   <body>
     <div data-role="page">
+      <div class="group-new-wrapper">
+
+        <header>
+          <div class="header-top-group-new">
+            <a href="#"> <img class="arrow_left" src="icons/arrow_left.svg" alt=""> </a>
+            <h1>New Group</h1>
+          </div>
+        </header>
+
+        <main>
+          <div class="group-new">
+
+            <a class="group-icon" href="#"> <img src="icons/group_icon.svg" alt=""> </a>
+
+            <form>
+
+              <input class="group-subject" type="text" name="group-subject" placeholder="Group Subject">
+
+              <textarea class="group-description" name="name" rows="16" cols="80">Description (optional)</textarea>
+
+
+              <button class="create" type="submit">Create</button>
+
+            </form>
+          </div>
+        </main>
+
+        <footer>
+
+          <div class="footer-feedballoon-icon">
+            <img class="feedballoon-icon" src="icons/feedbaloon-icon.svg" alt="balloon icon">
+          </div>
+
+
+          <nav class="footer-icons">
+            <ul>
+              <li><a class="icomoon" href="#home"></a></li>
+              <li><a class="icomoon" href="#groups"></a></li>
+              <li><a class="icomoon" href="#favorites"></a></li>
+              <li><a class="icomoon" href="#settings"></a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-icons-subtitle">
+            <ul>
+              <li>Home</li>
+              <li>Groups</li>
+              <li>Feedback</li>
+              <li>Favorites</li>
+              <li>Profile</li>
+            </ul>
+          </nav>
+        </footer>
+
+      </div>
 
     </div>
   </body>

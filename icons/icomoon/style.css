@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], .icomoon, .favorite-icon, .repply-icon, .filter {
+[class^="icon-"], [class*=" icon-"], .icomoon, .favorite-icon, .repply-icon, .filter, .circle-left {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -43,8 +43,11 @@ a[href="#search"]:before {
   content: "\e904";
 }
 
+.circle-left::before {
+  content: "\e901";
+}
 /* FOOTER */
-a[href="#home"]:before {
+a[href="home"]:before {
   content: "\e903";
 }
 

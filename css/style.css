@@ -1,33 +1,4 @@
-.login-form {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.login-form > * {
-  margin: 10px;
-}
-
-.login-form input, .login-form button {
-  padding: 1rem;
-}
-
-/* footer ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 1rem;
-  list-style-type: none;
-  padding-left: 0;
-}
-
-footer ul li {
-  text-align: center;
-} */
-
-/**/
-
-
 /* GLOBAL STYLES - START ----------------------------*/
-
   /* GOOGLE FONTS */
   @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
   /* font-family: 'Roboto', sans-serif; */
@@ -42,7 +13,7 @@ footer ul li {
 
   h1 {
     color: white;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 2.3rem;
     margin: 0;
     align-self: center;
@@ -56,7 +27,6 @@ footer ul li {
   a {
     list-style: none;
     text-decoration: none;
-
   }
 
   ul {
@@ -69,14 +39,38 @@ footer ul li {
   }
 
 /* GLOBAL STYLES - END ---------------------------- */
+/*
+.
+.
+.
+.
+.
+ */
+/* LOGIN PAGE - START ----------------------------*/
+.login-form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
+.login-form > * {
+  margin: 10px;
+}
 
+.login-form input, .login-form button {
+  padding: 1rem;
+}
 
-
-
+/* LOGIN PAGE - END ----------------------------*/
+/*
+.
+.
+.
+.
+.
+ */
 /* HOME PAGE - START ----------------------------*/
   .wrapper-index {
-    margin-top: 7rem;
+    margin-top: 6.5rem;
     margin-bottom: 7rem;
   }
 
@@ -97,7 +91,9 @@ footer ul li {
 
     grid-template-columns: 3fr 1fr;
 
-    background-image: linear-gradient(#E10B90, #EF5759);
+    background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+
+
   }
 
   header .header-top-home a {
@@ -182,7 +178,7 @@ footer ul li {
     display: block;
   }
 
-  main img {
+  main .feedback-box img {
     width: 60px;
     margin-right: 0.5rem;
   }
@@ -320,10 +316,13 @@ footer ul li {
   }
 
 /* HOME PAGE - END ---------------------------- */
-
-
-
-
+/*
+.
+.
+.
+.
+.
+ */
 /* SIGN-IN PAGE - START ---------------------------- */
 
 .sign-in-page {
@@ -343,14 +342,17 @@ footer ul li {
   display: grid;
 
   grid-template-rows: auto 1fr 50px;
-
-
 }
 
 
-input, button {
+input {
   display: block;
 }
+
+
+/* input, button {
+  display: block;
+} */
 
 .sign-in-fields h3 {
   margin-left: 1rem;
@@ -362,26 +364,19 @@ input, button {
 }
 
 form {
-
-display: flex;
-flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
 .sign-in-email, .sign-in-password  {
-
     height: 2.5rem;
     border: none;
-
     border-radius: 0;
-
     font-size: 1rem;
     font-weight: 300;
-
     opacity: 0.85;
-
     padding-left: 0.5rem;
 }
 
@@ -437,12 +432,18 @@ flex-direction: column;
     display: grid;
 
     align-items: center;
+    justify-content: center;
+
 
     height: 100vh;
     width: 100%;
 
-    background-image: linear-gradient(#E10B90, #FEA71E);
+    background-image: linear-gradient(to top right, #FEA71E,#F15F53, #EE3968, #E10B90);
 
+  }
+
+  .icon {
+    padding-top: 5rem;
   }
 
   .icon {
@@ -489,6 +490,7 @@ flex-direction: column;
 
 
 /* GROUP LIST PAGE - START -------------------*/
+<<<<<<< HEAD
 
 header .header-top-group {
   width: 100%;
@@ -530,6 +532,10 @@ header .header-middle-group .new-group {
   color: grey;
   font-size: 20px;
 font-weight: 300;
+}
+header .header-middle-group{
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
 }
 
 
@@ -587,69 +593,3 @@ main .group-list .group-name .request {
   padding-top: 7px;
 }
 /* GROUP LIST PAGE - END -------------------*/
-
-/* GROUP VIEW PAGE - START -------------------*/
-
- header .header-top {
-  display: grid;
-
-  grid-template-columns: 0.8fr  3.2fr 25px 25px;
-  align-items: center;
-
-  border-top: 1px solid rgb(240,240,240);
-  border-left: 0.5rem solid transparent;
-  border-right: 0.4rem solid transparent;
-
-  height: 110px;
-}
-header .header-top .group-type {
-  width: 70px;
-  height: 70px;
-  border-radius: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.5rem;
-  font-weight: 400;
-}
-
-header .header-top .group-keep {
-  color: white;
-  font-size: 1.05rem;
-  background-color: darkorange;
-}
-header  .group-name  {
-  font-size: 1.1rem;
-}
-
-header  .group-name .member {
-  color: grey;
-  font-size: 0.8rem;
-  padding-top: 7px;
-}
-
-header .header-top-next {
-  width: 100%;
-  height: 65px;
-
-  display: grid;
-
-  grid-template-columns: 3fr 1fr;
-
-}
-header .header-top-next .filter {
-  align-self: center;
-  color: grey;
-  font-size: 1.5rem;
-}
-header .header-top-next a {
-  align-self: center;
-  text-align: right;
-  color: darkgrey;
-  font-size: 1.5rem;
-}
-header .header-top-next{
-  border-bottom: 1px solid #E10B90;
-
-}
