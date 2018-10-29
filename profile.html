@@ -19,13 +19,60 @@
 
     <!-- custom css (only for this page) -->
     <style>
+    header .header-part-1 {
+     width: 100%;
+     height: 65px;
+     display: grid;
+     grid-template-columns: 30px 3fr 1fr;
+     background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+    }
+    header .header-part-2{
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     background-color: rgb(245, 245, 245);
+     align-items: center;
+     padding-top: 1rem;
+     padding-right: 0.5rem;
+    }
+    header .header-part-2 img{
+      width:10%;
+    
+     }
+
+
+
+     .wrapper-profile {
+      margin-top: 9rem;
+      margin-bottom: 7rem;
+     }
+     main .group-list .group-box .group.name{
+       display: grid;
+       grid-template-rows: 1fr 1fr;
+       grid-template-columns: 1fr 1fr;
+     }
+    main .group-list .group-box .group.name h3{
+      grid-row:1/2;
+      grid-column: 1/2;
+     }
+     main .group-list .group-box .group.name .info1{
+      grid-row:2/3;
+      grid-column: 1/2;
+     }
+     main .group-list .group-box .group.name .info2{
+      grid-row:1/2;
+      grid-column: 2/3;
+     }
+     main .group-list .group-box .group.name .info3{
+       grid-row:2/3;
+       grid-column: 2/3;
+     }
 
     </style>
 
   </head>
   <body>
 
-    <div data-role="page">
+    <div data-role="page" class="wrapper-profile">
       <header>
         <div class="header-part-1">
              <h1> Profile</h1>
@@ -83,6 +130,24 @@
               <h3>Confirm New Password</h3>
               <span class="info1">Change Password</span>
               <span class="info3">Save</span>
+            </div>
+          </div>
+
+          <div class="group-box">
+            <div class="group-name">
+              <h3>Give us feedback</h3>
+            </div>
+          </div>
+
+          <div class="group-box">
+            <div class="group-name">
+              <h3>Terms of Service</h3>
+            </div>
+          </div>
+
+          <div class="group-box">
+            <div class="group-name">
+              <h3>Log Out</h3>
             </div>
           </div>
 
