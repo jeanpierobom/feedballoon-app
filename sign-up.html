@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- jquery mobile -->
-    <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" />
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
-    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> -->
+
 
     <!-- javascript -->
     <script src="script/app.js"></script>
 
     <!-- css -->
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- custom css (only for this page) -->
     <style>
 
-      /* GLOBAL STYLES */
+      /* GLOBAL STYLES -- START HERE */
       .sign-up-page {
         display: grid;
-        grid-template-rows: 20vh 70vh 10vh;
+        grid-template-rows: 20vh 60vh 20vh;
         background-image: linear-gradient(to bottom left, #E10B90, #FFAC1B);
         /* text-align: center; */
       }
+      /* GLOBAL STYLES -- START HERE */
 
-      /* LOGO */
+
+      /* LOGO -- START HERE */
       .sign-up-page .sup-icon-container {
         text-align: center;
         margin-bottom: 2rem;
@@ -35,30 +36,79 @@
       }
 
       .sign-up-page .sup-icon-container img {
-        height: 200px;
+        height: 125px;
+        margin-top: 1rem;
 
       }
+      /* LOGO -- END HERE  */
 
-      /* FIELDSS */
+      /* FORM - START HERE  */
+      .sign-up-page h3 {
+        margin-left: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 10px;
+        color: white;
+        font-weight: 300;
+        font-size: 1rem;
+      }
+
+
+      .sign-up-page form {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
       .sign-up-page .sup-fields {
         display: block;
-        height: 2.5rem;
+        height: 2rem;
         border: none;
         border-radius: 0;
         font-size: 1rem;
         font-weight: 300;
         opacity: 0.85;
-        padding-left: 0.5rem
+        padding-left: 0.5rem;
+        margin-bottom: 1px;
 
       }
 
-      .sign-up-page .sup-form h3 {
-        margin-left: 1rem;
+      .sup-form p {
+        text-align: center;
         color: white;
-        font-weight: 400;
-        text-shadow: none;
+        font-weight: 300;
+        font-size: 0.7rem;
+        margin-bottom: 1.5rem;
+        margin-top: 5px;
       }
 
+      .sup-submit {
+        border: 2px solid white;
+        background-color: Transparent;
+        color: white;
+
+        font-size: 1.3rem;
+        font-weight: 400;
+
+        border-radius: 100px;
+        height: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .sup-signIn {
+          align-self: end;
+          text-align: center;
+          color: white;
+          font-weight: 300;
+          font-size: 0.8rem;
+          margin-bottom: 2rem;
+      }
+
+      p a {
+        text-decoration: underline;
+        font-weight: 400;
+        color: white;
+      }
 
     </style>
 
@@ -88,16 +138,14 @@
 
               <input class="sup-confirmPassword sup-fields" type="text" id="email" name="password" placeholder="Confirm Password">
 
-              <a class="password" href="#">Forgot password?</a>
+              <p> You agree to the feedballoon User Agreement, Privacy Policy and Cookie Policy </p>
 
-              <button class="sup-submit" type="submit">Sign in</button>
+              <button class="sup-submit" type="submit">Agree & Join</button>
             </form>
-
-            <p> You agree to the feedballoon User Agreement, Privacy Policy and Cookie Policy </p>
 
         </div>
 
-        <span class="sup-signIn">  Already have an account? <a href="#">Sign in</a></span>
+        <p class="sup-signIn">Already have an account? <a href="#">Sign in</a></p>
 
 
     </div>
