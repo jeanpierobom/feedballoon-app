@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- jquery mobile -->
-    <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" /> -->
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
-    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> -->
 
     <!-- javascript -->
     <script src="script/app.js"></script>
@@ -19,151 +17,53 @@
 
     <!-- custom css (only for this page) -->
     <style>
-
-    .wrapper-profile {
-     margin-top: 9rem;
-     margin-bottom: 7rem;
-    }
-
-    header{
-      position: fixed;
-      top:0;
-      right:0;
-      left: 0;
-    }
     header .header-part-1 {
      width: 100%;
      height: 65px;
+     display: grid;
+     grid-template-columns: 30px 3fr 1fr;
      background-image: linear-gradient(to left, #E10B90, #FFAC1B);
-    }
-    header .header-part-1 h1{
-      padding-top: 10px;
     }
     header .header-part-2{
      display: grid;
-     grid-template-rows: 1fr 1fr;
+     grid-template-columns: 1fr 1fr;
      background-color: rgb(245, 245, 245);
      align-items: center;
-    }
-    header .header-part-2 .name{
-      font-weight: bold;
-      font-size: 30px;
-      padding-left: 10px;
-    }
-    header .header-part-2 .mail{
-      font-size: 15px;
-      padding-left: 10px;
+     padding-top: 1rem;
+     padding-right: 0.5rem;
     }
     header .header-part-2 img{
-      width: 60px;
-      margin-right: 0.5rem;
-      justify-self: end;
-      
+      width:10%;
+
      }
 
- /* Main starts */
-main{
-  padding-top: 10px;
-}
- main .feedback-list span {
-   display: block;
- }
-
- main .feedback-list .feedback-box {
-   display: grid;
-   grid-template-columns: 0.8fr 0.8fr 3.2fr 25px 25px;
-   align-items: center;
-   border-top: 1px solid rgb(240,240,240);
-   border-left: 0.5rem solid transparent;
-   border-right: 0.4rem solid transparent;
-   height: 110px;
- }
-
- main .feedback-list h3 {
-   font-size: 1rem;
-   color:grey;
- }
- main .feedback-list .info1 {
-   color: rgb(100, 100, 100);
-   font-size: 0.7rem;
-   margin-bottom: 1rem;
- }
-
- main .feedback-list .info2 {
-   color: rgb(100, 100, 100);
-   font-size: 0.5rem;
-   text-align: right;
- }
-
-main .feedback-list .info3{
-  color:red;
-  text-align: right;
-  justify-self:end;
-}
 
 
-/*  Main ends */
-
-/* Footer Starts  */
-     footer {
-       background-color: rgb(245, 245, 245);
-       width: 100%;
-
-       position: fixed;
-       bottom: 0;
-       left: 0;
-
+     .wrapper-profile {
+      margin-top: 9rem;
+      margin-bottom: 7rem;
+     }
+     main .group-list .group-box .group.name{
        display: grid;
-       grid-template-rows: 45px 20px;
+       grid-template-rows: 1fr 1fr;
+       grid-template-columns: 1fr 1fr;
      }
-
-     footer .footer-feedballoon-icon {
-       width: 100%;
-       height: auto;
-       text-align: center;
-
-       position: fixed;
-       bottom: 20px;
-       left: 0;
-
+    main .group-list .group-box .group.name h3{
+      grid-row:1/2;
+      grid-column: 1/2;
      }
-
-     footer .feedballoon-icon {
-       width: 75px;
+     main .group-list .group-box .group.name .info1{
+      grid-row:2/3;
+      grid-column: 1/2;
      }
-
-     footer nav ul {
-       display: grid;
-       grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
-       text-align: center;
-       padding: 0;
-       margin: 0;
+     main .group-list .group-box .group.name .info2{
+      grid-row:1/2;
+      grid-column: 2/3;
      }
-
-     footer .footer-icons ul li:nth-of-type(3n){
-       grid-column: 4 / 5;
+     main .group-list .group-box .group.name .info3{
+       grid-row:2/3;
+       grid-column: 2/3;
      }
-
-     footer nav ul li {
-       text-decoration: none;
-       list-style: none;
-     }
-
-     footer .footer-icons-subtitle ul li {
-       color: rgb(100,100,100);
-       font-weight: 300;
-       font-size: 0.7rem;
-     }
-
-     footer .footer-icons {
-       padding-top: 0.75rem;
-     }
-
-     footer .footer-icons ul li a {
-       color: rgb(200,200,200);
-       font-size: 1.5rem;
-     }
-
 
     </style>
 
@@ -184,11 +84,10 @@ main .feedback-list .info3{
            </div>
       </header>
       <main>
+        <div class="group-list">
 
-        <div class="feedback-list">
-
-         <div class="feedback-box">
-            <div class="feedback-owner">
+          <div class="group-box">
+            <div class="group-name">
               <h3>Account Manager</h3>
               <span class="info1">Job Title</span>
               <span class="info2">Edit</span>
@@ -196,90 +95,87 @@ main .feedback-list .info3{
             </div>
           </div>
 
-            <div class="feedback-box">
-              <div class="feedback-owner">
-                <h3>Langara College</h3>
-                <span class="info1">Company</span>
-                <span class="info2">Edit</span>
-                <span class="info3">Save</span>
-              </div>
-            </div>
-
-          <div class="feedback-box">
-            <div class="feedback-owner">
-              <h3>British Columbia</h3>
-              <span class="info1">State</span>
-              <span class="info1.4">Canada</span>
-              <span class="info1.8">Company</span>
+          <div class="group-box">
+            <div class="group-name">
+              <h3>Langara College</h3>
+              <span class="info1">Company</span>
               <span class="info2">Edit</span>
               <span class="info3">Save</span>
             </div>
           </div>
 
-          <div class="feedback-box">
-            <div class="feedback-owner">
-              <h3>New Password</h3>
-              <span class="info1">Change Password</span>
+          <div class="group-box">
+            <div class="group-name">
+              <h3>British Columbia</h3>
+              <span class="info1">State</span>
+              <span class="save">Canada</span>
+              <span class="save">Company</span>
               <span class="info2">Edit</span>
+              <span class="info3">Save</span>
             </div>
           </div>
 
-          <div class="feedback-box">
-            <div class="feedback-owner">
+          <div class="group-box">
+            <div class="group-name">
+              <h3>New Password</h3>
+              <span class="info1">Change Password</span>
+              <span class="info3">Edit</span>
+            </div>
+          </div>
+
+          <div class="group-box">
+            <div class="group-name">
               <h3>Confirm New Password</h3>
               <span class="info1">Change Password</span>
               <span class="info3">Save</span>
             </div>
           </div>
 
-          <div class="feedback-box">
-            <div class="feedback-owner">
+          <div class="group-box">
+            <div class="group-name">
               <h3>Give us feedback</h3>
             </div>
           </div>
 
-          <div class="feedback-box">
-            <div class="feedback-owner">
+          <div class="group-box">
+            <div class="group-name">
               <h3>Terms of Service</h3>
             </div>
           </div>
 
-          <div class="feedback-box">
-            <div class="feedback-owner">
-              <h3>Logout</h3>
+          <div class="group-box">
+            <div class="group-name">
+              <h3>Log Out</h3>
             </div>
           </div>
 
         </div>
       </main>
-
       <footer>
-
         <div class="footer-feedballoon-icon">
-          <img class="feedballoon-icon" src="icons/feedbaloon-icon.svg" alt="balloon icon">
-        </div>
+             <img class="feedballoon-icon" src="icons/feedbaloon-icon.svg" alt="balloon icon">
+           </div>
 
 
-        <nav class="footer-icons">
-          <ul>
-            <li><a class="icomoon" href="#home"></a></li>
-            <li><a class="icomoon" href="#groups"></a></li>
-            <li><a class="icomoon" href="#favorites"></a></li>
-            <li><a class="icomoon" href="#settings"></a></li>
-          </ul>
-        </nav>
+           <nav class="footer-icons">
+             <ul>
+               <li><a class="home-icon" href="#home"></a></li>
+               <li><a class="groups-icon" href="#groups"></a></li>
+               <li><a class="favorites-icon-footer" href="#favorites"></a></li>
+               <li><a class="settings-icon" href="#settings"></a></li>
+             </ul>
+           </nav>
 
-        <nav class="footer-icons-subtitle">
-          <ul>
-            <li>Home</li>
-            <li>Groups</li>
-            <li>Feedback</li>
-            <li>Favorites</li>
-            <li>Profile</li>
-          </ul>
-        </nav>
+           <nav class="footer-icons-subtitle">
+             <ul>
+               <li>Home</li>
+               <li>Groups</li>
+               <li>Feedback</li>
+               <li>Favorites</li>
+               <li>Profile</li>
+             </ul>
+           </nav>
       </footer>
-
     </div>
   </body>
 </html>

@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?8onum6');
-  src:  url('fonts/icomoon.eot?8onum6#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?8onum6') format('truetype'),
-    url('fonts/icomoon.woff?8onum6') format('woff'),
-    url('fonts/icomoon.svg?8onum6#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?snmtw2');
+  src:  url('fonts/icomoon.eot?snmtw2#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?snmtw2') format('truetype'),
+    url('fonts/icomoon.woff?snmtw2') format('woff'),
+    url('fonts/icomoon.svg?snmtw2#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], .icomoon, .favorite-icon, .repply-icon, .filter, .circle-left {
+[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -24,48 +24,51 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 /* HEADER */
-a[href="#search"]:before {
+
+  /* SEARCH */
+  .search-icon:before {
   content: "\e909";
-}
+  }
 
-.filter:after {
+  /* SORTED BY ICON */
+  .filter-icon:before {
   content: "\e902";
-  font-size: 0.58rem;
-  align-items: center;
-}
+  }
 
-.favorite-icon::before {
-  content: "\e907";
-}
+/*---------------------------------------------*/
 
-.repply-icon::before {
-  content: "\e904";
-}
-
-.circle-left::before {
-  content: "\e901";
-}
 /* FOOTER */
-a[href="#home"]:before {
+
+  /* HOME */
+  .home-icon:before {
   content: "\e903";
-}
+  }
 
-a[href="#groups"]:before {
+  /* GROUPS */
+  .groups-icon:before {
   content: "\e90a";
-}
+  }
 
-a[href="#favorites"]:before {
+  /* FAVORITES */
+  .favorites-icon-footer:before {
   content: "\e907";
-}
+  }
 
-a[href="#settings"]:before {
+  /* PROFILE */
+  .settings-icon:before {
   content: "\e906";
+  }
+
+/*---------------------------------------------*/
+
+.icon-envelope:before {
+  content: "\e90c";
 }
-
-
-
-
+.icon-close:before {
+  content: "\e90b";
+}
 .icon-plus:before {
   content: "\e900";
 }
