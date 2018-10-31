@@ -43,12 +43,26 @@
         border-radius: 20px;
 
         margin: 1rem;
-        padding: 0.5rem;
+        padding: 0.75rem;
       }
       /* GLOBAL STYLES - ENDS HERE */
 
 
+      /* FEEDBACK TITLE - START HERE */
+        .feedback-pageTitle {
+          display: grid;
+          grid-template-columns: 1fr 40px;
+          align-items: center;
+        }
 
+        .close-icon {
+          margin-right: 1rem;
+          color: rgb(150,150,150);
+          font-size: 1rem;
+        }
+
+
+      /* FEEDBACK TITLE - ENDS HERE*/
 
 
       /* FEEDBACK VIEW TOP - START HERE */
@@ -85,7 +99,7 @@
       /* FEEDBACK MIDDLE - START HERE */
       .feedbackView-middle {
         display: grid;
-        grid-template-columns: 1fr 25px 25px 25px;
+        grid-template-columns: 1fr 30px 30px 30px;
         background-color: rgb(240, 240, 240);
         margin: 1rem 0;
         height: 50px;
@@ -97,6 +111,11 @@
         font-size: 1.5rem;
         color: rgb(50,50,50);
       }
+
+      .feedbackView-middle span {
+        color: rgb(150,150,150);
+      }
+
 
 
       /* FEEDBACK MIDDLE - ENDS HERE */
@@ -132,7 +151,11 @@
 
       </header>
       <main>
-        <h4>Feedback</h4>
+        <div class="feedback-pageTitle">
+          <h4>Feedback</h4>
+          <span class="close-icon"></span>
+        </div>
+
 
         <div class="feedbackView-border">
 
@@ -153,9 +176,9 @@
 
             <div class="feedbackView-middle">
               <h3>Keep</h3>
+              <span class="repply-icon"></span>
+              <span class="email-icon"></span>
               <span class="favorite-icon"></span>
-              <span class="repply-icon"></span>
-              <span class="repply-icon"></span>
             </div>
 
             <div class="feedbackView-bottom">

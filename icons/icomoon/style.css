@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon {
+[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon, .email-icon, .close-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -25,7 +25,31 @@
 }
 
 
-/* HEADER */
+/* FEEDBACK VIEW ICONS */
+
+  /* REPPLY */
+  .repply-icon:before {
+  content: "\e904";
+  }
+
+  /* EMAIL */
+  .email-icon:before {
+  content: "\e90c";
+  }
+
+  /* FAVORITE */
+  .favorite-icon:before {
+  content: "\e907";
+  }
+
+  /* CLOSE X */
+  .close-icon:before {
+  content: "\e90b";
+}
+
+/*---------------------------------------------*/
+
+/* HEADER - HOME */
 
   /* SEARCH */
   .search-icon:before {
@@ -39,7 +63,7 @@
 
 /*---------------------------------------------*/
 
-/* FOOTER */
+/* FOOTER - ALL */
 
   /* HOME */
   .home-icon:before {
