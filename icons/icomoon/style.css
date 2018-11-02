@@ -1,15 +1,16 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?snmtw2');
-  src:  url('fonts/icomoon.eot?snmtw2#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?snmtw2') format('truetype'),
-    url('fonts/icomoon.woff?snmtw2') format('woff'),
-    url('fonts/icomoon.svg?snmtw2#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?guyxpc');
+  src:  url('fonts/icomoon.eot?guyxpc#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?guyxpc') format('truetype'),
+    url('fonts/icomoon.woff?guyxpc') format('woff'),
+    url('fonts/icomoon.svg?guyxpc#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon, .email-icon, .close-icon {
+[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon, .email-icon, .close-icon, .icon-user-plus {
+
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -24,66 +25,69 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-user-plus:before {
+content: "\e90d";
+}
 
 /* FEEDBACK VIEW ICONS */
 
-  /* REPPLY */
-  .repply-icon:before {
-  content: "\e904";
-  }
+/* REPPLY */
+.repply-icon:before {
+content: "\e904";
+}
 
-  /* EMAIL */
-  .email-icon:before {
-  content: "\e90c";
-  }
+/* EMAIL */
+.email-icon:before {
+content: "\e90c";
+}
 
-  /* FAVORITE */
-  .favorite-icon:before {
-  content: "\e907";
-  }
+/* FAVORITE */
+.favorite-icon:before {
+content: "\e907";
+}
 
-  /* CLOSE X */
-  .close-icon:before {
-  content: "\e90b";
+/* CLOSE X */
+.close-icon:before {
+content: "\e90b";
 }
 
 /*---------------------------------------------*/
 
 /* HEADER - HOME */
 
-  /* SEARCH */
-  .search-icon:before {
-  content: "\e909";
-  }
+/* SEARCH */
+.search-icon:before {
+content: "\e909";
+}
 
-  /* SORTED BY ICON */
-  .filter-icon:before {
-  content: "\e902";
-  }
+/* SORTED BY ICON */
+.filter-icon:before {
+content: "\e902";
+}
 
 /*---------------------------------------------*/
 
 /* FOOTER - ALL */
 
-  /* HOME */
-  .home-icon:before {
-  content: "\e903";
-  }
+/* HOME */
+.home-icon:before {
+content: "\e903";
+}
 
-  /* GROUPS */
-  .groups-icon:before {
-  content: "\e90a";
-  }
+/* GROUPS */
+.groups-icon:before {
+content: "\e90a";
+}
 
-  /* FAVORITES */
-  .favorites-icon-footer:before {
-  content: "\e907";
-  }
+/* FAVORITES */
+.favorites-icon-footer:before {
+content: "\e907";
+}
 
-  /* PROFILE */
-  .settings-icon:before {
-  content: "\e906";
-  }
+/* PROFILE */
+.settings-icon:before {
+content: "\e906";
+}
 
 /*---------------------------------------------*/
 
@@ -92,6 +96,9 @@
 }
 .icon-close:before {
   content: "\e90b";
+}
+.icon-user-plus:before {
+  content: "\e90d";
 }
 .icon-plus:before {
   content: "\e900";

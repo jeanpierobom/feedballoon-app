@@ -38,12 +38,19 @@
       }
 
       .feedbackView-border {
-
-        border: 1px solid #E10B90;
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        /* border: 1px solid #E10B90; */
         border-radius: 20px;
 
-        margin: 1rem;
-        padding: 0.75rem;
+        margin: 0 1rem 1rem 1rem;
+        padding: 1px;
+
+      }
+
+      .feedbackView-container {
+        background-color: white;
+        border-radius: 20px;
+        padding: 15px;
       }
       /* GLOBAL STYLES - ENDS HERE */
 
@@ -147,50 +154,48 @@
   </head>
   <body>
     <div data-role="page" class="wrapper-feedbackView">
-      <header>
-
-      </header>
-      <main>
-        <div class="feedback-pageTitle">
-          <h4>Feedback</h4>
-          <span class="close-icon"></span>
-        </div>
 
 
-        <div class="feedbackView-border">
+        <header>
 
-          <div class="feedbackView-container">
-            <div class="feedbackView-top">
+        </header>
 
-              <img src="images/jean.png" alt="feedback owner image">
+        <main>
+          <div class="feedback-pageTitle">
+            <h4>Feedback</h4>
+            <span class="close-icon"></span>
+          </div>
 
-              <div class="feedbackView-owner">
-                <h3>Jacob Mars</h3>
-                <span class="title-company">Marketing Manager @Pepsi Co.</span>
-                <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
+
+          <div class="feedbackView-border">
+            <div class="feedbackView-container">
+
+              <div class="feedbackView-top">
+                <img src="images/jean.png" alt="feedback owner image">
+
+                <div class="feedbackView-owner">
+                  <h3>Jacob Mars</h3>
+                  <span class="title-company">Marketing Manager @Pepsi Co.</span>
+                  <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
+                </div>
               </div>
 
 
-            </div>
+              <div class="feedbackView-middle">
+                <h3>Keep</h3>
+                <span class="repply-icon"></span>
+                <span class="email-icon"></span>
+                <span class="favorite-icon"></span>
+              </div>
 
+              <div class="feedbackView-bottom">
+                <textarea class="feedbackView-feedback" name="name"></textarea>
+              </div>
 
-            <div class="feedbackView-middle">
-              <h3>Keep</h3>
-              <span class="repply-icon"></span>
-              <span class="email-icon"></span>
-              <span class="favorite-icon"></span>
-            </div>
+            </div> <!-- feedbackView-container - END HERE-->
+          </div> <!-- feedbackView-border - END HERE-->
+        </main>
 
-            <div class="feedbackView-bottom">
-
-              <textarea class="feedbackView-feedback" name="name"></textarea>
-
-            </div>
-
-          </div>
-        </div>
-      </main>
-
-    </div>
+    </div>  <!-- END HERE -->
   </body>
 </html>
