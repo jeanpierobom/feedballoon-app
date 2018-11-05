@@ -49,6 +49,9 @@
       font-weight: bold;
       font-size: 30px;
       padding-left: 10px;
+      align-content: center;
+      align-self: center;
+      align-items: center;
     }
     header .header-part-2 .mail{
       font-size: 15px;
@@ -58,12 +61,13 @@
       width: 60px;
       margin-right: 0.5rem;
       justify-self: end;
-      
+      padding-right: 0px;
+      padding-bottom: 0px;
      }
 
  /* Main starts */
 main{
-  padding-top: 10px;
+  padding-top: 25px;
 }
  main .feedback-list span {
    display: block;
@@ -78,27 +82,109 @@ main{
    border-right: 0.4rem solid transparent;
    height: 110px;
  }
+/*
+main .feedback-list .feedback-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: flex-end;
 
- main .feedback-list h3 {
+  height: 110px;
+}
+*/
+
+main .feedback-list .feedback-box .feedback-owner{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+ main .feedback-list .feedback-box .feedback-owner h3 {
    font-size: 1rem;
    color:grey;
+   grid-row: 1/2;
+   grid-column: 1/2;
  }
- main .feedback-list .info1 {
+ main .feedback-list .feedback-box .feedback-owner .info1{
    color: rgb(100, 100, 100);
    font-size: 0.7rem;
    margin-bottom: 1rem;
+   grid-row: 2/3;
+   grid-column: 1/2;
  }
 
- main .feedback-list .info2 {
+ main .feedback-list .feedback-box .feedback-owner .info2{
    color: rgb(100, 100, 100);
    font-size: 0.5rem;
+   justify-content: end;
    text-align: right;
+   grid-row: 1/2;
+   grid-column: 2/3;
  }
 
-main .feedback-list .info3{
+main .feedback-list .feedback-box .feedback-owner .info3{
   color:red;
+  justify-content: end;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
+
+main .feedback-list .feedback-box .feedback-owner2{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+main .feedback-list .feedback-box .feedback-owner2 h3 {
+  font-size: 1rem;
+  color:grey;
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+main .feedback-list .feedback-box .feedback-owner2 .info1{
+  color: rgb(100, 100, 100);
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+
+main .feedback-list .feedback-box .feedback-owner2 .info2{
+  color: rgb(100, 100, 100);
+  font-size: 0.5rem;
+  justify-content: end;
   text-align: right;
-  justify-self:end;
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+
+main .feedback-list .feedback-box .feedback-owner2 .info3{
+ color:red;
+ justify-content: end;
+ grid-row: 2/3;
+ grid-column: 3/4;
+}
+
+main .feedback-list .feedback-box .feedback-owner2 .info1.4{
+ color:red;
+ align-content: center;
+ grid-row: 1/2;
+ grid-column:2/3;
+}
+
+main .feedback-list .feedback-box .feedback-owner2 .info1.8{
+ color:red;
+ align-content: center;
+ grid-row: 2/3;
+ grid-column: 2/3;
+}
+
+main .feedback-list .feedback-box .feedback-owner3{
+  color:grey;
+  height:50px;
 }
 
 
@@ -108,11 +194,9 @@ main .feedback-list .info3{
      footer {
        background-color: rgb(245, 245, 245);
        width: 100%;
-
        position: fixed;
        bottom: 0;
        left: 0;
-
        display: grid;
        grid-template-rows: 45px 20px;
      }
@@ -121,11 +205,9 @@ main .feedback-list .info3{
        width: 100%;
        height: auto;
        text-align: center;
-
        position: fixed;
        bottom: 20px;
        left: 0;
-
      }
 
      footer .feedballoon-icon {
@@ -206,7 +288,7 @@ main .feedback-list .info3{
             </div>
 
           <div class="feedback-box">
-            <div class="feedback-owner">
+            <div class="feedback-owner2">
               <h3>British Columbia</h3>
               <span class="info1">State</span>
               <span class="info1.4">Canada</span>
@@ -233,19 +315,19 @@ main .feedback-list .info3{
           </div>
 
           <div class="feedback-box">
-            <div class="feedback-owner">
+            <div class="feedback-owner3">
               <h3>Give us feedback</h3>
             </div>
           </div>
 
           <div class="feedback-box">
-            <div class="feedback-owner">
+            <div class="feedback-owner3">
               <h3>Terms of Service</h3>
             </div>
           </div>
 
           <div class="feedback-box">
-            <div class="feedback-owner">
+            <div class="feedback-owner3">
               <h3>Logout</h3>
             </div>
           </div>
