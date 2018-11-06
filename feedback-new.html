@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- jquery mobile -->
-    <!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" /> -->
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
     <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
 
@@ -19,6 +18,185 @@
 
     <!-- custom css (only for this page) -->
     <style>
+    /* GLOBAL STYLES - START HERE */
+
+    .wrapper-feedbackWritePage {
+      display: grid;
+      grid-template-rows: 5vh 95vh;
+    }
+
+    h4 {
+      font-size: 2rem;
+      color: rgb(50,50,50);
+      margin: 0;
+    }
+
+    main {
+      height: 100vh;
+      box-shadow: 0 0 10px 0 rgba(200,200,200,0.9);
+      border-radius: 20px;
+    }
+
+    label {
+      display: block;
+    }
+
+    button {
+      display: block;
+      font-weight: 300;
+      font-size: 0.9rem !important;
+    }
+
+    .feedbackWritePage-container, .feedback-pageTitle {
+      padding: 0 15px;
+    }
+
+    .feedbackWritePage-Border {
+      background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+      height: 40px;
+      padding: 1px;
+      max-width: 100%;
+      position: relative;
+    }
+
+    .feedbackWrite-title {
+      font-weight: 300;
+      font-size: 1.3rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.2rem;
+      color: rgb(120,120,120);
+    }
+    /* GLOBAL STYLES - ENDS HERE */
+
+
+    /* FEEDBACK TOP- START HERE */
+      .feedback-pageTitle {
+        display: grid;
+        grid-template-columns: 1fr 40px;
+        align-items: center;
+        padding-top: 1rem;
+      }
+
+      .close-icon {
+        color: rgb(150,150,150);
+        font-size: 1rem;
+        text-align: right;
+      }
+    /* FEEDBACK TOP- ENDS HERE*/
+
+
+
+
+    /* FEEDBACK TO - START HERE */
+    .feedbackWritePage-To {
+      margin-top: 1.4rem;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .feedbackWritePage-To input {
+      display: block;
+      max-height: 100%;
+      max-width: 100%;
+      border: none;
+      padding-right: 1rem;
+      padding-left: 0.5rem;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: rgb(90,90,90);
+    }
+
+
+
+    .feedbackWritePage-To .icon-user-plus {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: rgb(150,150,150);
+    }
+
+
+
+    .keepBtn {
+      color: white;
+      background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+      font-weight: 700;
+    }
+    /* FEEDBACK TO - ENDS HERE */
+
+
+
+
+
+    /* FEEDBACK TYPE - START HERE */
+    .feedbackWritePage-Type .type-Btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      grid-column-gap: 5px;
+    }
+
+    .feedbackWritePage-Type .type-Btns button {
+      border-radius: 0;
+      border: 0;
+      background-color: white;
+      height: 100%;
+      width: 100%;
+      font-size: 0.8rem;
+    }
+
+    /* FEEDBACK TYPE - ENDS HERE */
+
+
+
+
+
+    /* FEEDBACK BOTTOM - START HERE */
+
+    .feedbackWrite-bottom {
+      display: grid;
+
+    }
+
+    .feedbackWrite-field {
+      height: 40vh;
+    }
+
+    textarea {
+      display: block;
+      border: none;
+      max-width: 100%;
+      max-height: 100%;
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: rgb(90,90,90);
+      padding: 0.75rem;
+      resize: none;
+    }
+
+    .feedbackWrite-feedbackBbutton {
+      border: none;
+      background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+      color: white;
+      font-size: 1.2rem !important;
+      font-weight: 400;
+      border-radius: 100px;
+      height: 25px;
+      width: 100px;
+      margin: .5rem 0;
+      align-items: center;
+      height: 40px;
+      justify-self: right;
+
+    }
+
+
+    /* FEEDBACK BOTTOM - ENDS HERE */
+
+
+
 
 h3{
   font-weight: lighter;
@@ -133,6 +311,7 @@ body
       <button type="button" id="swipe" name="button"></button>
   </header>
   <body>
+<<<<<<< HEAD
     <div data-role="page-feedback-new">
 
       <div class="feedback-new-wrapper">
@@ -173,6 +352,56 @@ body
             </form>
           </div>
         </main>
+=======
+    <div data-role="page" class="wrapper-feedbackWritePage">
+
+      <header>
+
+      </header>
+
+      <main>
+
+        <div class="feedback-pageTitle">
+          <h4>Feedback</h4>
+          <span class="close-icon"></span>
+        </div>
+
+        <div class="feedbackWritePage-container">
+
+          <div class="feedbackWritePage-To">
+            <label class="feedbackWrite-title" for="">To:</label>
+
+            <div class="feedbackWritePage-Border grid"><input type="text" name="" value="Insert Email">
+              <span class="icon-user-plus"></span>
+            </div>
+          </div>
+
+          <div class="feedbackWritePage-Type">
+            <label class="feedbackWrite-title" for="">Type:</label>
+
+            <div class="type-Btns">
+              <div class="feedbackWritePage-Border"><button class="keepBtn" type="button" name="button">Keep</button></div>
+
+              <div class="feedbackWritePage-Border"><button class="reviseBtn" type="button" name="button">Revise</button></div>
+
+              <div class="feedbackWritePage-Border"><button class="keep-revise-Btn" type="button" name="button">Keep & Revise</button></div>
+            </div>
+          </div>
+
+
+          <div class="feedbackWrite-bottom">
+            <label class="feedbackWrite-title" for="">Feedback:</label>
+            <div class="feedbackWritePage-Border feedbackWrite-field grid"><textarea class="feedbackView-feedback" name="name"></textarea></div>
+
+            <button class="feedbackWrite-feedbackBbutton" type="button" name="button">Send</button>
+          </div>
+
+
+
+        </div> <!-- feedbackView-container - END HERE-->
+
+      </main>
+>>>>>>> d5d455930245611dfd92d2a6fe4b7805bcd62848
     </div>
   </body>
 </html>
