@@ -50,6 +50,9 @@
 
 
 
+
+
+
 /* FOOTER STYLES - START ---------------------------- */
 footer {
   background-color: rgb(245, 245, 245);
@@ -60,18 +63,23 @@ footer {
   left: 0;
 
   display: grid;
-  grid-template-rows: 45px 20px;
+  grid-template-rows: 40px 20px;
 }
 
 footer .footer-feedballoon-icon {
   width: 100%;
   height: auto;
   text-align: center;
+  position: relative;
 
+  bottom: 38px;
+}
+
+.footer-icons-box {
   position: fixed;
-  bottom: 20px;
+  bottom: 8px;
   left: 0;
-
+  width: 100%;
 }
 
 footer .feedballoon-icon {
