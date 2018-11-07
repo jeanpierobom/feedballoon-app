@@ -17,11 +17,10 @@
     <link rel="stylesheet" href="icons/icomoon/style.css">
 
     <!-- custom css (only for this page) -->
-    <style
-    >
+    <style>
     /* GLOBAL STYLES - START HERE */
 
-    .wrapper-feedbackWritePage-rav {
+    .wrapper-feedbackWritePage {
       display: grid;
       grid-template-rows: 5vh 95vh;
     }
@@ -32,20 +31,10 @@
       margin: 0;
     }
 
-    body
-    {
-      margin-top: 1.5rem;
-    }
-
     main {
       height: 100vh;
       box-shadow: 0 0 10px 0 rgba(200,200,200,0.9);
       border-radius: 20px;
-      background-color: white;
-      border-bottom-left-radius:0;
-      border-bottom-right-radius:0;
-
-
     }
 
     label {
@@ -58,7 +47,7 @@
       font-size: 0.9rem !important;
     }
 
-    .feedbackWritePage-container, .feedback-pageTitle-rav {
+    .feedbackWritePage-container, .feedback-pageTitle {
       padding: 0 15px;
     }
 
@@ -81,7 +70,7 @@
 
 
     /* FEEDBACK TOP- START HERE */
-      .feedback-pageTitle-rav {
+      .feedback-pageTitle {
         display: grid;
         grid-template-columns: 1fr 40px;
         align-items: center;
@@ -202,29 +191,18 @@
       justify-self: right;
 
     }
-    body
-    {
-         background-image: linear-gradient(to left, #E10B90, #FFAC1B);
 
 
-    }
+    /* FEEDBACK BOTTOM - ENDS HERE */
 
-    .feedbackWritePage-container-rav
-    {
-      margin: .5rem;
-    }
 
 
 
     </style>
 
   </head>
-  <header>
-      <button type="button" id="swipe" name="button"></button>
-  </header>
   <body>
-
-    <div data-role="page" class=".wrapper-feedbackWritePage-rav">
+    <div data-role="page" class="wrapper-feedbackWritePage" data-dialog="true">
 
       <header>
 
@@ -232,15 +210,15 @@
 
       <main>
 
-        <div class="feedback-pageTitle-rav">
+        <div class="feedback-pageTitle">
           <h4>Feedback</h4>
           <span class="close-icon"></span>
         </div>
 
-        <div class="feedbackWritePage-container-rav">
+        <div class="feedbackWritePage-container">
 
           <div class="feedbackWritePage-To">
-            <label class="feedbackWrite-title-rav" for="">To:</label>
+            <label class="feedbackWrite-title" for="">To:</label>
 
             <div class="feedbackWritePage-Border grid"><input type="text" name="" placeholder="Insert Email">
               <span class="icon-user-plus"></span>
@@ -248,7 +226,7 @@
           </div>
 
           <div class="feedbackWritePage-Type">
-            <label class="feedbackWrite-title-rav" for="">Type:</label>
+            <label class="feedbackWrite-title" for="">Type:</label>
 
             <div class="type-Btns">
               <div class="feedbackWritePage-Border"><button class="keepBtn" type="button" name="button">Keep</button></div>
@@ -261,8 +239,8 @@
 
 
           <div class="feedbackWrite-bottom">
-            <label class="feedbackWrite-title-rav" for="">Feedback:</label>
-            <div class="feedbackWritePage-Border feedbackWrite-field grid"><textarea class="feedbackView-feedback" name="name" placeholder="Enter your feedback here.."></textarea></div>
+            <label class="feedbackWrite-title" for="">Feedback:</label>
+            <div class="feedbackWritePage-Border feedbackWrite-field grid"><textarea class="feedbackView-feedback" name="name"></textarea></div>
 
             <button class="feedbackWrite-feedbackBbutton" type="button" name="button">Send</button>
           </div>
@@ -272,7 +250,6 @@
         </div> <!-- feedbackView-container - END HERE-->
 
       </main>
-
     </div>
   </body>
 </html>
