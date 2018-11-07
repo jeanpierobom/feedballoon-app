@@ -90,7 +90,6 @@
 
       header .header-middle-home nav ul .feedback-sent {
         border-radius: 7px 0 0 7px;
-        background-color: rgb(175,175,175);
         border-top: 1px solid rgb(175,175,175);
         border-bottom: 1px solid rgb(175,175,175);
         border-left: 1px solid rgb(175,175,175);
@@ -101,15 +100,16 @@
         border-top: 1px solid rgb(175,175,175);
         border-right: 1px solid rgb(175,175,175);
         border-bottom: 1px solid rgb(175,175,175);
-      }
-
-      header .header-middle-home .feedback-filter-white {
-        color: white;
-      }
-
-      header .header-middle-home nav ul .feedback-received {
         border-radius: 0 7px 7px 0;
       }
+
+      header .header-middle-home .selected {
+        color: white;
+        background-color: rgb(175,175,175);
+      }
+
+      /* ??? */
+
 
 
       header .header-middle-home a {
@@ -119,6 +119,7 @@
         text-align: right;
       }
 
+      /*  */
       header .filter-icon .filter-subtitle {
         padding-right: 0.3rem;
         color: rgb(100,100,100);
@@ -221,10 +222,11 @@
         </div>
 
         <div class="header-middle-home">
+
           <nav>
             <ul>
-              <li class="feedback-sent"><a class= "feedback-filter-white" href="#">SENT</a></li>
-              <li class="feedback-received"><a  href="#">RECEIVED</a></li>
+              <li class="feedback-sent "><a  href="#">SENT</a></li>
+              <li class="feedback-received selected"><a  class= "selected" href="#">RECEIVED</a></li>
             </ul>
           </nav>
 
