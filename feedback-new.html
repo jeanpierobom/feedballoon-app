@@ -7,6 +7,7 @@
 
     <!-- jquery mobile -->
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
+    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
 
     <!-- javascript -->
     <script src="script/app.js"></script>
@@ -198,11 +199,166 @@
 
 
 
+h3{
+  font-weight: lighter;
+  color: grey;
+  margin-bottom:0;
+  font-size: 20px;
+}
+
+h2
+{
+  position:  relative;
+  margin-top:  2rem;
+
+
+  font-weight: 400;
+}
+
+
+
+.send{
+
+    border: none;
+    background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-align: center;
+
+    border-radius: 100px;
+    align-self: center;
+    float: right !important;
+    padding: 5px 40px;
+    grid-column: 3 / 4;
+
+
+
+}
+
+.buttons-list
+{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.revise, .both, .keep{
+
+  border: 1px solid transparent;
+  border-image: linear-gradient(to left, #E10B90, #FFAC1B);
+  border-image-slice: 1;
+  background-color: white;
+
+  height: 2.5rem;
+}
+.feedback{
+  border: 1px solid transparent;
+  border-image: linear-gradient(to left, #E10B90, #FFAC1B);
+  border-image-slice: 1;
+
+}
+.feedback-to {
+
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(to left, #E10B90, #FFAC1B)  !important;
+  border-image-slice: 1  !important;
+  width: 100%;
+  background-color: white;
+
+}
+
+.send-feed
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.page-feedback-new
+{
+  display: grid;
+  margin-top:  2rem;
+}
+
+body
+{
+     background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+
+
+}
+
+.feedback-new
+{
+  background-color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+}
+
+.send-feedform
+{
+  border-radius: 2px;
+  margin: 1rem;
+}
+
+
+
+
     </style>
 
   </head>
+  <header>
+      <button type="button" id="swipe" name="button"></button>
+  </header>
   <body>
+<<<<<<< HEAD
     <div data-role="page" class="wrapper-feedbackWritePage" data-dialog="true">
+=======
+<<<<<<< HEAD
+    <div data-role="page-feedback-new">
+
+      <div class="feedback-new-wrapper">
+
+
+
+        <main>
+
+          <div class="feedback-new">
+
+
+            <form class="send-feedform">
+              <h2>Feedback</h2>
+              <h3>To:</h3>
+
+              <input class="feedback-to" type="text" name="feedback-to" placeholder="insert Email">
+
+
+              <h3>Type:</h3>
+
+              <div class="buttons-list">
+                <button class="keep" type="submit">Keep</button>
+                <button class="revise" type="submit">Revise</button>
+                <button class="both" type="submit">Keep&Revise</button>
+              </div>
+
+
+              <h3>Feedback:</h3>
+
+              <textarea class="feedback" name="name" rows="60" cols="33"> Insert Your message</textarea>
+
+              <div class="send-feed">
+                  <button class="send" type="submit">Send</button>
+              </div>
+
+
+
+            </form>
+          </div>
+        </main>
+=======
+    <div data-role="page" class="wrapper-feedbackWritePage">
+>>>>>>> b75713bdcc458aac8b1605f81481e7051d2b376c
 
       <header>
 
@@ -250,6 +406,7 @@
         </div> <!-- feedbackView-container - END HERE-->
 
       </main>
+>>>>>>> d5d455930245611dfd92d2a6fe4b7805bcd62848
     </div>
   </body>
 </html>

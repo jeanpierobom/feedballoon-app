@@ -12,7 +12,7 @@
 
     <!-- javascript -->
     <script src="script/app.js"></script>
-    <script src="script/home.js"></script>
+    <script src="script/favorites.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
@@ -216,11 +216,18 @@
     <div data-role="page" class="wrapper-index">
       <header>
         <div class="header-top-home">
-          <h1>Favorites</h1>
+          <h1>Feedbacks</h1>
           <a class="search-icon" href="#search"></a>
         </div>
 
         <div class="header-middle-home">
+          <nav>
+            <ul>
+              <li class="feedback-sent"><a class= "feedback-filter-white" href="#">SENT</a></li>
+              <li class="feedback-received"><a  href="#">RECEIVED</a></li>
+            </ul>
+          </nav>
+
           <a href="#filter">
             <span class="filter-subtitle">SORTED BY</span>
             <span class="filter-icon filter"></span>
