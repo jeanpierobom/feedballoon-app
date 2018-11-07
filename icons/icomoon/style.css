@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon {
+[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon, .email-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -24,7 +24,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*  */
+/*  FEEDBACK VIEW */
 
   .repply-icon:before {
     content: "\e904";
