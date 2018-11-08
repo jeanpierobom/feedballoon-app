@@ -5,153 +5,281 @@
     <title>FeedBalloon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <!-- jquery mobile -->
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
 
+
     <!-- javascript -->
     <script src="script/app.js"></script>
-    <script src="script/progile.js"></script>
+    <script src="script/home.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/icomoon/style.css">
+    <link rel="stylesheet" href="/css/master.css">
+
 
     <!-- custom css (only for this page) -->
     <style>
-    header .header-part-1 {
-     width: 100%;
-     height: 65px;
-     display: grid;
-     grid-template-columns: 30px 3fr 1fr;
-     background-image: linear-gradient(to left, #E10B90, #FFAC1B);
-    }
-    header .header-part-2{
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     background-color: rgb(245, 245, 245);
-     align-items: center;
-     padding-top: 1rem;
-     padding-right: 0.5rem;
-    }
-    header .header-part-2 img{
-      width:10%;
+    /* PROFILE PAGE - START ----------------------------*/
+      .wrapper-index {
+        margin-top: 225px;
+        margin-bottom: 7rem;
+      }
 
-     }
+      /* HEADER */
+      header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+      }
+
+      /* HEADER TOP */
+      .header-top-home {
+        width: 100%;
+        height: 65px;
+        display: grid;
+        grid-template-columns: 30px 2fr;
+        background: linear-gradient(to left, #E10B90, #FFAC1B);
+      }
+
+      .header-top-home a {
+        align-self: center;
+      }
+
+      .arrow_left {
+        opacity: 1;
+        padding-right: 0;
+        padding-left: 0.1rem;
+        display: block;
+        width: 90%;
+      }
+
+      /* HEADER MIDDLE COINTANER */
+      .headerMiddle {
+        display: grid;
+
+        grid-template-columns: 2fr 1fr;
+        background: linear-gradient(to bottom, #f2f2f2 0%,#e8e8e8 100%);
+        align-items: center;
+        height: 150px;
+        padding: 0 0.5rem;
+        border-bottom: 1px solid rgb(240,240,240);
+      }
+
+
+      .headerMiddle-leftBox input, .headerMiddle-rightBox button {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        margin-top: 2px;
+      }
+
+      .headerMiddle-leftBox .name {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: rgb(50, 50, 50);
+      }
+
+      .headerMiddle-leftBox .email {
+        font-size: 0.75rem;
+        font-weight: 300;
+        color: rgb(50, 50, 50);
+      }
+
+      .headerMiddle-rightBox {
+        display: grid;
+        text-align: center;
+        align-items: center;
+      }
+
+      .headerMiddle-rightBox img {
+        height: 100px;
+        justify-self: center;
+      }
+
+      .headerMiddle-rightBox button {
+        font-size: 0.5rem;
+        font-weight: 300;
+        color: rgb(50, 50, 50);
+      }
+
+      /* MAIN */
+
+      main {
+        padding: 0 0.5rem;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      .inputBox {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: rgb(50, 50, 50);
+        padding-left: 4px;
+      }
+
+      .labelBox {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        font-size: 0.75rem;
+        font-weight: 300;
+        color: rgb(50, 50, 50);
+        grid-row: 2 / 3;
+        padding-left: 5px;
+      }
+
+      .editButton {
+        border: none;
+        background-color: transparent;
+        align-self: flex-end;
+        font-size: 0.75rem;
+        font-weight: 300;
+        color: rgb(50, 50, 50);
+      }
+
+      .saveButton {
+        border: none;
+        background-color: transparent;
+        align-self: flex-end;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: #E10B90;
+      }
 
 
 
-     .wrapper-profile {
-      margin-top: 9rem;
-      margin-bottom: 7rem;
-     }
-     main .group-list .group-box .group.name{
-       display: grid;
-       grid-template-rows: 1fr 1fr;
-       grid-template-columns: 1fr 1fr;
-     }
-    main .group-list .group-box .group.name h3{
-      grid-row:1/2;
-      grid-column: 1/2;
-     }
-     main .group-list .group-box .group.name .info1{
-      grid-row:2/3;
-      grid-column: 1/2;
-     }
-     main .group-list .group-box .group.name .info2{
-      grid-row:1/2;
-      grid-column: 2/3;
-     }
-     main .group-list .group-box .group.name .info3{
-       grid-row:2/3;
-       grid-column: 2/3;
-     }
+      .box {
+        height: 50px;
+        display: grid;
+        grid-template-columns: 1fr 40px;
+        border-bottom: 1px solid rgb(240,240,240);
+        padding-bottom: 0.5rem;
+      }
+
+      /* COMPANY FIELD  */
+      .company {
+        margin-top: 10px;
+      }
+
+      /* STATE & COUNTRY FIELDS */
+
+      .location {
+        height: 50px;
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 40px;
+        border-bottom: 1px solid rgb(240,240,240);
+        padding-bottom: 0.5rem;
+        margin-top: 10px;
+      }
+
+      /* NEW PASSWORD */
+      .newPassword {
+        margin-top: 10px;
+      }
+
+      /* CONFIRM NEW PASSWORD */
+      .confirmNewPassword {
+        background-color: rgb(250,250,250);
+        padding-top: 10px;
+        /* display: none; */
+      }
+
+
+      /* LOG OUT */
+      #logOut {
+        border: none;
+        background-color: transparent;
+        font-size: 1.35rem;
+        font-weight: 300;
+        color: rgb(50, 50, 50);
+        border-bottom: 1px solid rgb(240,240,240);
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+        padding: 0 5px 20px 5px;
+      }
 
     </style>
 
   </head>
   <body>
-
-    <div data-role="page" class="wrapper-profile">
+    <div data-role="page" class="wrapper-index">
       <header>
-        <div class="header-part-1">
-             <h1> Profile</h1>
-           </div>
 
-           <div class="header-part-2">
-            <span class="name">John Mosby</span>
-            <span class="mail">john.mosby@langara.ca</span>
-            <img src="images/jean.png" alt="jeann">
+        <div class="header-top-home">
+          <a href="#"><img class="arrow_left" src="icons/arrow_left.svg" alt=""></a>
 
-           </div>
-      </header>
-      <main>
-        <div class="group-list">
+          <h1>Profile</h1>
+        </div>
 
-          <div class="group-box">
-            <div class="group-name">
-              <h3>Account Manager</h3>
-              <span class="info1">Job Title</span>
-              <span class="info2">Edit</span>
-              <span class="info3">Save</span>
-            </div>
+        <div class="headerMiddle">
+
+          <div class="headerMiddle-leftBox">
+            <input class="name" type="text" name="" value="John Mosby">
+            <input class="email "type="email" name="" value="john.mosby@example.com">
           </div>
 
-          <div class="group-box">
-            <div class="group-name">
-              <h3>Langara College</h3>
-              <span class="info1">Company</span>
-              <span class="info2">Edit</span>
-              <span class="info3">Save</span>
-            </div>
+          <div class="headerMiddle-rightBox">
+            <img src="icons/group_icon.svg" alt="feedback owner image">
+            <button type="button" name="button">Edit</button>
           </div>
 
-          <div class="group-box">
-            <div class="group-name">
-              <h3>British Columbia</h3>
-              <span class="info1">State</span>
-              <span class="save">Canada</span>
-              <span class="save">Company</span>
-              <span class="info2">Edit</span>
-              <span class="info3">Save</span>
-            </div>
-          </div>
-
-          <div class="group-box">
-            <div class="group-name">
-              <h3>New Password</h3>
-              <span class="info1">Change Password</span>
-              <span class="info3">Edit</span>
-            </div>
-          </div>
-
-          <div class="group-box">
-            <div class="group-name">
-              <h3>Confirm New Password</h3>
-              <span class="info1">Change Password</span>
-              <span class="info3">Save</span>
-            </div>
-          </div>
-
-          <div class="group-box">
-            <div class="group-name">
-              <h3>Give us feedback</h3>
-            </div>
-          </div>
-
-          <div class="group-box">
-            <div class="group-name">
-              <h3>Terms of Service</h3>
-            </div>
-          </div>
-
-          <div class="group-box">
-            <div class="group-name">
-              <h3>Log Out</h3>
-            </div>
-          </div>
 
         </div>
+
+      </header>
+
+      <main>
+
+        <form class="" action="index.html" method="post">
+
+          <div class="jobTitle box">
+            <input type="text" class="inputBox" name="jobTitle" placeholder="John Mosby">
+            <label class="labelBox" for="Job Title">Job Title</label>
+            <button type="button" class="editButton" id="jobTitle-Edit" name="jobTitle-Edit">Edit</button>
+          </div>
+
+          <div class="company box">
+            <input type="text" class="inputBox" name="company" placeholder="Langara College">
+            <label class="company-label labelBox" for="company">Company</label>
+            <button type="button" class="editButton" id="company-Edit" name="company-Edit">Edit</button>
+          </div>
+
+          <div class="location box">
+            <input type="text" class="inputBox" name="locationCountry" placeholder="Canada" disabled>
+            <label class="location-Country labelBox" for="location">Country</label>
+            <input type="text" class="inputBox" name="locationState" placeholder="British Columbia">
+            <label class="labelBox" for="company">State</label>
+            <button type="button" class="editButton" id="location-Edit" name="locationEdit">Edit</button>
+          </div>
+
+          <div class="newPassword box">
+            <input type="text" class="inputBox" name="newPassword" placeholder="New Password">
+            <label class="labelBox" for="newPassword">Change Password</label>
+            <button type="button" class="editButton" id="newPassword" name="newPassword">Edit</button>
+          </div>
+
+          <div class="confirmNewPassword box">
+            <input type="text" class="inputBox" name="confirmNewPassword" placeholder="Confirm New Password">
+            <label class="labelBox" for="confirmNewPassword">Change Password</label>
+            <button type="button" class="saveButton" id="confirmNewPassword-Save" name="confirmNewPassword">Save</button>
+          </div>
+
+        </form>
+
+        <button type="button" name="logOut" id="logOut">Log out</button>
+
       </main>
+
       <footer>
 
         <div class="footer-feedballoon-icon">
@@ -162,26 +290,29 @@
 
           <nav class="footer-icons">
             <ul>
-              <li><a class="home-icon" href="https://www.globo.com/"></a></li>
-              <li><a class="groups-icon" href="#groups"></a></li>
-              <li><a class="favorites-icon-footer" href="#favorites"></a></li>
-              <li><a class="settings-icon" href="#settings"></a></li>
+              <li><a class="home-icon" href="home.html"></a></li>
+              <li><a class="groups-icon" href="group-list.html"></a></li>
+              <li><a class="favorites-icon-footer" href="favorites.html"></a></li>
+              <li><a class="settings-icon" href="profile.html"></a></li>
             </ul>
           </nav>
 
           <nav class="footer-icons-subtitle">
             <ul>
-              <li class="home-label"> Home</li>
-              <li class="groups-label">Groups</li>
-              <li class="feedback-label">Feedback</li>
-              <li class="favorites-label">Favorites</li>
-              <li class="profile-label">Profile</li>
+              <li class="home-label"><a href="home.html">Home</a></li>
+              <li class="groups-label"><a href="group-list.html">Groups</a></li>
+              <li class="feedback-label"><a href="feedback-new.html">Feedback</a></li>
+              <li class="favorites-label"><a href="favorites.html">Favorites</a></li>
+              <li class="profile-label"><a href="profile.html">Profile</a></li>
             </ul>
           </nav>
+
+
 
         </div>
 
       </footer>
+
     </div>
   </body>
 </html>
