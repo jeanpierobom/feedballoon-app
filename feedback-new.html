@@ -118,8 +118,6 @@
       color: rgb(150,150,150);
     }
 
-
-
     .selected {
       color: white;
       background-image: linear-gradient(to left, #E10B90, #FFAC1B);
@@ -161,7 +159,7 @@
     }
 
     .feedbackWrite-field {
-      height: 40vh;
+      height: 35vh;
     }
 
     textarea {
@@ -211,7 +209,7 @@
       <main>
 
         <div class="feedback-pageTitle">
-          <h4>Feedback</h4>
+          <h4>New Feedback</h4>
           <span class="close-icon"></span>
         </div>
 
@@ -220,7 +218,7 @@
           <div class="feedbackWritePage-To">
             <label class="feedbackWrite-title" for="">To:</label>
 
-            <div class="feedbackWritePage-Border grid"><input type="text" name="" placeholder="Insert Email">
+            <div class="feedbackWritePage-Border grid"><input type="email" id="email" name="email" placeholder="Insert Email">
               <span class="icon-user-plus"></span>
             </div>
           </div>
@@ -242,7 +240,7 @@
             <label class="feedbackWrite-title" for="">Feedback:</label>
             <div class="feedbackWritePage-Border feedbackWrite-field grid"><textarea class="feedbackView-feedback" name="name"></textarea></div>
 
-            <button class="feedbackWrite-feedbackBbutton" type="button" name="button">Send</button>
+            <button class="feedbackWrite-feedbackBbutton" type="button" id="submit" name="submit">Send</button>
           </div>
 
 
@@ -253,3 +251,9 @@
     </div>
   </body>
 </html>
+
+
+<!--
+  ID: Ok
+  Class Selected: Ok
+ -->

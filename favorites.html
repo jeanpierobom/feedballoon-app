@@ -24,7 +24,7 @@
     <style>
     /* HOME PAGE - START ----------------------------*/
       .wrapper-index {
-        margin-top: 6.5rem;
+        margin-top: 6.9rem;
         margin-bottom: 7rem;
       }
 
@@ -37,90 +37,94 @@
         left: 0;
       }
 
-      header .header-top-home {
+      /* HEADER TOP */
+      .header-top-home {
         width: 100%;
         height: 65px;
-
         display: grid;
-
-        grid-template-columns: 3fr 1fr;
-
+        grid-template-columns: 30px 2fr;
         background-image: linear-gradient(to left, #E10B90, #FFAC1B);
-
-
       }
 
-      header .header-top-home a {
+      .header-top-home a {
         align-self: center;
-        text-align: right;
-        padding-right: 0.5rem;
-        color: white;
-        font-size: 1.5rem;
-        opacity: 0.5;
       }
 
-      header .header-middle-home {
+      .arrow_left {
+        opacity: 1;
+        padding-right: 0;
+        padding-left: 0.1rem;
+        display: block;
+        width: 90%;
+      }
+
+      /* HEADER MIDDLE COINTANER */
+      .header-middle-home {
         display: grid;
 
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 85px 1fr;
         background-color: rgb(245, 245, 245);
-
-        text-align: center;
         align-items: center;
-        height: 40px;
-        padding-right: 0.5rem;
+        height: 45px;
+        padding: 0 0.5rem;
       }
 
-      header .header-middle-home nav {
-        grid-column: 1 / 2;
+
+      /* HEADER MIDDLE SEARCH */
+      .group-view-search {
+        display: flex;
+        width: 100%;
+        padding-bottom: 1px;
       }
 
-      header .header-middle-home nav ul {
+      .group-search-field {
+        display: block;
+        height: 25px;
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        padding: 0 0 0 0.5rem;
+        margin-left: 0.5rem;
+
+      }
+
+      .group-search-field::placeholder {
+        font-size: 0.8rem;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        color: rgb(200,200,200);
+      }
+
+      .search-icon-box {
         display: grid;
-        padding-left: 0.5rem;
-        grid-template-columns: 50px 65px;
-        margin: 0;
+        background-color: rgb(200,200,200);
+        align-items: center;
+        height: 25px;
       }
 
-      header .header-middle-home nav ul li {
-        background-color: white;
-        padding-bottom: 0.2rem;
 
-      }
 
-      header .header-middle-home nav ul .feedback-sent {
-        border-radius: 7px 0 0 7px;
-        background-color: rgb(175,175,175);
-        border-top: 1px solid rgb(175,175,175);
-        border-bottom: 1px solid rgb(175,175,175);
-        border-left: 1px solid rgb(175,175,175);
-
-      }
-
-      header .header-middle-home nav ul .feedback-received {
-        border-top: 1px solid rgb(175,175,175);
-        border-right: 1px solid rgb(175,175,175);
-        border-bottom: 1px solid rgb(175,175,175);
-      }
-
-      header .header-middle-home .feedback-filter-white {
-        color: white;
-      }
-
-      header .header-middle-home nav ul .feedback-received {
-        border-radius: 0 7px 7px 0;
+      .search-icon {
+        align-self: center;
+        padding: 0 0.5rem;
+        color: rgb(220,220,220);
+        font-size: 1rem;
+        text-align: center;
+        opacity: 1;
       }
 
 
       header .header-middle-home a {
-        grid-column: 2 / 3;
+        padding-top: 2px;
         font-size: 0.7rem;
         color: rgb(100,100,100);
-        text-align: right;
+        text-align: left;
       }
 
       header .filter-icon .filter-subtitle {
-        padding-right: 0.3rem;
+        padding-right: 0.4rem;
         color: rgb(100,100,100);
         font-weight: 300;
       }
@@ -198,6 +202,24 @@
         font-size: 0.5rem;
       }
 
+      /* BOX WITH LETTERS INSTEAD OF IMAGE */
+      .feedback-type-letters {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-weight: 400;
+        font-size: 1.2rem;
+        border: 1px solid rgb(225, 225, 225);;
+        color: rgb(50, 50, 50);
+        background-color: rgb(240,240,240);
+      }
+
+
       main .feedback-list .feedback-box .favorite-icon, .repply-icon {
         align-self: start;
         color: rgb(200,200,200);
@@ -207,6 +229,10 @@
       main .repply-icon {
         text-align: right;
       }
+
+      .selected {
+        color: #E10B90 !important;
+      }
     /* HOME PAGE - END ---------------------------- */
 
     </style>
@@ -215,16 +241,26 @@
   <body>
     <div data-role="page" class="wrapper-index">
       <header>
+
         <div class="header-top-home">
+          <a href="#"><img class="arrow_left" src="icons/arrow_left.svg" alt=""></a>
+
           <h1>Favorites</h1>
-          <a class="search-icon" href="#search"></a>
         </div>
 
         <div class="header-middle-home">
+
           <a href="#filter">
             <span class="filter-subtitle">SORTED BY</span>
             <span class="filter-icon filter"></span>
           </a>
+
+          <div class="group-view-search">
+            <input class="group-search-field" type="text" name="group-subject" placeholder="Search">
+            <span class="search-icon-box"><a class="search-icon" href="#search"></a></span>
+          </div>
+
+
         </div>
 
       </header>
@@ -272,23 +308,37 @@
               <span class="title-company">Marketing Manager @Pepsi Co.</span>
               <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
             </div>
-            <span class="favorite-icon"></span>
+            <span class="favorite-icon selected"></span>
             <span class="repply-icon"></span>
           </div>
 
+
+
+
+
           <div class="feedback-box">
-            <div class="feedback-type feedback-keep">
-              <span class="keep">KEEP</span>
+            <div class="feedback-type feedback-keep-improve">
+              <span class="keep-improve">KEEP & IMPROVE</span>
             </div>
-            <img src="images/joao.png" alt="feedback owner image">
+
+            <div class="feedback-type-letters">
+              <span class="firstLetter">H</span><span class="lastLetter">M</span>
+            </div>
+
             <div class="feedback-owner">
-              <h3>John Mosby</h3>
-              <span class="title-company">Account Manager @Langara College</span>
+              <h3>Harminder Mosby</h3>
+              <span class="title-company">Marketing Manager @Pepsi Co.</span>
               <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
             </div>
-            <span class="favorite-icon"></span>
-            <span class="repply-icon"></span>
+            <span class="favorite-icon selected"></span>
+            <span class="repply-icon selected"></span>
           </div>
+
+
+
+
+
+
         </div>
       </main>
 
