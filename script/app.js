@@ -5,6 +5,14 @@ var debug = (message) => {
   }
 }
 
+var errorMessage = (message) => {
+  alert('[ERROR]: ' + message);
+}
+
+var sucessMessage = (message) => {
+  alert(message);
+}
+
 // This function is used to navigate from one screen to another
 var navigate = (page) => {
   // if (!$.mobile) {
@@ -109,7 +117,9 @@ var getAllFeedback = () => {
             <div class="feedback-type feedback-keep">
               <span class="keep">KEEP</span>
             </div>
-            <img src="images/joao.png" alt="feedback owner image">
+            <div class="initials_container">
+              <span class="initials_text">${user.user_from_initials}</span>
+            </div>
             <div class="feedback-owner">
               <h3>${user.user_from_name}</h3>
               <span class="title-company">Account Manager @Langara College</span>
@@ -144,6 +154,61 @@ var getAllFeedback = () => {
   });
 }
 
+// This function attaches functionality to each button in the footer menu
+var setupFooterMenuActions = () => {
+
+  // Home button
+  $('.home-label, .home-icon').on('click', () => {
+    navigateToHome();
+  });
+
+  // Groups button
+  $('.groups-label, .groups-icon').on('click', () => {
+    navigate('group-list.html');
+  });
+
+  // Feedback button
+  $('.feedback-label, .feedballoon-icon').on('click', () => {
+    navigate('feedback-new.html');
+  });
+
+  // Favorites button
+  $('.favorites-label, .favorites-icon-footer-button').on('click', () => {
+    navigate('favorites.html');
+  });
+
+  // $('.settings-icon:before').css('content', "\e907");
+  // alert($('.settings-icon:before').css('content') );
+  //
+  //
+  // $('.settings-icon').css('color', 'red !important');
+  // $('.settings-icon').parent().css('color', 'blue !important');
+  //
+  // $('.settings-icon:before').on('click', () => {
+  //   alert('click');
+  // })
+
+  $('#link').on('click', () => { alert('test'); })
+
+  // Profile button
+  $('#settings-link').on('click', () => {
+    alert('clicked');
+  })
+
+
+  $('.profile-label, a').on('click', () => {
+    navigate('profile.html');
+  });
+}
+
+function validateEmail(sEmail) {
+  var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+  if (filter.test(sEmail)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 // $(document).delegate(".launch-page", "pagebeforecreate", function() {
 //   setupIndex();
 // });
