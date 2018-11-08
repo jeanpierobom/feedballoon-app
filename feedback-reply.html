@@ -10,7 +10,7 @@
 
     <!-- javascript -->
     <script src="script/app.js"></script>
-    <script src="script/feedback-reply.js"></script>
+    <script src="script/feedback-view.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
@@ -19,37 +19,185 @@
     <!-- custom css (only for this page) -->
     <style>
 
+      /* GLOBAL STYLES - START HERE */
+
+      .wrapper-feedbackView {
+        display: grid;
+        grid-template-rows: 5vh 95vh;
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+      }
+
+      h4 {
+        font-size: 2rem;
+        color: rgb(50,50,50);
+        margin: 1rem 1rem;
+      }
+
+      main {
+        height: 100vh;
+        box-shadow: 0 0 10px 0 rgba(200,200,200,0.9);
+        border-radius: 20px 20px 0 0;
+        background-color: white;
+      }
+
+      .feedbackView-container {
+        background-color: rgb(245,245,245);
+        border-radius: 20px;
+        padding: 15px;
+        margin: 0 1rem 1rem 1rem;
+        border: 1px solid rgb(200,200,200);
+      }
+      /* GLOBAL STYLES - ENDS HERE */
+
+      /* HEADER CLOSE BUTTON */
+      header {
+        display: grid;
+      }
+
+      #closePage {
+        display: block;
+        width: 60px;
+        height: 12px;
+        margin-bottom: 7px;
+        background-color: white;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        align-self: flex-end;
+        justify-self: center;
+        box-shadow: 0px 0px 4px 0px rgba(89,89,89,1);
+      }
+
+      /* FEEDBACK TITLE - START HERE */
+        .feedback-pageTitle {
+          display: grid;
+          grid-template-columns: 1fr 40px;
+          align-items: center;
+        }
+
+        .close-icon {
+          margin-right: 1rem;
+          color: rgb(175,175,175);
+          font-size: 1rem;
+        }
+
+
+      /* FEEDBACK TITLE - ENDS HERE*/
+
+
+      /* FEEDBACK VIEW TOP - START HERE */
+      .feedbackView-top {
+        display: grid;
+        grid-template-columns: 100px auto;
+        align-items: center;
+        border-bottom: 1px solid rgb(200,200,200);
+        padding-bottom: 1rem;
+      }
+        img {
+          width: 80px;
+          text-align: center;
+          align-self: center;
+          display: block;
+        }
+
+        .title-company {
+          color: rgb(100, 100, 100);
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+        }
+
+        .feedback-time {
+          color: rgb(100, 100, 100);
+          font-size: 0.6rem;
+          display: block;
+          margin-top: 0.75rem;
+        }
+      /* FEEDBACK VIEW TOP - ENDS HERE */
+
+
+
+      /* FEEDBACK BOTTOM - START HERE */
+
+      textarea {
+        background-color: transparent;
+        border: none;
+        width: 92%;
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(90,90,90);
+        padding: 0.75rem;
+        resize: none;
+        height: 200px;
+        margin-top: 0.5rem;
+      }
+      /* FEEDBACK BOTTOM - ENDS HERE */
+
+
+
+      /* FEEDBACK REPLY BUTTON - START HERE */
+      .feedbackReply-button {
+        display: grid;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .repply-icon {
+        border: 1px solid #E10B90;
+        border-radius: 100%;
+        height: 65px;
+        width: 65px;
+        background: linear-gradient(to left, #E10B90, #FFAC1B);
+        color: white;
+        font-size: 1.2rem;
+        justify-self: center;
+      }
+
+      .selected {
+        background-color: #FFAC1B !important;
+      }
+      /* FEEDBACK REPLY BUTTON - ENDS HERE */
+
+
     </style>
 
   </head>
   <body>
-    <div data-role="page-reply">
+    <div data-role="page" class="wrapper-feedbackView">
 
-      <div class="page-feedview">
 
-        <h2>Feedback</h2>
-        <form>
-          <img src="" alt="">
-          <h3>John</h3>
-          <p>Account Manager</p>
-        </br>
-          <p>Date</p>
+        <header>
+          <button id="closePage" type="button" name="closePage"></button>
+        </header>
 
-          <div class="keep-container" style=" background-color:lightgrey; width:100%;">
-            <h3>Keep</h3>
-            <button class="keep-button" >i</button>
-            <button class="revise-button">i</button>
-            <button class="keepandrevise-button">i</button>
-
+        <main>
+          <div class="feedback-pageTitle">
+            <h4>Reply</h4>
+            <span class="close-icon"></span>
           </div>
 
-        <p>Messege</p>
-        </form>
+          <div class="feedbackView-container">
 
+            <div class="feedbackView-top">
+              <img src="images/jean.png" alt="feedback owner image">
 
+              <div class="feedbackView-owner">
+                <h3>Jacob Mars</h3>
+                <span class="title-company">Marketing Manager @Pepsi Co.</span>
+                <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
+              </div>
+            </div>
 
-      </div>
+            <div class="feedbackView-bottom">
+              <textarea class="feedbackReply-feedback" name="name"></textarea>
+            </div>
 
-    </div>
+          </div> <!-- feedbackView-container - END HERE-->
+
+          <div class="feedbackReply-button">
+            <button type="button" name="Reply Button" class="repply-icon"></button>
+          </div>
+
+        </main>
+
+    </div>  <!-- END HERE -->
   </body>
 </html>

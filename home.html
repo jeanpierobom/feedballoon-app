@@ -24,7 +24,7 @@
     <style>
     /* HOME PAGE - START ----------------------------*/
       .wrapper-index {
-        margin-top: 6.5rem;
+        margin-top: 6.9rem;
         margin-bottom: 7rem;
       }
 
@@ -59,6 +59,56 @@
         opacity: 0.5;
       }
 
+      /* SEARCH BAR */
+
+      .searchBar {
+        display: none;
+      }
+
+      .group-view-search {
+        display: flex;
+        width: 100%;
+        height: 40px;
+        background-image: linear-gradient(to left, #E10B90, #FFAC1B);
+        padding-top: 0.5rem;
+      }
+
+      .group-search-field {
+        display: block;
+        height: 30px;
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        padding: 0 0 0 0.5rem;
+        margin-left: 0.5rem;
+
+      }
+      .group-search-field::placeholder {
+        font-size: 1.2rem;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        color: rgb(200,200,200);
+      }
+      .search-icon-box {
+        display: grid;
+        background-color: rgb(200,200,200);
+        align-items: center;
+        height: 30px;
+        margin-right: 0.5rem;
+      }
+
+      .search-icon-box .search-icon {
+        align-self: center;
+        padding: 0 0.75rem;
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        opacity: 1;
+      }
+      /* ------ */
+
       header .header-middle-home {
         display: grid;
 
@@ -67,7 +117,7 @@
 
         text-align: center;
         align-items: center;
-        height: 40px;
+        height: 45px;
         padding-right: 0.5rem;
       }
 
@@ -108,10 +158,6 @@
         background-color: rgb(175,175,175);
       }
 
-      /* ??? */
-
-
-
       header .header-middle-home a {
         grid-column: 2 / 3;
         font-size: 0.7rem;
@@ -119,7 +165,6 @@
         text-align: right;
       }
 
-      /*  */
       header .filter-icon .filter-subtitle {
         padding-right: 0.3rem;
         color: rgb(100,100,100);
@@ -220,6 +265,15 @@
           <h1>Feedbacks</h1>
           <a class="search-icon" href="#search"></a>
         </div>
+
+        <!-- SEARCH BAR -->
+        <div class="searchBar">
+          <div class="group-view-search">
+            <input class="group-search-field" type="text" name="group-subject" placeholder="Search">
+            <span class="search-icon-box"><a class="search-icon" href="#search"></a></span>
+          </div>
+        </div>
+        <!---->
 
         <div class="header-middle-home">
 
