@@ -11,17 +11,29 @@ $(document).ready(function() {
     var firstname = $('#firstname').val();
     var lastname = $('#lastname').val();
     var jobTitle = $('#jobTitle').val();
-    var email = $('#email').val();
+    var username = $('#email').val();
     var password = $('#password').val();
     var confirmPassword = $('#confirmPassword').val();
-    var formData = {
-      firstname: firstname,
-      lastname: lastname,
-      jobTitle: jobTitle,
-      email: email,
-      password: password
-    };
 
+    // Validate the input
+    if (firstname == '' || lastname == '' || password == '' || jobTitle == '' || username == '' || password == '' || confirmPassword == '') {
+      errorMessage('All fields are required');
+      return;
+    }
+
+    // Validate email format
+    if (!validateEmail(username)) {
+      errorMessage('Invalid e-mail address');
+      return;
+    }
+
+    // Validate if password was confirmed properly
+    if (password != confirmPassword) {
+      errorMessage('Password was not confirmed properly');
+      return;
+    }
+
+    var jsonData = `{\"firstName\":\"${firstname}\", \"lastName\":\"${lastname}\", \"jobTitle\":\"${jobTitle}\", \"username\": \"${username}\", \"password\": \"${password}\"}`;
     $.ajax({
       "async": true,
       "crossDomain": true,
@@ -32,27 +44,26 @@ $(document).ready(function() {
         "Authorization": localStorage.basicAuthInfo,
         "Cache-Control": "no-cache"
       },
+      "processData": false,
+      "contentType": false,
       "mimeType": "multipart/form-data",
-      "body": formData,
+      "data": jsonData,
 
       success: function(response) {
         console.log('success', response);
-        alert('User was created succesfully');
-        // TODO redirect to sign-in
-        // navigate('sign-in.html');
+        sucessMessage('Your account was created succesfully');
+        navigate('sign-in.html');
       },
 
       error: function(req, status, error) {
         console.log('error', req, status, error);
-        var userInfo = jQuery.parseJSON(req.responseText);
-        alert(userInfo.message);
+        errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
       },
 
       fail: function() {
         console.log('fail');
-        alert('fail');
       }
     });
-  });
 
+  });
 });
