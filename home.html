@@ -12,12 +12,11 @@
 
     <!-- javascript -->
     <script src="script/app.js"></script>
-    <script src="script/favorites.js"></script>
+    <script src="script/home.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/icomoon/style.css">
-    <link rel="stylesheet" href="/css/master.css">
 
 
     <!-- custom css (only for this page) -->
@@ -26,6 +25,10 @@
       .wrapper-index {
         margin-top: 6.9rem;
         margin-bottom: 7rem;
+      }
+
+      .wrapper-index-search {
+        margin-top: 9.9rem !important;
       }
 
       /* HEADER */
@@ -62,7 +65,7 @@
       /* SEARCH BAR */
 
       .searchBar {
-        display: none;
+        /* display: none; */
       }
 
       .group-view-search {
@@ -212,19 +215,36 @@
         font-weight: 300;
       }
 
+      /* BOX WITH LETTERS INSTEAD OF IMAGE */
+      .initials_container {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-weight: 400;
+        font-size: 1.2rem;
+        border: 1px solid rgb(225, 225, 225);;
+        color: rgb(50, 50, 50);
+        background-color: rgb(240,240,240);
+      }
+
       main .feedback-list .feedback-box .feedback-keep {
         border: 1px solid #E10B90;
         color: rgb(25, 25, 25);
         font-size: 1.05rem;
       }
 
-      main .feedback-list .feedback-box .feedback-improve {
+      main .feedback-list .feedback-box .feedback-REVISE {
         border: 1px solid #3969D8;
         color: rgb(25, 25, 25);
         font-size: 0.85rem;
       }
 
-      main .feedback-list .feedback-box .feedback-keep-improve {
+      main .feedback-list .feedback-box .feedback-keep-REVISE {
         border: 1px solid #595959;
         color: rgb(25, 25, 25);
         font-size: 0.8rem;
@@ -259,7 +279,7 @@
 
   </head>
   <body>
-    <div data-role="page" class="wrapper-index">
+    <div data-role="page" class="wrapper-index wrapper-index-search">
       <header>
         <div class="header-top-home">
           <h1>Feedbacks</h1>
@@ -312,8 +332,8 @@
           </div>
 
           <div class="feedback-box">
-            <div class="feedback-type feedback-improve">
-              <span class="improve">IMPROVE</span>
+            <div class="feedback-type feedback-REVISE">
+              <span class="REVISE">REVISE</span>
             </div>
             <img src="images/jean.png" alt="feedback owner image">
             <div class="feedback-owner">
@@ -326,8 +346,8 @@
           </div>
 
           <div class="feedback-box">
-            <div class="feedback-type feedback-keep-improve">
-              <span class="keep-improve">KEEP & IMPROVE</span>
+            <div class="feedback-type feedback-keep-REVISE">
+              <span class="keep-REVISE">KEEP & REVISE</span>
             </div>
             <img src="images/harminder.png" alt="feedback owner image">
             <div class="feedback-owner">
@@ -352,6 +372,33 @@
             <span class="favorite-icon"></span>
             <span class="repply-icon"></span>
           </div>
+
+
+          <div class="feedback-box">
+            <div class="feedback-type feedback-keep-REVISE">
+              <span class="keep-REVISE">KEEP & REVISE</span>
+            </div>
+
+
+
+            <div class="initials_container">
+             <span class="initials_text">JH</span>
+           </div>
+
+
+            <div class="feedback-owner">
+              <h3>Harminder Mosby</h3>
+              <span class="title-company">Marketing Manager @Pepsi Co.</span>
+              <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
+            </div>
+            <span class="favorite-icon selected"></span>
+            <span class="repply-icon selected"></span>
+          </div>
+
+
+
+
+
         </div>
       </main>
 
@@ -365,7 +412,7 @@
 
           <nav class="footer-icons">
             <ul>
-              <li><a class="home-icon" href="home.html"></a></li>
+              <li><a class="home-icon footerSelected" href="home.html"></a></li>
               <li><a class="groups-icon" href="group-list.html"></a></li>
               <li><a class="favorites-icon-footer" href="favorites.html"></a></li>
               <li><a class="settings-icon" href="profile.html"></a></li>
@@ -374,7 +421,7 @@
 
           <nav class="footer-icons-subtitle">
             <ul>
-              <li class="home-label"><a href="home.html">Home</a></li>
+              <li class="home-label"><a class="footerSelected" href="home.html">Home</a></li>
               <li class="groups-label"><a href="group-list.html">Groups</a></li>
               <li class="feedback-label"><a href="feedback-new.html">Feedback</a></li>
               <li class="favorites-label"><a href="favorites.html">Favorites</a></li>

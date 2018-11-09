@@ -115,5 +115,8 @@ footer .footer-icons-subtitle ul li a {
   font-size: 0.6rem;
 }
 
+.footerSelected {
+  color: #E10B90 !important;
+}
 
 /* FOOTER STYLES - END ---------------------------- */
