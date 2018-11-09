@@ -112,17 +112,32 @@ var getAllFeedback = () => {
 
 
       $.each(response.data, function(key, user) {
+        let tag_class = '';
+        switch (user.tag) {
+          case 'KEEP':
+            tag_class = 'feedback-keep';
+            break;
+          case 'IMPROVE':
+            tag_class = 'feedback-improve';
+            break;
+          case 'KEEP & IMPROVE':
+            tag_class = 'feedback-keep-improve';
+            break;
+          default:
+            tag_class = 'feedback-keep';
+        }
+
         let html = `
           <div class="feedback-box">
-            <div class="feedback-type feedback-keep">
-              <span class="keep">KEEP</span>
+            <div class="feedback-type ${tag_class}">
+              <span class="keep">${user.tag}</span>
             </div>
             <div class="initials_container">
               <span class="initials_text">${user.user_from_initials}</span>
             </div>
             <div class="feedback-owner">
               <h3>${user.user_from_name}</h3>
-              <span class="title-company">Account Manager @Langara College</span>
+              <span class="title-company">${user.user_from_job_title}</span>
               <span class="feedback-time">${user.date}</span>
             </div>
             <span class="favorite-icon"></span>
