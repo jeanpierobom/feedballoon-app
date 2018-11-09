@@ -1,12 +1,12 @@
 var debugActivated = true;
 var debug = (message) => {
   if (debugActivated) {
-    console.log(message);
+    console.log(`[DEBUG] ${message}`);
   }
 }
 
 var errorMessage = (message) => {
-  alert('[ERROR]: ' + message);
+  alert('[ERROR] ' + message);
 }
 
 var sucessMessage = (message) => {
@@ -117,11 +117,11 @@ var getAllFeedback = () => {
           case 'KEEP':
             tag_class = 'feedback-keep';
             break;
-          case 'IMPROVE':
-            tag_class = 'feedback-improve';
+          case 'REVISE':
+            tag_class = 'feedback-REVISE';
             break;
-          case 'KEEP & IMPROVE':
-            tag_class = 'feedback-keep-improve';
+          case 'KEEP & REVISE':
+            tag_class = 'feedback-keep-REVISE';
             break;
           default:
             tag_class = 'feedback-keep';
@@ -165,6 +165,55 @@ var getAllFeedback = () => {
 
     fail: function() {
       console.log('fail');
+    }
+  });
+}
+
+// This function retrieves all groups
+var getAllGroups = () => {
+  debug('getAllGroups');
+  $.ajax({
+    "async": true,
+    "crossDomain": true,
+    "dataType": "json",
+    "url": "http://localhost/feedballoon-api/api/groups/",
+    "method": "GET",
+    "headers": {
+      "Authorization": localStorage.basicAuthInfo,
+      "Cache-Control": "no-cache"
+    },
+
+    success: function(response) {
+      debug('success', response);
+
+      $.each(response.data, function(key, group) {
+
+        let html = `
+          <div class="group-box">
+            <div class="group-type group-keep">
+              <span class="name">${group.name_initials}</span>
+            </div>
+            <div class="group-name">
+              <h3>${group.name}</h3>
+              <span class="member">${group.members_count} Members</span>
+              <span class="request">*** Pending</span>
+            </div>
+          </div>
+        `;
+        $('.group-list').append(html);
+      });
+
+      // Update the list with the information retrieved
+    },
+
+    error: function(req, status, error) {
+      debug('error', req, status, error);
+      var userInfo = jQuery.parseJSON(req.responseText);
+      errorMessage(userInfo.message);
+    },
+
+    fail: function() {
+      debug('fail');
     }
   });
 }
