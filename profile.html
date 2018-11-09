@@ -36,6 +36,10 @@
         left: 0;
       }
 
+      input:disabled {
+        background: transparent;
+      }
+
       /* HEADER TOP */
       .header-top-home {
         width: 100%;
@@ -224,8 +228,8 @@
         <div class="headerMiddle">
 
           <div class="headerMiddle-leftBox">
-            <input class="name" type="text" name="" value="John Mosby">
-            <input class="email "type="email" name="" value="john.mosby@example.com">
+            <input class="name" type="text" name="name" placeholder="John Mosby" disabled>
+            <input class="email" type="email" name="email" value="john.mosby@example.com" disabled>
           </div>
 
           <div class="headerMiddle-rightBox">
@@ -243,13 +247,13 @@
         <form class="" action="index.html" method="post">
 
           <div class="jobTitle box">
-            <input type="text" class="inputBox" name="jobTitle" placeholder="John Mosby">
-            <label class="labelBox" for="Job Title">Job Title</label>
+            <input type="text" class="inputBox" name="jobTitle" placeholder="John Mosby" disabled>
+            <label class="labelBox" for="JobTitle">Job Title</label>
             <button type="button" class="editButton" id="jobTitle-Edit" name="jobTitle-Edit">Edit</button>
           </div>
 
           <div class="company box">
-            <input type="text" class="inputBox" name="company" placeholder="Langara College">
+            <input type="text" class="inputBox" name="company" placeholder="Langara College" disabled>
             <label class="company-label labelBox" for="company">Company</label>
             <button type="button" class="editButton" id="company-Edit" name="company-Edit">Edit</button>
           </div>
@@ -257,19 +261,19 @@
           <div class="location box">
             <input type="text" class="inputBox" name="locationCountry" placeholder="Canada" disabled>
             <label class="location-Country labelBox" for="location">Country</label>
-            <input type="text" class="inputBox" name="locationState" placeholder="British Columbia">
+            <input type="text" class="inputBox" name="locationState" placeholder="British Columbia" disabled>
             <label class="labelBox" for="company">State</label>
             <button type="button" class="editButton" id="location-Edit" name="locationEdit">Edit</button>
           </div>
 
           <div class="newPassword box">
-            <input type="text" class="inputBox" name="newPassword" placeholder="New Password">
+            <input type="text" class="inputBox" name="newPassword" placeholder="New Password" disabled>
             <label class="labelBox" for="newPassword">Change Password</label>
             <button type="button" class="editButton" id="newPassword" name="newPassword">Edit</button>
           </div>
 
           <div class="confirmNewPassword box">
-            <input type="text" class="inputBox" name="confirmNewPassword" placeholder="Confirm New Password">
+            <input type="text" class="inputBox" name="confirmNewPassword" placeholder="Confirm New Password" disabled>
             <label class="labelBox" for="confirmNewPassword">Change Password</label>
             <button type="button" class="saveButton" id="confirmNewPassword-Save" name="confirmNewPassword">Save</button>
           </div>
