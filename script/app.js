@@ -26,7 +26,7 @@ var navigate = (page) => {
 }
 
 // This function clears user info from the localStorage
-var clearUserInfo = (user) => {
+var clearUserInfo = () => {
   storeUserInfo('', '');
 }
 
@@ -76,6 +76,12 @@ var login = (basicAuthInfo, silent) => {
       clearUserInfo();
     }
   });
+}
+
+// This function is used to remove the user authentication info
+var logout = () => {
+  clearUserInfo();
+  navigate('sign-in.html');
 }
 
 // This function retrieves all feedback
