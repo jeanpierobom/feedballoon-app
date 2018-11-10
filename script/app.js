@@ -1,12 +1,12 @@
 var debugActivated = true;
 var debug = (message) => {
   if (debugActivated) {
-    console.log(message);
+    console.log(`[DEBUG] ${message}`);
   }
 }
 
 var errorMessage = (message) => {
-  alert('[ERROR]: ' + message);
+  alert('[ERROR] ' + message);
 }
 
 var sucessMessage = (message) => {
@@ -26,7 +26,7 @@ var navigate = (page) => {
 }
 
 // This function clears user info from the localStorage
-var clearUserInfo = (user) => {
+var clearUserInfo = () => {
   storeUserInfo('', '');
 }
 
@@ -78,10 +78,15 @@ var login = (basicAuthInfo, silent) => {
   });
 }
 
+// This function is used to remove the user authentication info
+var logout = () => {
+  clearUserInfo();
+  navigate('sign-in.html');
+}
+
 // This function retrieves all feedback
-var getAllFeedback = () => {
-  console.log('getAllFeedback');
-  console.log('localStorage.basicAuthInfo: ' + localStorage.basicAuthInfo);
+var getAllFeedback = (userId) => {
+  debug('getAllFeedback');
   $.ajax({
     "async": true,
     "crossDomain": true,
@@ -94,77 +99,108 @@ var getAllFeedback = () => {
     },
 
     success: function(response) {
-      console.log('success', response);
+      debug('success', response);
 
-      // <div class="feedback-box">
-      //   <div class="feedback-type feedback-keep">
-      //     <span class="keep">KEEP</span>
-      //   </div>
-      //   <img src="images/joao.png" alt="feedback owner image">
-      //   <div class="feedback-owner">
-      //     <h3>John Mosby</h3>
-      //     <span class="title-company">Account Manager @Langara College</span>
-      //     <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
-      //   </div>
-      //   <span class="favorite-icon"></span>
-      //   <span class="repply-icon"></span>
-      // </div>
-
-
-      $.each(response.data, function(key, user) {
+      $.each(response.data, function(key, feedback) {
         let tag_class = '';
-        switch (user.tag) {
+        switch (feedback.tag) {
           case 'KEEP':
             tag_class = 'feedback-keep';
             break;
-          case 'IMPROVE':
-            tag_class = 'feedback-improve';
+          case 'REVISE':
+            tag_class = 'feedback-REVISE';
             break;
-          case 'KEEP & IMPROVE':
-            tag_class = 'feedback-keep-improve';
+          case 'KEEP & REVISE':
+            tag_class = 'feedback-keep-REVISE';
             break;
           default:
             tag_class = 'feedback-keep';
         }
 
         let html = `
-          <div class="feedback-box">
+          <div class="feedback-box feedback-type-${feedback.type}">
             <div class="feedback-type ${tag_class}">
-              <span class="keep">${user.tag}</span>
+              <span class="keep">${feedback.tag}</span>
             </div>
             <div class="initials_container">
-              <span class="initials_text">${user.user_from_initials}</span>
+              <span class="initials_text">${feedback.user_from_initials}</span>
             </div>
             <div class="feedback-owner">
-              <h3>${user.user_from_name}</h3>
-              <span class="title-company">${user.user_from_job_title}</span>
-              <span class="feedback-time">${user.date}</span>
+              <h3>${feedback.user_from_name}</h3>
+              <span class="title-company">${feedback.user_from_job_title}</span>
+              <span class="feedback-time">${feedback.date}</span>
             </div>
             <span class="favorite-icon"></span>
             <span class="repply-icon"></span>
           </div>
         `;
-        $('.feedback-list').append(html);
-          // $('#myTable > tbody').append(
-          //     '<tr><td>'
-          //     + user.userName
-          //     + '</td><td>'
-          //     + user.count +
-          //     '</td></tr>'
-          // );
-      });
 
-      // Update the list with the information retrieved
+        // Update the list with the information retrieved
+        $('.feedback-list').append(html);
+
+        // Show received feedback as default
+        $('.feedback-type-sent').hide();
+        $('.feedback-type-received').show();
+
+      });
     },
 
     error: function(req, status, error) {
-      console.log('error', req, status, error);
+      debug('error', req, status, error);
       var userInfo = jQuery.parseJSON(req.responseText);
-      alert(userInfo.message);
+      showErrorMessage(userInfo.message);
     },
 
     fail: function() {
-      console.log('fail');
+      debug('fail');
+    }
+  });
+}
+
+// This function retrieves all groups
+var getAllGroups = () => {
+  debug('getAllGroups');
+  $.ajax({
+    "async": true,
+    "crossDomain": true,
+    "dataType": "json",
+    "url": "http://localhost/feedballoon-api/api/groups/",
+    "method": "GET",
+    "headers": {
+      "Authorization": localStorage.basicAuthInfo,
+      "Cache-Control": "no-cache"
+    },
+
+    success: function(response) {
+      debug('success', response);
+
+      $.each(response.data, function(key, group) {
+        // Update the list with the information retrieved
+        let html = `
+          <div class="group-box">
+            <div class="group-type group-keep">
+              <span class="name">${group.name_initials}</span>
+            </div>
+            <div class="group-name">
+              <h3>${group.name}</h3>
+              <span class="member">${group.members_count} Members</span>
+              <span class="request">*** Pending</span>
+            </div>
+          </div>
+        `;
+        $('.group-list').append(html);
+      });
+
+    },
+
+    error: function(req, status, error) {
+      debug('error', req, status, error);
+      var userInfo = jQuery.parseJSON(req.responseText);
+      errorMessage(userInfo.message);
+    },
+
+    fail: function() {
+      debug('fail');
     }
   });
 }
@@ -192,26 +228,13 @@ var setupFooterMenuActions = () => {
     navigate('favorites.html');
   });
 
-  // $('.settings-icon:before').css('content', "\e907");
-  // alert($('.settings-icon:before').css('content') );
-  //
-  //
-  // $('.settings-icon').css('color', 'red !important');
-  // $('.settings-icon').parent().css('color', 'blue !important');
-  //
-  // $('.settings-icon:before').on('click', () => {
-  //   alert('click');
-  // })
-
-  $('#link').on('click', () => { alert('test'); })
-
   // Profile button
   $('#settings-link').on('click', () => {
     alert('clicked');
   })
 
 
-  $('.profile-label, a').on('click', () => {
+  $('.profile-label a').on('click', () => {
     navigate('profile.html');
   });
 }
@@ -224,18 +247,3 @@ function validateEmail(sEmail) {
     return false;
   }
 }
-// $(document).delegate(".launch-page", "pagebeforecreate", function() {
-//   setupIndex();
-// });
-//
-// $(document).delegate(".wrapper-index", "pagecreate", function() {
-//   setupHome();
-// });
-//
-// $(document).delegate(".sign-up-page", "pagebeforecreate", function() {
-//   setupSignUp();
-// });
-//
-// $(document).delegate(".wrapper-feedbackWritePage", "pagebeforecreate", function() {
-//   setupFeedbackNew();
-// });

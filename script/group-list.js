@@ -3,4 +3,7 @@ $(document).ready(function() {
 
   debug('group-list.js');
 
+  getAllGroups();
+
+  setupFooterMenuActions();
 });
