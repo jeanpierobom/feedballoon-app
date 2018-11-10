@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon, .email-icon, .close-icon, .icon-user-plus {
+[class^="icon-"], [class*=" icon-"], .home-icon, .groups-icon, .favorites-icon-footer, .settings-icon, .favorite-icon, .repply-icon, .filter, .circle-left, .search-icon, .filter-icon, .email-icon, .close-icon, .icon-user-plus, .searchIcon-Bar, .searchClose {
 
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -51,6 +51,10 @@ content: "\e907";
 content: "\e90b";
 }
 
+.searchClose:before {
+content: "\e90b";
+}
+
 /*---------------------------------------------*/
 
 /* HEADER - HOME */
@@ -58,6 +62,10 @@ content: "\e90b";
 /* SEARCH */
 .search-icon:before {
 content: "\e909";
+}
+
+.searchIcon-Bar:before {
+  content: "\e909";
 }
 
 /* SORTED BY ICON */

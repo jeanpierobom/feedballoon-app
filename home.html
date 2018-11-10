@@ -53,13 +53,22 @@
 
       }
 
-      header .header-top-home a {
+      header .header-top-home .search-icon {
         align-self: center;
         text-align: right;
         padding-right: 0.5rem;
         color: white;
         font-size: 1.5rem;
         opacity: 0.5;
+      }
+
+      .searchClose {
+        align-self: center;
+        text-align: right;
+        padding-right: 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+        opacity: 0.6;
       }
 
       /* SEARCH BAR */
@@ -102,7 +111,7 @@
         margin-right: 0.5rem;
       }
 
-      .search-icon-box .search-icon {
+      .search-icon-box .searchIcon-Bar {
         align-self: center;
         padding: 0 0.75rem;
         color: white;
@@ -136,7 +145,7 @@
       }
 
       header .header-middle-home nav ul li {
-        background-color: white;
+        /* background-color: white; */
         padding-bottom: 0.2rem;
 
       }
@@ -166,6 +175,10 @@
         font-size: 0.7rem;
         color: rgb(100,100,100);
         text-align: right;
+      }
+
+      .homeSorted {
+
       }
 
       header .filter-icon .filter-subtitle {
@@ -290,7 +303,7 @@
         <div class="searchBar">
           <div class="group-view-search">
             <input class="group-search-field" type="text" name="group-subject" placeholder="Search">
-            <span class="search-icon-box"><a class="search-icon" href="#search"></a></span>
+            <span class="search-icon-box"><a class="searchIcon-Bar" href="#search"></a></span>
           </div>
         </div>
         <!---->
@@ -300,11 +313,11 @@
           <nav>
             <ul>
               <li class="feedback-sent "><a  href="#">SENT</a></li>
-              <li class="feedback-received selected"><a  class= "selected" href="#">RECEIVED</a></li>
+              <li class="feedback-received selected"><a  class= "" href="#">RECEIVED</a></li>
             </ul>
           </nav>
 
-          <a href="#filter">
+          <a class="homeSorted" href="#filter">
             <span class="filter-subtitle">SORTED BY</span>
             <span class="filter-icon filter"></span>
           </a>
