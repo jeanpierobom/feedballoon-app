@@ -7,6 +7,12 @@ $(document).ready(function() {
 
   setupFooterMenuActions();
 
+  $('.search-icon').on('click', () => {
+    $('.header-top-home a').toggleClass('search-icon');
+    $('.header-top-home a').toggleClass('searchClose');
+    $('.searchBar').toggle();
+  });
+
   // Sent button
   $('.feedback-sent a').on('click', () => {
 
