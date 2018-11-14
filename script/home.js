@@ -11,6 +11,7 @@ $(document).ready(function() {
     $('.header-top-home a').toggleClass('search-icon');
     $('.header-top-home a').toggleClass('searchClose');
     $('.searchBar').toggle();
+    $('.wrapper-index').toggleClass('wrapper-index-search');
   });
 
   // Sent button
