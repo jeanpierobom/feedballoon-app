@@ -177,17 +177,21 @@ var getAllGroups = () => {
       $.each(response.data, function(key, group) {
         // Update the list with the information retrieved
         let html = `
-          <div class="group-box">
+          <div class="group-box" onclick="goToGroupDetails(${group.id})">
             <div class="group-type group-keep">
               <span class="name">${group.name_initials}</span>
             </div>
             <div class="group-name">
               <h3>${group.name}</h3>
-              <span class="member">${group.members_count} Members</span>
-              <span class="request">*** Pending</span>
+              <span class="member">${group.members_count} Members</span>`;
+        if (group.current_member > 0) {
+          html += `<span class="status">Joined</span>`;
+        }
+        html += `
             </div>
           </div>
         `;
+
         $('.group-list').append(html);
       });
 
@@ -203,6 +207,11 @@ var getAllGroups = () => {
       debug('fail');
     }
   });
+}
+
+var goToGroupDetails = (id) => {
+  debug('goToGroupDetails');
+  navigate(`group-view.html?id=${id}`);
 }
 
 // This function attaches functionality to each button in the footer menu
@@ -246,4 +255,14 @@ function validateEmail(sEmail) {
   } else {
     return false;
   }
+}
+
+function urlParam(name){
+    var results = new RegExp('[\?&]' + name + '=([^]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
 }
