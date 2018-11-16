@@ -16,6 +16,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="icons/icomoon/style.css">
 
 
@@ -212,9 +213,9 @@
         height: 110px;
       }
 
-      main .feedback-list:last-child {
+      /* main .feedback-list:last-child {
         border-bottom: 1px solid rgb(240,240,240);
-      }
+      } */
 
       main .feedback-list .feedback-box .feedback-type {
         width: 70px;
@@ -286,7 +287,36 @@
       main .repply-icon {
         text-align: right;
       }
+
+    /* EMPTY STATE */
+
+    .emptyState {
+      display: grid;
+      text-align: center;
+      padding-top: 2rem;
+    }
+    .emptyState img {
+      width: 50%;
+    }
+
+    .emptyState .emptyState-title {
+      font-weight: 400;
+      font-size: 2rem;
+      color: rgb(150,150,150);
+      padding-top: 1rem;
+    }
+
+    .emptyState .emptyState-subtitle {
+      font-weight: 300;
+      font-size: 1rem;
+      color: rgb(120,120,120);
+      padding-top: 0.5rem;
+    }
+
+
     /* HOME PAGE - END ---------------------------- */
+
+
 
     </style>
 
@@ -330,7 +360,13 @@
 
         <div class="feedback-list">
 
-        
+          <div class="emptyState">
+            <div class="bounce-in-top ">
+                <img src="icons/empty-state/empty-home4.svg" alt="">
+                <span class="emptyState-title" >No feedbacks Yet!</span>
+                <span class="emptyState-subtitle">Once you have feedbacks, you'll see them here.</span>
+            </div>
+          </div>
 
           <!-- <div class="feedback-box">
             <div class="feedback-type feedback-keep">
