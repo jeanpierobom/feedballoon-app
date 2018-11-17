@@ -14,7 +14,6 @@ var getGroupInfo = (id) => {
 
     success: function(response) {
       debug('success', response);
-      debug('data: '  + response.data);
 
       // Update the initials of the group
       $('.group-id').text(response.data.name_initials);
@@ -24,6 +23,56 @@ var getGroupInfo = (id) => {
 
       // Update the number of members in the group
       $('.group-view-members').text(`${response.data.members_count} members`);
+
+    },
+
+    error: function(req, status, error) {
+      debug('error', req, status, error);
+      var userInfo = jQuery.parseJSON(req.responseText);
+      showErrorMessage(userInfo.message);
+    },
+
+    fail: function() {
+      debug('fail');
+    }
+  });
+}
+
+// This function retrieves all group members
+var getGroupMembers = (id) => {
+  debug('getGroupInfo');
+  $.ajax({
+    "async": true,
+    "crossDomain": true,
+    "dataType": "json",
+    "url": "http://localhost/feedballoon-api/api/groups_members/" + id,
+    "method": "GET",
+    "headers": {
+      "Authorization": localStorage.basicAuthInfo,
+      "Cache-Control": "no-cache"
+    },
+
+    success: function(response) {
+      debug('success', response);
+
+      $.each(response.data, function(key, user) {
+
+        let html = `
+          <div class="group-members-list">
+            <img src="images/jean.png" alt="member-image">
+            <div class="initials_container">
+              <span class="initials_text">${user.name_initials}</span>
+            </div>
+            <h3>${user.name}</h3>
+            <span class="group-members-jobTitle">${user.job_title}</span>
+            <button class="group-members-feedbackBbutton" type="button" name="button" onclick="goToFeedbackNew(${user.id})">Feedback</button>
+          </div>
+        `;
+
+        // Update the list with the information retrieved
+        $('main').append(html);
+
+      });
 
     },
 
@@ -72,6 +121,7 @@ var joinGroup = (groupId) => {
    success: function(response) {
      console.log('success', response);
      sucessMessage('You joined the group succesfully');
+     navigate(`group-view.html?id=${groupId}`);
    },
 
    error: function(req, status, error) {
@@ -89,6 +139,8 @@ var joinGroup = (groupId) => {
 var leaveGroup = (groupId) => {
   debug('leaveGroup');
 
+  debug('joinGroup');
+
   // Retrieve all information from user input
   var userId = localStorage.userId;
   console.log(groupId, userId);
@@ -99,13 +151,13 @@ var leaveGroup = (groupId) => {
    return;
   }
 
-  var jsonData = `{\"groupId\":\"${groupId}\", \"userId\":\"${userId}\"}`;
+  var jsonData = `{\"groupId\":\"${groupId}\", \"userId\":\"${userId}\", \"action\":\"leave\"}`;
   $.ajax({
    "async": true,
    "crossDomain": true,
    "dataType": "json",
    "url": "http://localhost/feedballoon-api/api/groups_members/",
-   "method": "DELETE",
+   "method": "POST",
    "headers": {
      "Authorization": localStorage.basicAuthInfo,
      "Cache-Control": "no-cache"
@@ -118,7 +170,6 @@ var leaveGroup = (groupId) => {
    success: function(response) {
      console.log('success', response);
      sucessMessage('You left the group succesfully');
-     navigate('group-list.html');
    },
 
    error: function(req, status, error) {
@@ -142,6 +193,7 @@ $(document).ready(function() {
   }
 
   getGroupInfo(id);
+  getGroupMembers(id);
 
   $('.button-join').on('click', () => {
     joinGroup(id);
