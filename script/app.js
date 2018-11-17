@@ -224,7 +224,7 @@ var setupFooterMenuActions = () => {
 
   // Home button
   $('.home-label, .home-icon').on('click', () => {
-    navigateToHome();
+    navigate('home.html');
   });
 
   // Groups button
