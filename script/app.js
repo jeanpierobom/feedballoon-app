@@ -209,6 +209,11 @@ var getAllGroups = () => {
   });
 }
 
+var goToFeedbackNew = (userToId) => {
+  debug('goToFeedbackNew');
+  navigate(`feedback-new.html?userToId=${userToId}`);
+}
+
 var goToGroupDetails = (id) => {
   debug('goToGroupDetails');
   navigate(`group-view.html?id=${id}`);
