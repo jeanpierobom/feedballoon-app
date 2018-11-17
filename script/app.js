@@ -101,6 +101,7 @@ var getAllFeedback = (userId) => {
     success: function(response) {
       debug('success', response);
 
+      let hasData = false;
       $.each(response.data, function(key, feedback) {
         let tag_class = '';
         switch (feedback.tag) {
@@ -122,9 +123,9 @@ var getAllFeedback = (userId) => {
             <div class="feedback-type ${tag_class}">
               <span class="keep">${feedback.tag}</span>
             </div>
-            <div class="initials_container">
+            <!--<div class="initials_container">
               <span class="initials_text">${feedback.user_from_initials}</span>
-            </div>
+            </div>-->
             <div class="feedback-owner">
               <h3>${feedback.user_from_name}</h3>
               <span class="title-company">${feedback.user_from_job_title}</span>
@@ -137,6 +138,8 @@ var getAllFeedback = (userId) => {
 
         // Update the list with the information retrieved
         $('.feedback-list').append(html);
+        hasData = true;
+
       });
 
       // Show received feedback as default
@@ -144,7 +147,9 @@ var getAllFeedback = (userId) => {
       $('.feedback-type-received').show();
 
       // Hide the empty state
-      $('.emptyState').hide();
+      if (hasData) {
+        $('.emptyState').hide();
+      }
     },
 
     error: function(req, status, error) {
@@ -176,6 +181,7 @@ var getAllGroups = () => {
     success: function(response) {
       debug('success', response);
 
+      let hasData = false;
       $.each(response.data, function(key, group) {
         // Update the list with the information retrieved
         let html = `
@@ -195,7 +201,12 @@ var getAllGroups = () => {
         `;
 
         $('.group-list').append(html);
+        hasData = true;
       });
+
+      if (hasData) {
+        $('.emptyState').hide();
+      }
 
     },
 
