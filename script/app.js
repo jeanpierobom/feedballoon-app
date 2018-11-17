@@ -137,12 +137,14 @@ var getAllFeedback = (userId) => {
 
         // Update the list with the information retrieved
         $('.feedback-list').append(html);
-
-        // Show received feedback as default
-        $('.feedback-type-sent').hide();
-        $('.feedback-type-received').show();
-
       });
+
+      // Show received feedback as default
+      $('.feedback-type-sent').hide();
+      $('.feedback-type-received').show();
+
+      // Hide the empty state
+      $('.emptyState').hide();
     },
 
     error: function(req, status, error) {
