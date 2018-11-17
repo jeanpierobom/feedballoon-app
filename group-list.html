@@ -23,6 +23,7 @@
 
     .wrapper-group-list {
       margin-bottom: 7rem;
+      margin-top: 6.55rem;
     }
 
       /* HEADER - START */
@@ -115,7 +116,7 @@
 
       main .group-list .group-box {
         display: grid;
-        grid-template-columns: 90px 1fr;
+        grid-template-columns: 90px 1fr 0.5fr;
 
         border-left: 0.5rem solid transparent;
         border-right: 0.4rem solid transparent;
@@ -161,7 +162,35 @@
         padding-top: 15px;
       }
 
+      /* JOIN AND EXIT GROUP BUTTONS */
+      .hide {
+        display: none;
+      }
 
+      .groupJoinExit {
+        text-align: right;
+        align-items: center;
+      }
+
+      .groupJoinExit button {
+        border: none;
+        background-color: rgb(245,245,245);
+        font-weight: 300;
+        font-size: 0.6rem;
+        padding: 0.5rem;
+        border-radius: 100%;
+        height: 50px;
+        width: 50px;
+
+      }
+
+      .groupJoinExit .joinBtn {
+        color: #498610;
+      }
+
+      .groupJoinExit .exitBtn {
+        color: #cf0404;
+      }
       /* EMPTY STATE */
 
       .emptyState {
@@ -219,20 +248,16 @@
         <main>
           <div class="group-list">
 
-            <div class="emptyState">
+            <!-- <div class="emptyState">
               <div class="bounce-in-top ">
                   <img src="icons/empty-state/empty-groups1.svg" alt="">
                   <span class="emptyState-title" >No Groups Yet!</span>
                   <span class="emptyState-subtitle">Once you join or create your own group, you'll see it here.
-
-
-
                   </span>
               </div>
-            </div>
+            </div> -->
 
-            <!-- <div class="group-box">
-
+            <div class="group-box">
               <div class="group-type group-keep">
                 <span class="name">LC</span>
               </div>
@@ -242,7 +267,11 @@
                 <span class="status">Joined</span>
               </div>
 
-            </div> -->
+              <div class="groupJoinExit">
+                <button class="exitBtn hide" type="button" name="button">Exit Group</button>
+                <button class="joinBtn" type="button" name="button">Join Group</button>
+              </div>
+            </div> 
 
             <!-- <div class="group-box">
               <div class="group-type group-keep">
