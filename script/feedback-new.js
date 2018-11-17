@@ -3,6 +3,58 @@ $(document).ready(function() {
 
   console.log('feedback-new.js');
 
+  let userToId = urlParam('userToId');
+  debug(userToId);
+
+  function log( message ) {
+    $( "<div>" ).text( message ).prependTo( "#log" );
+    $( "#log" ).scrollTop( 0 );
+  }
+
+  $( "#email" ).autocomplete({
+    source: function( request, response ) {
+      $.ajax({
+        //url: "http://gd.geobytes.com/AutoCompleteCity",
+        url: "http://localhost/feedballoon-api/api/users/search/",
+        dataType: "jsonp",
+        data: {
+          q: request.term
+        },
+        "headers": {
+          "Authorization": localStorage.basicAuthInfo,
+          "Cache-Control": "no-cache"
+        },
+        success: function( data ) {
+          response( data );
+          //alert('sucess data: ' + data);
+        },
+        error: function(req, status, error) {
+          console.log('error', req, status, error);
+          errorMessage('1 An error occured: ' + JSON.parse(req.responseText));
+          alert(error);
+        },
+
+        fail: function() {
+          console.log('fail');
+        }
+      });
+    },
+    minLength: 3,
+    select: function( event, ui ) {
+      log( ui.item ?
+        "Selected: " + ui.item.label + " id: " + ui.item.id:
+        "Nothing selected, input was " + this.value);
+    },
+    open: function() {
+      $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+    },
+    close: function() {
+      $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+    }
+  });
+
+
+
   // Tag buttons
   $('.keepBtn').on('click', () => { selectTag('KEEP'); });
   $('.reviseBtn').on('click', () => { selectTag('REVISE'); });
