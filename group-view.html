@@ -144,7 +144,7 @@
       }
 
       main .group-members-list {
-        height: 170px;
+        height: 160px;
         width: 100%;
         box-shadow: 0 0 10px 0 rgba(200,200,200,0.9);
         text-align: center;
@@ -170,10 +170,57 @@
         width: 100px;
         margin: .5rem 0;
         align-items: center;
+        justify-self: center;
+      }
+
+      /* ADMIN PANEL */
+
+      /* HIDE AND DISPLAY */
+      .hide {
+        display: none !important;
 
       }
 
+      .admin {
+        height: 180px !important;
+      }
 
+      /* ----------------------------- */
+      .adminPanel button {
+        border: none;
+        background-color: white;
+        font-weight: 400;
+        padding: 0.3rem;
+        margin-top: 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      .adminPanel .acceptBtn {
+        color: #498610;
+        border: 1px solid #498610;
+
+      }
+
+      .adminPanel .declineBtn {
+        color: #cf0404;
+        border: 1px solid #cf0404;
+      }
+
+      .stageJoined-admin {
+        display: grid;
+        grid-template-rows: 1fr;
+        text-align: center;
+        align-items: center;
+      }
+
+      .removeUser {
+        width: 60px;
+        border: none;
+        background-color: white;
+        color: red;
+        font-weight: 500;
+        justify-self: center;
+      }
 
     </style>
 
@@ -216,15 +263,26 @@
 
         <main>
 
-          <!-- <div class="group-members-list">
+          <div class="group-members-list admin">
             <img src="images/jean.png" alt="member-image">
             <h3>Joao Caldas</h3>
             <span class="group-members-jobTitle">Account Manager</span>
-            <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
-          </div> -->
 
+            <div class="adminPanel-Joined">
+              <div class="stageJoined-admin">
+                <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
+                <button class="removeUser" type="button" name="button">REMOVE</button>
+              </div>
+            </div>
 
+            <div class="adminPanel">
+              <div class="stageInvite">
+                <button class="acceptBtn" type="button" name="button">ACCEPT</button>
+                <button class="declineBtn" type="button" name="button">DECLINE</button>
+              </div>
+            </div>
 
+          </div>
 
 
         </main>

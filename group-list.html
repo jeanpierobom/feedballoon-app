@@ -15,6 +15,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="icons/icomoon/style.css">
 
     <!-- custom css (only for this page) -->
@@ -161,7 +162,30 @@
       }
 
 
+      /* EMPTY STATE */
 
+      .emptyState {
+        display: grid;
+        text-align: center;
+        padding-top: 9rem;
+      }
+      .emptyState img {
+        width: 50%;
+      }
+
+      .emptyState .emptyState-title {
+        font-weight: 600;
+        font-size: 2rem;
+        color: rgb(150,150,150);
+        padding-top: 1rem;
+      }
+
+      .emptyState .emptyState-subtitle {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(120,120,120);
+        padding-top: 0.5rem;
+      }
 
 
     </style>
@@ -194,6 +218,18 @@
 
         <main>
           <div class="group-list">
+
+            <div class="emptyState">
+              <div class="bounce-in-top ">
+                  <img src="icons/empty-state/empty-groups1.svg" alt="">
+                  <span class="emptyState-title" >No Groups Yet!</span>
+                  <span class="emptyState-subtitle">Once you join or create your own group, you'll see it here.
+
+
+
+                  </span>
+              </div>
+            </div>
 
             <!-- <div class="group-box">
 
