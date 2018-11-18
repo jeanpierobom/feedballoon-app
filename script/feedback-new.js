@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 
   // Tag buttons
-  $('.keepBtn').on('click', () => { selectTag('KEEP'); });
+  $('.keepBtn').on('click', () => { selectTag('AWESOME'); });
   $('.reviseBtn').on('click', () => { selectTag('REVISE'); });
   $('.keep-revise-Btn').on('click', () => { selectTag('KEEP & REVISE'); });
 
