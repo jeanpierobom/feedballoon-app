@@ -214,7 +214,10 @@
 
     }
 
-
+    #toUserId {
+      border: none;
+      background-color: none;
+    }
     /* FEEDBACK BOTTOM - ENDS HERE */
 
 
@@ -242,7 +245,9 @@
           <div class="feedbackWritePage-To">
             <label class="feedbackWrite-title" for="">To:</label>
 
-            <div class="feedbackWritePage-Border grid"><input type="email" id="email" name="email" placeholder="Insert Email">
+            <div class="feedbackWritePage-Border grid">
+              <input type="text" id="email" name="email" placeholder="Insert Email">
+              <!-- <input type="text" name="toUserId" id="toUserId" value=""> -->
               <span class="icon-user-plus"></span>
             </div>
           </div>
@@ -257,7 +262,7 @@
 
 
 
-              <input type="hidden" name="tagSelected" id="tagSelected" value="KEEP">
+              <input type="hidden" name="tagSelected" id="tagSelected" value="AWESOME">
             </div>
           </div>
 
@@ -268,6 +273,8 @@
 
             <button class="feedbackWrite-feedbackBbutton" type="submit" id="submit" name="submit">Send</button>
           </div>
+
+          <input type="text" name="toUserId" id="toUserId" value="">
 
         </form> <!-- feedbackView-container - END HERE-->
 
