@@ -5,7 +5,7 @@ var getFeedbackInfo = (id) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/feedback/" + id,
+    "url": endpoint + "feedback/" + id,
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,

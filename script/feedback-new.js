@@ -15,7 +15,8 @@ $(document).ready(function() {
     source: function( request, response ) {
       $.ajax({
         //url: "http://gd.geobytes.com/AutoCompleteCity",
-        url: "http://localhost/feedballoon-api/api/users/search/",
+        //"url": endpoint + "groups_members/",
+        url: endpoint + "users/search/",
         dataType: "jsonp",
         data: {
           q: request.term
@@ -44,8 +45,6 @@ $(document).ready(function() {
       $('#toUserId').val(ui.item.id);
     }
   });
-
-
 
   // Tag buttons
   $('.keepBtn').on('click', () => { selectTag('AWESOME'); });
@@ -78,7 +77,7 @@ $(document).ready(function() {
       "async": true,
       "crossDomain": true,
       "dataType": "json",
-      "url": "http://localhost/feedballoon-api/api/feedback/",
+      "url": endpoint + "feedback/",
       "method": "POST",
       "headers": {
         "Authorization": localStorage.basicAuthInfo,

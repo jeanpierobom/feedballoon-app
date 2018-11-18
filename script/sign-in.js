@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Retrieve username and password from user input
     var username = $('#email').val();
     var password = $('#password').val();
-    
+
     // Validate the input
     if (username == '' || password == '') {
       alert('Username and password required');

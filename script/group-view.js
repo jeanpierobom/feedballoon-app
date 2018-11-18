@@ -5,7 +5,7 @@ var getGroupMembers = (id, admin) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/groups_members/" + id,
+    "url": endpoint + "groups_members/" + id,
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,
@@ -96,7 +96,7 @@ var getGroupInfo = (id) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/groups/" + id,
+    "url": endpoint + "groups/" + id,
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,

@@ -38,7 +38,7 @@ $(document).ready(function() {
       "async": true,
       "crossDomain": true,
       "dataType": "json",
-      "url": "http://localhost/feedballoon-api/api/users/",
+      "url": endpoint + "users/",
       "method": "POST",
       "headers": {
         "Authorization": localStorage.basicAuthInfo,

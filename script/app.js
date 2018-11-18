@@ -1,3 +1,9 @@
+var production = 'http://18.209.101.158';
+var desenv = 'http://localhost';
+
+var endpoint = desenv + '/feedballoon-api/api/';
+//var endpoint = production + '/feedballoon-api/api/';
+
 var debugActivated = true;
 var debug = (message) => {
   if (debugActivated) {
@@ -46,12 +52,15 @@ var login = (basicAuthInfo, silent) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/users/login",
+    "url": endpoint + "users/login",
     "method": "POST",
     "headers": {
       "Authorization": basicAuthInfo,
       "Cache-Control": "no-cache"
     },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
 
     success: function(response) {
       console.log('success', response);
@@ -91,7 +100,7 @@ var getAllFeedback = (userId) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/feedback/",
+    "url": endpoint + "feedback/",
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,
@@ -173,7 +182,7 @@ var getAllGroups = () => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/groups/",
+    "url": endpoint + "groups/",
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,
@@ -266,7 +275,7 @@ var joinGroup = (groupId) => {
    "async": true,
    "crossDomain": true,
    "dataType": "json",
-   "url": "http://localhost/feedballoon-api/api/groups_members/",
+   "url": endpoint + "groups_members/",
    "method": "POST",
    "headers": {
      "Authorization": localStorage.basicAuthInfo,
@@ -315,7 +324,7 @@ var leaveGroup = (groupId) => {
    "async": true,
    "crossDomain": true,
    "dataType": "json",
-   "url": "http://localhost/feedballoon-api/api/groups_members/",
+   "url": endpoint + "groups_members/",
    "method": "POST",
    "headers": {
      "Authorization": localStorage.basicAuthInfo,
