@@ -24,6 +24,15 @@ $(document).ready(function() {
     //Boxes
     $('.feedback-type-sent').show();
     $('.feedback-type-received').hide();
+
+    //Control the empty state
+    let count = $('.feedback-type-sent').length;
+    if (count > 0) {
+      $('.emptyState').hide();
+    } else {
+      $('.emptyState').show();
+    }
+
     return false;
   })
 
@@ -37,6 +46,18 @@ $(document).ready(function() {
     //Boxes
     $('.feedback-type-sent').hide();
     $('.feedback-type-received').show();
+
+    // Refresh all feedback
+    getAllFeedback(localStorage.userId);
+
+    //Control the empty state
+    let count = $('.feedback-type-received').length;
+    if (count > 0) {
+      $('.emptyState').hide();
+    } else {
+      $('.emptyState').show();
+    }
+
     return false;
   })
 });

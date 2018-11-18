@@ -38,7 +38,7 @@ var getFeedbackInfo = (id) => {
     error: function(req, status, error) {
       debug('error', req, status, error);
       var userInfo = jQuery.parseJSON(req.responseText);
-      showErrorMessage(userInfo.message);
+      errorMessage(userInfo.message);
     },
 
     fail: function() {
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
   let id = urlParam('id');
   if (id == null || id == undefined || id == 0) {
-    showErrorMessage('Invalid parameters');
+    errorMessage('Invalid parameters');
   }
 
   getFeedbackInfo(id);

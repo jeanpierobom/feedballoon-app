@@ -111,6 +111,7 @@ var getAllFeedback = (userId) => {
       debug('success', response);
 
       let hasData = false;
+      $('.feedback-box').remove();
       $.each(response.data, function(key, feedback) {
         let tag_class = '';
         switch (feedback.tag) {
