@@ -38,7 +38,7 @@ $(document).ready(function() {
       success: function(response) {
         console.log('success', response);
         sucessMessage('Your group was created succesfully');
-        navigate('home.html');
+        navigate('group-list.html');
       },
 
       error: function(req, status, error) {

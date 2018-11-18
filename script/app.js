@@ -101,14 +101,18 @@ var getAllFeedback = (userId) => {
     success: function(response) {
       debug('success', response);
 
+      let hasData = false;
       $.each(response.data, function(key, feedback) {
         let tag_class = '';
         switch (feedback.tag) {
+          case 'AWESOME':
+            tag_class = 'feedback-keep';
+            break;
           case 'KEEP':
             tag_class = 'feedback-keep';
             break;
           case 'REVISE':
-            tag_class = 'feedback-REVISE';
+            tag_class = 'feedback-REVISE feedback-revise';
             break;
           case 'KEEP & REVISE':
             tag_class = 'feedback-keep-REVISE';
@@ -118,13 +122,13 @@ var getAllFeedback = (userId) => {
         }
 
         let html = `
-          <div class="feedback-box feedback-type-${feedback.type}">
+          <div class="feedback-box feedback-type-${feedback.type}" onclick="goToFeedbackDetails(${feedback.id})">
             <div class="feedback-type ${tag_class}">
               <span class="keep">${feedback.tag}</span>
             </div>
-            <div class="initials_container">
+            <!--<div class="initials_container">
               <span class="initials_text">${feedback.user_from_initials}</span>
-            </div>
+            </div>-->
             <div class="feedback-owner">
               <h3>${feedback.user_from_name}</h3>
               <span class="title-company">${feedback.user_from_job_title}</span>
@@ -137,18 +141,23 @@ var getAllFeedback = (userId) => {
 
         // Update the list with the information retrieved
         $('.feedback-list').append(html);
-
-        // Show received feedback as default
-        $('.feedback-type-sent').hide();
-        $('.feedback-type-received').show();
-
+        hasData = true;
       });
+
+      // Show received feedback as default
+      $('.feedback-type-sent').hide();
+      $('.feedback-type-received').show();
+
+      // Hide the empty state
+      if (hasData) {
+        $('.emptyState').hide();
+      }
     },
 
     error: function(req, status, error) {
       debug('error', req, status, error);
       var userInfo = jQuery.parseJSON(req.responseText);
-      showErrorMessage(userInfo.message);
+      errorMessage(userInfo.message);
     },
 
     fail: function() {
@@ -174,6 +183,7 @@ var getAllGroups = () => {
     success: function(response) {
       debug('success', response);
 
+      let hasData = false;
       $.each(response.data, function(key, group) {
         // Update the list with the information retrieved
         let html = `
@@ -187,13 +197,26 @@ var getAllGroups = () => {
         if (group.current_member > 0) {
           html += `<span class="status">Joined</span>`;
         }
+
+        let hideExit = group.current_member > 0 ? '' : 'hide';
+        let hideJoin = group.current_member > 0 ? 'hide' : '';
+
         html += `
+            </div>
+            <div class="groupJoinExit">
+              <button class="exitBtn ${hideExit}" type="button" name="button" onclick="leaveGroup(${group.id})">Exit Group</button>
+              <button class="joinBtn ${hideJoin}" type="button" name="button" onclick="joinGroup(${group.id})">Join Group</button>
             </div>
           </div>
         `;
 
         $('.group-list').append(html);
+        hasData = true;
       });
+
+      if (hasData) {
+        $('.emptyState').hide();
+      }
 
     },
 
@@ -209,6 +232,11 @@ var getAllGroups = () => {
   });
 }
 
+var goToFeedbackDetails = (id) => {
+  debug('goToFeedbackDetails');
+  navigate(`feedback-view.html?id=${id}`);
+}
+
 var goToFeedbackNew = (userToId) => {
   debug('goToFeedbackNew');
   navigate(`feedback-new.html?userToId=${userToId}`);
@@ -219,12 +247,107 @@ var goToGroupDetails = (id) => {
   navigate(`group-view.html?id=${id}`);
 }
 
+// This function joins the current user into a group
+var joinGroup = (groupId) => {
+  debug('joinGroup');
+
+  // Retrieve all information from user input
+  var userId = localStorage.userId;
+  console.log(groupId, userId);
+
+  // Validate the input
+  if (groupId == '' || userId == '') {
+   errorMessage('No group or user were selected');
+   return;
+  }
+
+  var jsonData = `{\"groupId\":\"${groupId}\", \"userId\":\"${userId}\"}`;
+  $.ajax({
+   "async": true,
+   "crossDomain": true,
+   "dataType": "json",
+   "url": "http://localhost/feedballoon-api/api/groups_members/",
+   "method": "POST",
+   "headers": {
+     "Authorization": localStorage.basicAuthInfo,
+     "Cache-Control": "no-cache"
+   },
+   "processData": false,
+   "contentType": false,
+   "mimeType": "multipart/form-data",
+   "data": jsonData,
+
+   success: function(response) {
+     console.log('success', response);
+     sucessMessage('You joined the group succesfully');
+     navigate(`group-view.html?id=${groupId}`);
+   },
+
+   error: function(req, status, error) {
+     console.log('error', req, status, error);
+     errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
+   },
+
+   fail: function() {
+     console.log('fail');
+   }
+  });
+}
+
+// This function removes the current user from a group
+var leaveGroup = (groupId) => {
+  debug('leaveGroup');
+
+  debug('joinGroup');
+
+  // Retrieve all information from user input
+  var userId = localStorage.userId;
+  console.log(groupId, userId);
+
+  // Validate the input
+  if (groupId == '' || userId == '') {
+   errorMessage('No group or user were selected');
+   return;
+  }
+
+  var jsonData = `{\"groupId\":\"${groupId}\", \"userId\":\"${userId}\", \"action\":\"leave\"}`;
+  $.ajax({
+   "async": true,
+   "crossDomain": true,
+   "dataType": "json",
+   "url": "http://localhost/feedballoon-api/api/groups_members/",
+   "method": "POST",
+   "headers": {
+     "Authorization": localStorage.basicAuthInfo,
+     "Cache-Control": "no-cache"
+   },
+   "processData": false,
+   "contentType": false,
+   "mimeType": "multipart/form-data",
+   "data": jsonData,
+
+   success: function(response) {
+     console.log('success', response);
+     sucessMessage('You left the group succesfully');
+   },
+
+   error: function(req, status, error) {
+     console.log('error', req, status, error);
+     errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
+   },
+
+   fail: function() {
+     console.log('fail');
+   }
+  });
+}
+
 // This function attaches functionality to each button in the footer menu
 var setupFooterMenuActions = () => {
 
   // Home button
   $('.home-label, .home-icon').on('click', () => {
-    navigateToHome();
+    navigate('home.html');
   });
 
   // Groups button

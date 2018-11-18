@@ -41,22 +41,14 @@ $(document).ready(function() {
     },
     minLength: 3,
     select: function( event, ui ) {
-      log( ui.item ?
-        "Selected: " + ui.item.label + " id: " + ui.item.id:
-        "Nothing selected, input was " + this.value);
-    },
-    open: function() {
-      $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-    },
-    close: function() {
-      $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      $('#toUserId').val(ui.item.id);
     }
   });
 
 
 
   // Tag buttons
-  $('.keepBtn').on('click', () => { selectTag('KEEP'); });
+  $('.keepBtn').on('click', () => { selectTag('AWESOME'); });
   $('.reviseBtn').on('click', () => { selectTag('REVISE'); });
   $('.keep-revise-Btn').on('click', () => { selectTag('KEEP & REVISE'); });
 
