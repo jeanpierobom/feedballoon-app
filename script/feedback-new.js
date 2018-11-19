@@ -60,8 +60,8 @@ $(document).ready(function() {
     event.preventDefault();
 
     // Retrieve all information from user input
-    var fromUserId = '1';
-    var toUserId = '5';
+    var fromUserId = localStorage.userId;
+    var toUserId = $('#toUserId').val();
     var tag = $('#tagSelected').val();
     var message = $('.feedbackView-feedback').val();
     console.log(fromUserId, toUserId, tag, message);
