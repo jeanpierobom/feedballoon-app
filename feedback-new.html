@@ -188,7 +188,8 @@
 
     textarea {
       display: block;
-      border: none;
+      border-radius: 0;
+      border: 0;
       max-width: 100%;
       max-height: 100%;
       font-weight: 300;
@@ -199,7 +200,8 @@
     }
 
     .feedbackWrite-feedbackBbutton {
-      border: none;
+      border-radius: 0;
+      border: 0;
       background-image: linear-gradient(to left, #E10B90, #FFAC1B);
       color: white;
       font-size: 1.2rem !important;
@@ -273,7 +275,7 @@
             <button class="feedbackWrite-feedbackBbutton" type="submit" id="submit" name="submit">Send</button>
           </div>
 
-          <input type="text" name="toUserId" id="toUserId" value="">
+          <input type="hidden" name="toUserId" id="toUserId" value="">
 
         </form> <!-- feedbackView-container - END HERE-->
 

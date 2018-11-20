@@ -150,10 +150,11 @@
         text-align: center;
       }
 
-      main .group-members-list img {
-        height: 70px;
-        margin-top: 0.5rem;
+      .feedbackView-top {
+        display: grid;
+        text-align: center;
       }
+
       main .group-members-list .group-members-jobTitle {
         color: rgb(100, 100, 100);
         font-size: 0.7rem;
@@ -222,6 +223,25 @@
         justify-self: center;
       }
 
+      /* INITIALS */
+      .initials_container {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-weight: 400;
+        font-size: 1.8rem;
+        border: 1px solid rgb(150, 150, 150);
+        color: rgb(50, 50, 50);
+        justify-self: center;
+      }
+
     </style>
 
   </head>
@@ -263,8 +283,13 @@
 
         <main>
 
-          <!-- <div class="group-members-list admin">
-            <img src="images/jean.png" alt="member-image">
+          <div class="group-members-list admin">
+            <div class="feedbackView-top">
+
+            <div class="initials_container">
+              <span class="initials_text">TE</span>
+            </div>
+
             <h3>Joao Caldas</h3>
             <span class="group-members-jobTitle">Account Manager</span>
 
@@ -281,7 +306,7 @@
                 <button class="declineBtn" type="button" name="button">DECLINE</button>
               </div>
             </div>
-          </div> -->
+          </div>
 
 
         </main>

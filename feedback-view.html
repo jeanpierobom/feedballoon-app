@@ -126,7 +126,7 @@
       /* FEEDBACK MIDDLE - START HERE */
       .feedbackView-middle {
         display: grid;
-        grid-template-columns: 1fr 30px 30px 30px;
+        grid-template-columns: 1fr 30px 30px;
         background-color: rgb(240, 240, 240);
         margin: 1rem 0;
         height: 50px;
@@ -166,6 +166,21 @@
       }
       /* FEEDBACK BOTTOM - ENDS HERE */
 
+      /* INITIALS */
+      .initials_container {
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-weight: 400;
+        font-size: 1.8rem;
+        border: 1px solid #E10B90;
+        color: rgb(50, 50, 50);
+      }
 
 
 
@@ -191,7 +206,10 @@
             <div class="feedbackView-container">
 
               <div class="feedbackView-top">
-                <img src="images/jean.png" alt="feedback owner image">
+                <div class="initials_container">
+                  <span class="initials_text">TE</span>
+                </div>
+
 
                 <div class="feedbackView-owner">
                   <h3>Jacob Mars</h3>
@@ -204,7 +222,6 @@
               <div class="feedbackView-middle">
                 <h3>Keep</h3>
                 <span class="repply-icon"></span>
-                <span class="email-icon"></span>
                 <span class="favorite-icon"></span>
               </div>
 

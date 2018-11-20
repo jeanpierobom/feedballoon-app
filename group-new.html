@@ -56,9 +56,10 @@
         margin-top: 5rem;
         margin-bottom: 6.5rem;
         text-align: center;
+        display: grid;
       }
 
-      .group-icon {
+      /* .group-icon {
         display: block;
         width: 100%;
         text-align: center;
@@ -67,7 +68,7 @@
 
       .group-icon img {
         width: 40%;
-      }
+      } */
       .group-subject {
         border-top: none;
         border-left: none;
@@ -111,10 +112,29 @@
         font-weight: 300;
 
         border-radius: 100px;
-        height: 3rem;
+        height: 2rem;
         width: 40%;
         margin-top: 1rem;
         align-self: center;
+      }
+
+      /* INITIALS */
+      .initials_container {
+        justify-self: center;
+        margin-bottom: 1rem;
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-weight: 200;
+        font-size: 2.5rem;
+        border: 1px solid #E10B90;
+        color: rgb(50, 50, 50);
+        background-color: rgb(245, 245, 245);
       }
 
       </style>
@@ -134,11 +154,13 @@
         <main>
           <div class="group-new">
 
-            <a class="group-icon" href="#"> <img src="icons/group_icon.svg" alt=""> </a>
+            <div class="initials_container">
+              <span class="initials_text">TE</span>
+            </div>
 
             <form>
 
-              <input class="group-subject" id="groupNew-subject" type="text" name="group-subject" placeholder="Group Subject">
+              <input class="group-subject" id="groupNew-subject" type="text" name="group-subject" placeholder="Group Name">
 
               <textarea class="group-description" id="groupNew-description" name="name" rows="16" cols="80" placeholder="Description (optional)"></textarea>
 

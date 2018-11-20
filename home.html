@@ -8,10 +8,6 @@
 
     <!-- jquery mobile -->
     <script src="jquery-mobile/jquery-1.11.1.min.js"></script>
-    <!-- jquery ui -->
-    <script type="text/javascript" src="jquery-ui/jquery-ui-1.12.1.js"></script>
-    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
-
 
 
     <!-- javascript -->
@@ -128,8 +124,6 @@
 
       header .header-middle-home {
         display: grid;
-
-        grid-template-columns: 2fr 1fr;
         background-color: rgb(245, 245, 245);
 
         text-align: center;
@@ -139,7 +133,7 @@
       }
 
       header .header-middle-home nav {
-        grid-column: 1 / 2;
+        justify-self: center;
       }
 
       header .header-middle-home nav ul {
@@ -156,7 +150,8 @@
       }
 
       header .header-middle-home nav ul .feedback-sent {
-        border-radius: 7px 0 0 7px;
+        /* border-radius: 7px 0 0 7px; */
+        border-radius: 0;
         border-top: 1px solid rgb(175,175,175);
         border-bottom: 1px solid rgb(175,175,175);
         border-left: 1px solid rgb(175,175,175);
@@ -167,7 +162,7 @@
         border-top: 1px solid rgb(175,175,175);
         border-right: 1px solid rgb(175,175,175);
         border-bottom: 1px solid rgb(175,175,175);
-        border-radius: 0 7px 7px 0;
+        border-radius: 0;
       }
 
       header .header-middle-home .selected {
@@ -182,11 +177,7 @@
         text-align: right;
       }
 
-      header .filter-icon .filter-subtitle {
-        padding-right: 0.3rem;
-        color: rgb(100,100,100);
-        font-weight: 300;
-      }
+
 
 
       /* MAIN */
@@ -310,7 +301,7 @@
       font-weight: 300;
       font-size: 1rem;
       color: rgb(120,120,120);
-      padding-top: 0.5rem;
+      padding: 0.5rem;
     }
 
 
@@ -347,10 +338,10 @@
             </ul>
           </nav>
 
-          <a class="homeSorted" href="#filter">
+          <!-- <a class="homeSorted" href="#filter">
             <span class="filter-subtitle">SORTED BY</span>
             <span class="filter-icon filter"></span>
-          </a>
+          </a> -->
         </div>
 
       </header>
@@ -367,7 +358,9 @@
                 <span class="emptyState-subtitle">Once you have feedbacks, you'll see them here.</span>
             </div>
           </div>
-<!--
+
+
+          <!--
           <div class="feedback-box">
             <div class="feedback-type feedback-keep">
               <span class="keep">AWESOME</span>
