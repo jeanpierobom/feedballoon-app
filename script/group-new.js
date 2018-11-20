@@ -24,7 +24,7 @@ $(document).ready(function() {
       "async": true,
       "crossDomain": true,
       "dataType": "json",
-      "url": "http://localhost/feedballoon-api/api/groups/",
+      "url": endpoint + "groups/",
       "method": "POST",
       "headers": {
         "Authorization": localStorage.basicAuthInfo,

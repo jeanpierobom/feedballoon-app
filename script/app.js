@@ -1,3 +1,9 @@
+var production = 'http://18.209.101.158';
+var desenv = 'http://localhost';
+
+//var endpoint = desenv + '/feedballoon-api/api/';
+var endpoint = production + '/feedballoon-api/api/';
+
 var debugActivated = true;
 var debug = (message) => {
   if (debugActivated) {
@@ -46,12 +52,15 @@ var login = (basicAuthInfo, silent) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/users/login",
+    "url": endpoint + "users/login",
     "method": "POST",
     "headers": {
       "Authorization": basicAuthInfo,
       "Cache-Control": "no-cache"
     },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
 
     success: function(response) {
       console.log('success', response);
@@ -91,7 +100,7 @@ var getAllFeedback = (userId) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/feedback/",
+    "url": endpoint + "feedback/",
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,
@@ -102,6 +111,7 @@ var getAllFeedback = (userId) => {
       debug('success', response);
 
       let hasData = false;
+      $('.feedback-box').remove();
       $.each(response.data, function(key, feedback) {
         let tag_class = '';
         switch (feedback.tag) {
@@ -121,17 +131,27 @@ var getAllFeedback = (userId) => {
             tag_class = 'feedback-keep';
         }
 
+        let type = feedback.type;
+        let userInitials = feedback.user_from_initials;
+        let userName = feedback.user_from_name;
+        let userJobTitle = feedback.user_from_job_title;
+        if (type == 'sent') {
+          userInitials = feedback.user_to_initials;
+          userName = feedback.user_to_name;
+          userJobTitle = feedback.user_to_job_title;
+        }
+
         let html = `
           <div class="feedback-box feedback-type-${feedback.type}" onclick="goToFeedbackDetails(${feedback.id})">
             <div class="feedback-type ${tag_class}">
               <span class="keep">${feedback.tag}</span>
             </div>
             <!--<div class="initials_container">
-              <span class="initials_text">${feedback.user_from_initials}</span>
+              <span class="initials_text">${userInitials}</span>
             </div>-->
             <div class="feedback-owner">
-              <h3>${feedback.user_from_name}</h3>
-              <span class="title-company">${feedback.user_from_job_title}</span>
+              <h3>${userName}</h3>
+              <span class="title-company">${userJobTitle}</span>
               <span class="feedback-time">${feedback.date}</span>
             </div>
             <span class="favorite-icon"></span>
@@ -173,7 +193,7 @@ var getAllGroups = () => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/groups/",
+    "url": endpoint + "groups/",
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,
@@ -266,7 +286,7 @@ var joinGroup = (groupId) => {
    "async": true,
    "crossDomain": true,
    "dataType": "json",
-   "url": "http://localhost/feedballoon-api/api/groups_members/",
+   "url": endpoint + "groups_members/",
    "method": "POST",
    "headers": {
      "Authorization": localStorage.basicAuthInfo,
@@ -315,7 +335,7 @@ var leaveGroup = (groupId) => {
    "async": true,
    "crossDomain": true,
    "dataType": "json",
-   "url": "http://localhost/feedballoon-api/api/groups_members/",
+   "url": endpoint + "groups_members/",
    "method": "POST",
    "headers": {
      "Authorization": localStorage.basicAuthInfo,

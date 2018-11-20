@@ -5,7 +5,7 @@ var getUserInfo = (id) => {
     "async": true,
     "crossDomain": true,
     "dataType": "json",
-    "url": "http://localhost/feedballoon-api/api/users/" + id,
+    "url": endpoint + "users/" + id,
     "method": "GET",
     "headers": {
       "Authorization": localStorage.basicAuthInfo,
