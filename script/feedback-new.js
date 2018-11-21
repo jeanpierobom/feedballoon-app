@@ -4,7 +4,39 @@ $(document).ready(function() {
   console.log('feedback-new.js');
 
   let userToId = urlParam('userToId');
-  debug(userToId);
+  if (userToId) {
+    debug(userToId);
+    $('#toUserId').val(userToId);
+
+    // Get information about this user
+    debug('Get information about this user');
+    $.ajax({
+      "async": true,
+      "crossDomain": true,
+      "dataType": "json",
+      "url": endpoint + "users/" + userToId,
+      "method": "GET",
+      "headers": {
+        "Authorization": localStorage.basicAuthInfo,
+        "Cache-Control": "no-cache"
+      },
+
+      success: function(response) {
+        debug('success', response);
+        $('#email').val(response.data.name);
+      },
+
+      error: function(req, status, error) {
+        debug('error', req, status, error);
+        var userInfo = jQuery.parseJSON(req.responseText);
+        errorMessage(userInfo.message);
+      },
+
+      fail: function() {
+        debug('fail');
+      }
+    });
+  }
 
   function log( message ) {
     $( "<div>" ).text( message ).prependTo( "#log" );
