@@ -1,8 +1,8 @@
 var production = 'http://18.209.101.158';
 var desenv = 'http://localhost';
 
-//var endpoint = desenv + '/feedballoon-api/api/';
-var endpoint = production + '/feedballoon-api/api/';
+var endpoint = desenv + '/feedballoon-api/api/';
+//var endpoint = production + '/feedballoon-api/api/';
 
 var debugActivated = true;
 var debug = (message) => {
@@ -161,7 +161,9 @@ var getAllFeedback = (userId) => {
 
         // Update the list with the information retrieved
         $('.feedback-list').append(html);
-        hasData = true;
+        if (feedback.type == 'received') {
+          hasData = true;
+        }
       });
 
       // Show received feedback as default

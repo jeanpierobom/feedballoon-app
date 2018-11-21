@@ -51,7 +51,7 @@ $(document).ready(function() {
   $('.reviseBtn').on('click', () => { selectTag('REVISE'); });
   $('.keep-revise-Btn').on('click', () => { selectTag('KEEP & REVISE'); });
 
-  $('.wrapper-feedbackWritePage .close-icon').on('click', () => {
+  $('#closePage, .wrapper-feedbackWritePage .close-icon').on('click', () => {
     navigate('home.html');
   });
 
@@ -111,20 +111,17 @@ $(document).ready(function() {
 let selectTag = (tag) => {
   $('#tagSelected').val(tag);
   switch (tag) {
+    case 'AWESOME':
+      $('.keepBtn').addClass('selected');
+      $('.reviseBtn').removeClass('selected');
+      break;
     case 'KEEP':
       $('.keepBtn').addClass('selected');
       $('.reviseBtn').removeClass('selected');
-      $('.keep-revise-Btn').removeClass('selected');
       break;
     case 'REVISE':
       $('.keepBtn').removeClass('selected');
       $('.reviseBtn').addClass('selected');
-      $('.keep-revise-Btn').removeClass('selected');
-      break;
-    case 'KEEP & REVISE':
-      $('.keepBtn').removeClass('selected');
-      $('.reviseBtn').removeClass('selected');
-      $('.keep-revise-Btn').addClass('selected');
       break;
     default:
   }

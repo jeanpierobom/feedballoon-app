@@ -18,6 +18,9 @@ var getUserInfo = (id) => {
       // Update the user name
       $('.headerMiddle-leftBox .name').val(response.data.name);
 
+      // Update the user initials
+      $('.initials_text').text(response.data.name_initials);
+
       // Update the user email
       $('.headerMiddle-leftBox .email').val(response.data.username);
 
@@ -47,6 +50,7 @@ var getUserInfo = (id) => {
 $(document).ready(function() {
 
   debug('profile.js');
+  setupFooterMenuActions();
 
   let userId = localStorage.userId;
   getUserInfo(userId);

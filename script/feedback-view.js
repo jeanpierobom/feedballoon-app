@@ -15,11 +15,25 @@ var getFeedbackInfo = (id) => {
     success: function(response) {
       debug('success', response);
 
+      let feedback = response.data;
+      let type = feedback.type;
+      let userInitials = feedback.user_from_initials;
+      let userName = feedback.user_from_name;
+      let userJobTitle = feedback.user_from_job_title;
+      if (type == 'sent') {
+        userInitials = feedback.user_to_initials;
+        userName = feedback.user_to_name;
+        userJobTitle = feedback.user_to_job_title;
+      }
+
       // Update the name of the person
-      $('.feedbackView-owner h3').text(response.data.user_from_name);
+      $('.feedbackView-owner h3').text(userName);
+
+      // Update the user initials
+      $('.initials_text').text(userInitials);
 
       // Update the job title of the person
-      $('.feedbackView-owner .title-company').text(response.data.user_from_job_title);
+      $('.feedbackView-owner .title-company').text(userJobTitle);
 
       // Update the date of the feedback
       $('.feedbackView-owner .feedback-time').text(response.data.date);
@@ -59,7 +73,7 @@ $(document).ready(function() {
 
   getFeedbackInfo(id);
 
-  $('.wrapper-feedbackView .close-icon').on('click', () => {
+  $('#closePage, .wrapper-feedbackView .close-icon').on('click', () => {
     navigate('home.html');
   });
 

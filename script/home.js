@@ -14,6 +14,9 @@ $(document).ready(function() {
     $('.wrapper-index').toggleClass('wrapper-index-search');
   });
 
+  // Initialize empty states when the page load
+
+
   // Sent button
   $('.feedback-sent a').on('click', () => {
 

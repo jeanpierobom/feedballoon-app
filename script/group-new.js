@@ -3,6 +3,9 @@ $(document).ready(function() {
 
   debug('group-new.js');
 
+  // Hide the initials
+  $('.initials_container').hide();
+
   // Form submit
   $('.group-new-wrapper form').on('submit', (event) => {
     event.preventDefault();
