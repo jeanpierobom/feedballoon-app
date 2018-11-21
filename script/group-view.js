@@ -1,5 +1,5 @@
 // This function retrieves all group members
-var getGroupMembers = (id, admin) => {
+var getGroupMembers = (id, waiting, approved, admin) => {
   debug('getGroupInfo');
   $.ajax({
     "async": true,
@@ -15,60 +15,52 @@ var getGroupMembers = (id, admin) => {
     success: function(response) {
       debug('success', response);
 
+      // alert('logged user is waiting? ' + waiting);
+      // alert('logged user is approved? ' + approved);
+      // alert('logged user is admin? ' + admin);
+
       $.each(response.data, function(key, user) {
-
-        // let html = `
-        //   <div class="group-members-list">
-        //     <img src="images/jean.png" alt="member-image">
-        //     <div class="initials_container">
-        //       <span class="initials_text">${user.name_initials}</span>
-        //     </div>
-        //     <h3>${user.name}</h3>
-        //     <span class="group-members-jobTitle">${user.job_title}</span>
-        //     <button class="group-members-feedbackBbutton" type="button" name="button" onclick="goToFeedbackNew(${user.id})">Feedback</button>
-        //   </div>
-        // `;
-
         // Verify if the user is the same
-        let sameUser = localStorage.userId = user.id;
-
-        // Control the admin panel
-        let showAdminPanel = !sameUser && admin == 1;
-        let adminPanelHide = (showAdminPanel ? '' : 'hide');
-
-        // Control the remove button
-        let showRemoveButton = !sameUser;
-        let removeButtonHide = (showRemoveButton ? '' : 'hide');
-
-        let removeHide = (admin == '0' ? 'hide' : '');
+        let sameUser = localStorage.userId == user.id;
+        let approvedUser = user.approved > 0;
+        let adminUser = admin > 0;
+        let feedbackControl = (approvedUser && !sameUser ? '' : 'hide');
+        let removeControl = (adminUser && approvedUser && !sameUser ? '' : 'hide');
+        let approveDeclineControl = (adminUser && !approvedUser && !sameUser ? '' : 'hide');
+        //
+        // // Control the admin panel
+        // let showAdminPanel = !sameUser && admin == 1;
+        // let adminPanelHide = (showAdminPanel ? '' : 'hide');
+        //
+        // // Control the remove button
+        // let showRemoveButton = !sameUser;
+        // let removeButtonHide = (showRemoveButton ? '' : 'hide');
 
         let html = `
         <div class="group-members-list admin">
-          <!--<img src="images/jean.png" alt="member-image">-->
-          <div class="initials_container">
-          <span class="initials_text">${user.name_initials}</span>
-          </div>
-          <h3>${user.name}</h3>
-          <span class="group-members-jobTitle">${user.job_title}</span>
+          <div class="feedbackView-top">
+            <div class="initials_container">
+            <span class="initials_text">${user.name_initials}</span>
+            </div>
+            <h3>${user.name}</h3>
+            <span class="group-members-jobTitle">${user.job_title}</span>
 
-          <div class="adminPanel-Joined">
-            <div class="stageJoined-admin">
-              <button class="group-members-feedbackBbutton" type="button" name="button">Feedback</button>
-              <button class="removeUser ${removeButtonHide}" type="button" name="button">REMOVE</button>
+            <div class="adminPanel-Joined">
+              <div class="stageJoined-admin">
+                <button class="group-members-feedbackBbutton ${feedbackControl}" type="button" name="button" onclick="goToFeedbackNew(${user.id})">Feedback</button>
+                <button class="removeUser ${removeControl}" type="button" name="button" onclick="declineMember(${id}, ${user.id})">REMOVE</button>
+              </div>
+            </div>
+
+            <div class="adminPanel ${approveDeclineControl}">
+              <div class="stageInvite">
+                <button class="acceptBtn" type="button" name="button" onclick="acceptMember(${id}, ${user.id})">ACCEPT</button>
+                <button class="declineBtn" type="button" name="button" onclick="declineMember(${id}, ${user.id})">DECLINE</button>
+              </div>
             </div>
           </div>
-
-          <div class="adminPanel ${adminPanelHide}">
-            <div class="stageInvite">
-              <button class="acceptBtn" type="button" name="button">ACCEPT</button>
-              <button class="declineBtn" type="button" name="button">DECLINE</button>
-            </div>
-          </div>
-
         </div>
         `;
-
-
 
         // Update the list with the information retrieved
         $('main').append(html);
@@ -115,7 +107,10 @@ var getGroupInfo = (id) => {
       // Update the number of members in the group
       $('.group-view-members').text(`${response.data.members_count} members`);
 
-      getGroupMembers(response.data.id, response.data.logged_user_is_admin);
+      let waiting = response.data.current_member_waiting;
+      let approved = response.data.current_member_approved;
+      let admin = response.data.logged_user_is_admin;
+      getGroupMembers(response.data.id, waiting, approved, admin);
     },
 
     error: function(req, status, error) {
@@ -129,7 +124,6 @@ var getGroupInfo = (id) => {
     }
   });
 }
-
 
 // Events for the group-view page
 $(document).ready(function() {

@@ -45,8 +45,8 @@ $(document).ready(function() {
       },
 
       error: function(req, status, error) {
-        console.log('error', req, status, error);
-        errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
+        errorMessage('An error occured. ' + JSON.parse(req.responseText).message);
+        console.log('!error', req, status, error);
       },
 
       fail: function() {

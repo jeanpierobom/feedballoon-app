@@ -1,4 +1,4 @@
-var production = 'http://18.209.101.158';
+var production = 'http://www.feedballoon.com';
 var desenv = 'http://localhost';
 
 var endpoint = desenv + '/feedballoon-api/api/';
@@ -209,25 +209,27 @@ var getAllGroups = () => {
       $.each(response.data, function(key, group) {
         // Update the list with the information retrieved
         let html = `
-          <div class="group-box" onclick="goToGroupDetails(${group.id})">
-            <div class="group-type group-keep">
+          <div class="group-box">
+            <div class="group-type group-keep" onclick="goToGroupDetails(${group.id})">
               <span class="name">${group.name_initials}</span>
             </div>
-            <div class="group-name">
+            <div class="group-name" onclick="goToGroupDetails(${group.id})">
               <h3>${group.name}</h3>
               <span class="member">${group.members_count} Members</span>`;
         if (group.current_member > 0) {
           html += `<span class="status">Joined</span>`;
         }
 
-        let hideExit = group.current_member > 0 ? '' : 'hide';
-        let hideJoin = group.current_member > 0 ? 'hide' : '';
+        let hidePending = group.current_member_waiting > 0 ? '' : 'hide';
+        let hideExit = group.current_member_approved > 0 ? '' : 'hide';
+        let hideJoin = group.current_member_approved > 0 || group.current_member_waiting > 0 ? 'hide' : '';
 
         html += `
             </div>
             <div class="groupJoinExit">
               <button class="exitBtn ${hideExit}" type="button" name="button" onclick="leaveGroup(${group.id})">Exit Group</button>
               <button class="joinBtn ${hideJoin}" type="button" name="button" onclick="joinGroup(${group.id})">Join Group</button>
+              <button class="exitBtn ${hidePending}" type="button" name="button">Pending</button>
             </div>
           </div>
         `;
@@ -301,7 +303,7 @@ var joinGroup = (groupId) => {
 
    success: function(response) {
      console.log('success', response);
-     sucessMessage('You joined the group succesfully');
+     sucessMessage('You requested to join the group succesfully. Wait for the admin to approve your request.');
      navigate(`group-view.html?id=${groupId}`);
    },
 
@@ -320,7 +322,10 @@ var joinGroup = (groupId) => {
 var leaveGroup = (groupId) => {
   debug('leaveGroup');
 
-  debug('joinGroup');
+  // Confirmation
+  if (!confirm('Do you want to leave the group?')) {
+    return;
+  }
 
   // Retrieve all information from user input
   var userId = localStorage.userId;
@@ -351,6 +356,109 @@ var leaveGroup = (groupId) => {
    success: function(response) {
      console.log('success', response);
      sucessMessage('You left the group succesfully');
+     navigate('group-list.html');
+   },
+
+   error: function(req, status, error) {
+     console.log('error', req, status, error);
+     errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
+   },
+
+   fail: function() {
+     console.log('fail');
+   }
+  });
+}
+
+// This function accepts the current member into a group
+var acceptMember = (groupId, userId) => {
+  debug('acceptMember');
+
+  // Confirmation
+  if (!confirm('Do you want to accept the new user?')) {
+    return;
+  }
+
+  // Retrieve all information from user input
+  console.log(groupId, userId);
+
+  // Validate the input
+  if (groupId == '' || userId == '') {
+   errorMessage('No group or user were selected');
+   return;
+  }
+
+  var jsonData = `{\"groupId\":\"${groupId}\", \"userId\":\"${userId}\", \"action\":\"accept\"}`;
+  $.ajax({
+   "async": true,
+   "crossDomain": true,
+   "dataType": "json",
+   "url": endpoint + "groups_members/",
+   "method": "POST",
+   "headers": {
+     "Authorization": localStorage.basicAuthInfo,
+     "Cache-Control": "no-cache"
+   },
+   "processData": false,
+   "contentType": false,
+   "mimeType": "multipart/form-data",
+   "data": jsonData,
+
+   success: function(response) {
+     console.log('success', response);
+     sucessMessage('You approved the new member succesfully.');
+     navigate(`group-view.html?id=${groupId}`);
+   },
+
+   error: function(req, status, error) {
+     console.log('error', req, status, error);
+     errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
+   },
+
+   fail: function() {
+     console.log('fail');
+   }
+  });
+}
+
+// This function declines the current member into a group
+var declineMember = (groupId, userId) => {
+  debug('declineMember');
+
+  // Confirmation
+  if (!confirm('Do you want to reject the new user?')) {
+    return;
+  }
+
+  // Retrieve all information from user input
+  console.log(groupId, userId);
+
+  // Validate the input
+  if (groupId == '' || userId == '') {
+   errorMessage('No group or user were selected');
+   return;
+  }
+
+  var jsonData = `{\"groupId\":\"${groupId}\", \"userId\":\"${userId}\", \"action\":\"decline\"}`;
+  $.ajax({
+   "async": true,
+   "crossDomain": true,
+   "dataType": "json",
+   "url": endpoint + "groups_members/",
+   "method": "POST",
+   "headers": {
+     "Authorization": localStorage.basicAuthInfo,
+     "Cache-Control": "no-cache"
+   },
+   "processData": false,
+   "contentType": false,
+   "mimeType": "multipart/form-data",
+   "data": jsonData,
+
+   success: function(response) {
+     console.log('success', response);
+     sucessMessage('You rejected the new member succesfully.');
+     navigate(`group-view.html?id=${groupId}`);
    },
 
    error: function(req, status, error) {
