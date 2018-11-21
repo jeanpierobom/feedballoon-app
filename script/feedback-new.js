@@ -40,7 +40,7 @@ $(document).ready(function() {
         }
       });
     },
-    minLength: 3,
+    minLength: 1,
     select: function( event, ui ) {
       $('#toUserId').val(ui.item.id);
     }
