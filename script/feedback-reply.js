@@ -69,6 +69,7 @@ $(document).ready(function() {
   let id = urlParam('id');
   if (id == null || id == undefined || id == 0) {
     errorMessage('Invalid parameters');
+    navigate('home.html');
   }
 
   getFeedbackInfo(id);
@@ -76,5 +77,54 @@ $(document).ready(function() {
   $('#closePage, .wrapper-feedbackView .close-icon').on('click', () => {
     navigate('home.html');
   });
+
+  // Form submit
+  $('.wrapper-feedbackView form').on('submit', (event) => {
+    alert('submit');
+    event.preventDefault();
+
+    // Retrieve all information from user input
+    var message = $('.feedbackReply-feedback').val();
+    debug(message);
+
+    // Validate the input
+    if (name == '') {
+      errorMessage('Name is required');
+      return;
+    }
+
+    var jsonData = `{\"id\":  \"${id}\", \"message\":\"${message}\"}`;
+    $.ajax({
+      "async": true,
+      "crossDomain": true,
+      "dataType": "json",
+      "url": endpoint + "feedback_reply/",
+      "method": "POST",
+      "headers": {
+        "Authorization": localStorage.basicAuthInfo,
+        "Cache-Control": "no-cache"
+      },
+      "processData": false,
+      "contentType": false,
+      "mimeType": "multipart/form-data",
+      "data": jsonData,
+
+      success: function(response) {
+        console.log('success', response);
+        sucessMessage('Your reply was sent succesfully');
+        navigate('home.html');
+      },
+
+      error: function(req, status, error) {
+        errorMessage('An error occured. ' + JSON.parse(req.responseText).message);
+        console.log('!error', req, status, error);
+      },
+
+      fail: function() {
+        console.log('fail');
+      }
+    });
+  });
+
 
 });
