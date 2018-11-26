@@ -84,16 +84,17 @@ $(document).ready(function() {
     event.preventDefault();
 
     // Retrieve all information from user input
+    var userId = localStorage.userId;
     var message = $('.feedbackReply-feedback').val();
     debug(message);
 
     // Validate the input
-    if (name == '') {
-      errorMessage('Name is required');
+    if (message == '') {
+      errorMessage('Message is required');
       return;
     }
 
-    var jsonData = `{\"id\":  \"${id}\", \"message\":\"${message}\"}`;
+    var jsonData = `{\"feedbackId\":  \"${id}\", \"userId\":\"${userId}\", \"message\":\"${message}\"}`;
     $.ajax({
       "async": true,
       "crossDomain": true,
