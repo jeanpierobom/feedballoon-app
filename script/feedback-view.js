@@ -44,9 +44,21 @@ var getFeedbackInfo = (id) => {
       // Update the text of the feedback
       $('.feedbackView-feedback').text(response.data.message);
 
-      // Hide the photo for now
-      //$('.feedbackView-top img').hide();
-      // Append the initials_text
+      // Append the replies
+      if (feedback.replies && feedback.replies.length > 0) {
+        $.each(feedback.replies, function(key, reply) {
+          let replyHTML = `
+          <div>
+            <p>Date: ${reply.date}</p>
+            <p>${reply.message}</p>
+          </div>
+          `;
+
+          $('.replies').append(replyHTML);
+        });
+
+      }
+
     },
 
     error: function(req, status, error) {

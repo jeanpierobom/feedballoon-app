@@ -142,19 +142,19 @@ var getAllFeedback = (userId) => {
         }
 
         let html = `
-          <div class="feedback-box feedback-type-${feedback.type}" onclick="goToFeedbackDetails(${feedback.id})">
-            <div class="feedback-type ${tag_class}">
+          <div class="feedback-box feedback-type-${feedback.type}">
+            <div class="feedback-type ${tag_class}" onclick="goToFeedbackDetails(${feedback.id})">
               <span class="keep">${feedback.tag}</span>
             </div>
             <!--<div class="initials_container">
               <span class="initials_text">${userInitials}</span>
             </div>-->
-            <div class="feedback-owner">
+            <div class="feedback-owner" onclick="goToFeedbackDetails(${feedback.id})">
               <h3>${userName}</h3>
               <span class="title-company">${userJobTitle}</span>
               <span class="feedback-time">${feedback.date}</span>
             </div>
-            <span class="favorite-icon"></span>
+            <span class="favorite-icon selected${feedback.id}" onclick="addFavorite(${feedback.id})"></span>
             <span class="repply-icon"></span>
           </div>
         `;
@@ -174,6 +174,9 @@ var getAllFeedback = (userId) => {
       if (hasData) {
         $('.emptyState').hide();
       }
+
+      // Style favorite feedback
+      showFavorites();
     },
 
     error: function(req, status, error) {
@@ -523,4 +526,62 @@ function urlParam(name){
     else{
        return results[1] || 0;
     }
+}
+
+var addFavorite = (id) => {
+  debug('addFavorite');
+  // Get the favorite list from local storage
+  favoriteListAsJson = localStorage.favoriteList;
+
+  // Initialize the array
+  let favoriteList = [];
+  alert(favoriteListAsJson);
+
+  // Create a new favorite list if it doesn't exist
+  if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
+    favoriteList = JSON.parse(favoriteListAsJson);
+  }
+
+  // Add the new element
+  favoriteList.push(id);
+
+  // Store the favorite list again
+  favoriteListAsJson = JSON.stringify(favoriteList);
+  localStorage.favoriteList = favoriteListAsJson;
+}
+
+var removeFavorite = (id) => {
+  debug('removeFavorite');
+  favoriteList = localStorage.favoriteList;
+
+  // Stop if there is no list
+  if (favoriteList == null || favoriteList == undefined) {
+    return;
+  }
+
+  // Remove the element
+  var index = favoriteList.indexOf(id);
+  if (index > -1) {
+    favoriteList.splice(index, 1);
+  }
+}
+
+var showFavorites = () => {
+  debug('showFavorites');
+  // Get the favorite list from local storage
+  favoriteListAsJson = localStorage.favoriteList;
+
+  // Initialize the array
+  let favoriteList = [];
+  alert(favoriteListAsJson);
+
+  // Create a new favorite list if it doesn't exist
+  if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
+    favoriteList = JSON.parse(favoriteListAsJson);
+
+    $.each(favoriteList, function(key, id) {
+      alert(id)/
+      $(`.selected${id}`).addClass('selected');
+    });
+  }
 }
