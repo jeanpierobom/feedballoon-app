@@ -182,6 +182,51 @@
         color: rgb(50, 50, 50);
       }
 
+      /* FEEDBACK VIEW CONTAINER - REPLY */
+
+
+
+      .feedbackView-container {
+        background-color: rgb(245,245,245);
+        border-radius: 20px;
+        padding: 15px;
+        margin: 0 1rem 1rem 1rem;
+        border: 1px solid rgb(200,200,200);
+      }
+
+      .feedbackView-top {
+        display: grid;
+        grid-template-columns: 100px auto;
+        align-items: center;
+        border-bottom: 1px solid rgb(200,200,200);
+        padding-bottom: 1rem;
+      }
+
+      .title-company {
+        color: rgb(100, 100, 100);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .feedback-time {
+        color: rgb(100, 100, 100);
+        font-size: 0.6rem;
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .reply-text {
+        background-color: transparent;
+        border: none;
+        width: 92%;
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(90,90,90);
+        padding: 0.75rem;
+        resize: none;
+        height: 200px;
+        margin-top: 0.5rem;
+      }
 
 
     </style>
@@ -245,6 +290,9 @@
 
             </div> <!-- feedbackView-container - END HERE-->
           </div> <!-- feedbackView-border - END HERE-->
+
+          <div class="replies"></div>
+
         </main>
 
     </div>  <!-- END HERE -->
