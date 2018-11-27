@@ -120,3 +120,8 @@ footer .footer-icons-subtitle ul li a {
 }
 
 /* FOOTER STYLES - END ---------------------------- */
+
+
+.selected {
+  color: #E10B90 !important;
+}
