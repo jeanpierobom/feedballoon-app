@@ -80,7 +80,6 @@ $(document).ready(function() {
 
   // Form submit
   $('.wrapper-feedbackView form').on('submit', (event) => {
-    alert('submit');
     event.preventDefault();
 
     // Retrieve all information from user input

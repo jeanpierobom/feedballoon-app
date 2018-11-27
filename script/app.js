@@ -535,7 +535,6 @@ var addFavorite = (id) => {
 
   // Initialize the array
   let favoriteList = [];
-  alert(favoriteListAsJson);
 
   // Create a new favorite list if it doesn't exist
   if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
