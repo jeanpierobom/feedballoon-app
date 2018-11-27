@@ -204,7 +204,7 @@
         font-size: 1.35rem;
         font-weight: 300;
         color: rgb(50, 50, 50);
-        border-bottom: 1px solid rgb(240,240,240);
+        /* border-bottom: 1px solid rgb(240,240,240); */
         width: 100%;
         text-align: left;
         margin-top: 20px;
@@ -273,7 +273,7 @@
 
       <main>
 
-        <form class="" action="index.html" method="post">
+        <form>
 
           <div class="jobTitle box">
             <input type="text" class="inputBox" name="jobTitle" placeholder="" disabled>
@@ -303,6 +303,9 @@
           <div class="confirmNewPassword box">
             <input type="text" class="inputBox" name="confirmNewPassword" placeholder="Confirm New Password" disabled>
             <label class="labelBox" for="confirmNewPassword">Change Password</label>
+
+            <button type="submit" class="saveButton" id="confirmNewPassword-Save" name="confirmNewPassword">Save</button>
+          </div>
 
           </div>
 
