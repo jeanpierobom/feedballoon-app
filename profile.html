@@ -244,6 +244,18 @@
         <div class="headerMiddle">
 
           <div class="headerMiddle-leftBox">
+            <input class="name" type="text" name="name" placeholder="" disabled>
+            <input class="email" type="email" name="email" value="" disabled>
+          </div>
+
+          <div class="headerMiddle-rightBox">
+            <div class="initials_container">
+              <span class="initials_text"></span>
+            </div>
+          </div>
+
+          <!-- BACK-UP -->
+          <!-- <div class="headerMiddle-leftBox">
             <input class="name" type="text" name="name" placeholder="John Mosby" disabled>
             <input class="email" type="email" name="email" value="john.mosby@example.com" disabled>
           </div>
@@ -252,7 +264,7 @@
             <div class="initials_container">
               <span class="initials_text">TE</span>
             </div>
-          </div>
+          </div> -->
 
 
         </div>
@@ -264,6 +276,41 @@
         <form class="" action="index.html" method="post">
 
           <div class="jobTitle box">
+            <input type="text" class="inputBox" name="jobTitle" placeholder="" disabled>
+            <label class="labelBox" for="JobTitle">Job Title</label>
+            <button type="button" class="editButton" id="jobTitle-Edit" name="jobTitle-Edit">Edit</button>
+          </div>
+
+          <div class="company box">
+            <input type="text" class="inputBox" name="company" placeholder="" disabled>
+            <label class="company-label labelBox" for="company">Company</label>
+            <button type="button" class="editButton" id="company-Edit" name="company-Edit">Edit</button>
+          </div>
+
+          <div class="location box">
+            <input type="text" class="inputBox" name="locationCountry" placeholder="" disabled>
+            <label class="location-Country labelBox" for="location">Country</label>
+            <input type="text" class="inputBox" name="locationState" placeholder="" disabled>
+            <label class="labelBox" for="company">State</label>
+
+          </div>
+
+          <div class="newPassword box">
+            <input type="text" class="inputBox" name="newPassword" placeholder="New Password" disabled>
+            <label class="labelBox" for="newPassword">Change Password</label>
+
+          </div>
+
+          <div class="confirmNewPassword box">
+            <input type="text" class="inputBox" name="confirmNewPassword" placeholder="Confirm New Password" disabled>
+            <label class="labelBox" for="confirmNewPassword">Change Password</label>
+            
+          </div>
+
+
+
+          <!-- BACK-UP -->
+          <!-- <div class="jobTitle box">
             <input type="text" class="inputBox" name="jobTitle" placeholder="John Mosby" disabled>
             <label class="labelBox" for="JobTitle">Job Title</label>
             <button type="button" class="editButton" id="jobTitle-Edit" name="jobTitle-Edit">Edit</button>
@@ -293,7 +340,7 @@
             <input type="text" class="inputBox" name="confirmNewPassword" placeholder="Confirm New Password" disabled>
             <label class="labelBox" for="confirmNewPassword">Change Password</label>
             <button type="button" class="saveButton" id="confirmNewPassword-Save" name="confirmNewPassword">Save</button>
-          </div>
+          </div> -->
 
         </form>
 

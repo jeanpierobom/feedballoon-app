@@ -10,7 +10,7 @@
 
     <!-- javascript -->
     <script src="script/app.js"></script>
-    <script src="script/feedback-view.js"></script>
+    <script src="script/feedback-reply.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
@@ -194,6 +194,20 @@
             <div class="feedbackView-top">
 
               <div class="initials_container">
+                <span class="initials_text"></span>
+              </div>
+
+              <div class="feedbackView-owner">
+                <h3></h3>
+                <span class="title-company"></span>
+                <span class="feedback-time"></span>
+              </div>
+            </div>
+
+            <!-- BACK-UP -->
+            <!-- <div class="feedbackView-top">
+
+              <div class="initials_container">
                 <span class="initials_text">TE</span>
               </div>
 
@@ -202,16 +216,18 @@
                 <span class="title-company">Marketing Manager @Pepsi Co.</span>
                 <span class="feedback-time">Feb 14, 2018 - 11:00am</span>
               </div>
-            </div>
+            </div> -->
 
             <div class="feedbackView-bottom">
-              <textarea class="feedbackReply-feedback" name="name"></textarea>
+              <form>
+                <textarea class="feedbackReply-feedback" name="name"></textarea>
+              </form>
             </div>
 
           </div> <!-- feedbackView-container - END HERE-->
 
           <div class="feedbackReply-button">
-            <button type="button" name="Reply Button" class="repply-icon"></button>
+            <button type="submit" name="Reply Button" class="repply-icon"></button>
           </div>
 
         </main>
