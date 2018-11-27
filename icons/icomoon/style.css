@@ -25,6 +25,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-user-plus:before {
 content: "\e90d";
 }
@@ -32,9 +33,13 @@ content: "\e90d";
 /* FEEDBACK VIEW ICONS */
 
 /* REPPLY */
+
+
 .repply-icon:before {
 content: "\e904";
 }
+
+
 
 /* EMAIL */
 .email-icon:before {
@@ -230,4 +235,8 @@ content: "\e906";
 }
 .icon-collaborate:before {
   content: "\e90a";
+}
+
+.icon-reply:before {
+  content: "\e900";
 }
