@@ -572,14 +572,12 @@ var showFavorites = () => {
 
   // Initialize the array
   let favoriteList = [];
-  alert(favoriteListAsJson);
 
   // Create a new favorite list if it doesn't exist
   if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
     favoriteList = JSON.parse(favoriteListAsJson);
 
     $.each(favoriteList, function(key, id) {
-      alert(id)/
       $(`.selected${id}`).addClass('selected');
     });
   }
