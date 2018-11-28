@@ -62,9 +62,8 @@ $(document).ready(function() {
           //alert('sucess data: ' + data);
         },
         error: function(req, status, error) {
-          console.log('error', req, status, error);
-          errorMessage('1 An error occured: ' + JSON.parse(req.responseText));
-          alert(error);
+          debug('error', req, status, error);
+          defaultErrorMessage();
         },
 
         fail: function() {
@@ -144,16 +143,16 @@ let selectTag = (tag) => {
   $('#tagSelected').val(tag);
   switch (tag) {
     case 'AWESOME':
-      $('.keepBtn').addClass('selected');
-      $('.reviseBtn').removeClass('selected');
+      $('.keepBtn').addClass('selectedButton');
+      $('.reviseBtn').removeClass('selectedButton');
       break;
     case 'KEEP':
-      $('.keepBtn').addClass('selected');
-      $('.reviseBtn').removeClass('selected');
+      $('.keepBtn').addClass('selectedButton');
+      $('.reviseBtn').removeClass('selectedButton');
       break;
     case 'REVISE':
-      $('.keepBtn').removeClass('selected');
-      $('.reviseBtn').addClass('selected');
+      $('.keepBtn').removeClass('selectedButton');
+      $('.reviseBtn').addClass('selectedButton');
       break;
     default:
   }

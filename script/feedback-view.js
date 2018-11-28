@@ -69,8 +69,36 @@ var getFeedbackInfo = (id) => {
 
           $('.replies').append(replyHTML);
         });
-
       }
+
+      // Style reply and favorite buttons
+      if (feedback.type == 'received') {
+        // Events
+        $('.repply-icon').on('click', () => {
+          goToFeedbackReply(feedback.id);
+        })
+
+        $('.favorite-icon').on('click', () => {
+          toggleFavorite(feedback.id);
+          if (isFavorite(feedback.id)) {
+            $('.favorite-icon').addClass('selected');
+          } else {
+            $('.favorite-icon').removeClass('selected');
+          }
+        })
+
+        //Design
+        if (feedback.user_replies > 0) {
+          $('.repply-icon').addClass('selected');
+        }
+
+        if (isFavorite(feedback.id)) {
+          $('.favorite-icon').addClass('selected');
+        } else {
+          $('.favorite-icon').removeClass('selected');
+        }
+      }
+
 
     },
 
@@ -88,7 +116,6 @@ var getFeedbackInfo = (id) => {
 
 // Events for the feedback-view page
 $(document).ready(function() {
-
   debug('feedback-view.js');
 
   let id = urlParam('id');

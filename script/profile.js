@@ -35,8 +35,12 @@ var getUserInfo = (id) => {
 
     error: function(req, status, error) {
       debug('error', req, status, error);
-      var userInfo = jQuery.parseJSON(req.responseText);
-      errorMessage(userInfo.message);
+      try {
+        var userInfo = jQuery.parseJSON(req.responseText);
+        errorMessage(userInfo.message);
+      } catch (err) {
+        defaultErrorMessage();
+      }
     },
 
     fail: function() {

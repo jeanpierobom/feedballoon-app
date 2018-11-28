@@ -2,20 +2,16 @@
 $(document).ready(function() {
 
   console.log('home.js');
-  debug('retrieving feedback for user id: ' + localStorage.userId)
-  getAllFeedback(localStorage.userId);
 
   setupFooterMenuActions();
 
+  // Search button
   $('.search-icon').on('click', () => {
     $('.header-top-home a').toggleClass('search-icon');
     $('.header-top-home a').toggleClass('searchClose');
     $('.searchBar').toggle();
     $('.wrapper-index').toggleClass('wrapper-index-search');
   });
-
-  // Initialize empty states when the page load
-
 
   // Sent button
   $('.feedback-sent a').on('click', () => {
@@ -37,7 +33,7 @@ $(document).ready(function() {
     }
 
     return false;
-  })
+  });
 
   // Received button
   $('.feedback-received a').on('click', () => {
@@ -62,5 +58,9 @@ $(document).ready(function() {
     }
 
     return false;
-  })
+  });
+
+  // Load data
+  getAllFeedback(localStorage.userId);
+
 });

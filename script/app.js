@@ -15,6 +15,10 @@ var errorMessage = (message) => {
   alert('[ERROR] ' + message);
 }
 
+var defaultErrorMessage = () => {
+  errorMessage('Sorry, we are currently experiencing technical issues...');
+}
+
 var sucessMessage = (message) => {
   alert(message);
 }
@@ -95,7 +99,7 @@ var logout = () => {
 
 // This function retrieves all feedback
 var getAllFeedback = (userId, onlyFavorite) => {
-  debug('getAllFeedback');
+  debug('getAllFeedback userId: ' + userId);
   $.ajax({
     "async": true,
     "crossDomain": true,
@@ -194,8 +198,12 @@ var getAllFeedback = (userId, onlyFavorite) => {
 
     error: function(req, status, error) {
       debug('error', req, status, error);
-      var userInfo = jQuery.parseJSON(req.responseText);
-      errorMessage(userInfo.message);
+      try {
+        var userInfo = jQuery.parseJSON(req.responseText);
+        errorMessage(userInfo.message);
+      } catch (err) {
+        defaultErrorMessage();
+      }
     },
 
     fail: function() {
@@ -262,8 +270,12 @@ var getAllGroups = () => {
 
     error: function(req, status, error) {
       debug('error', req, status, error);
-      var userInfo = jQuery.parseJSON(req.responseText);
-      errorMessage(userInfo.message);
+      try {
+        var userInfo = jQuery.parseJSON(req.responseText);
+        errorMessage(userInfo.message);
+      } catch (err) {
+        defaultErrorMessage();
+      }
     },
 
     fail: function() {
@@ -545,7 +557,7 @@ function urlParam(name){
 }
 
 var toggleFavorite = (id) => {
-  debug('toggleFavorite');
+  debug(`toggleFavorite ${id}`);
 
   // Retrieve the favorites list as JSON
   favoriteListAsJson = localStorage.favoriteList;
@@ -630,9 +642,9 @@ var showFavorites = () => {
 }
 
 var isFavorite = (feedbackId) => {
-  debug('isFavorite');
   // Get the favorite list from local storage
   favoriteListAsJson = localStorage.favoriteList;
+  //alert(favoriteListAsJson);
 
   // Initialize the array
   let favoriteList = [];
@@ -647,6 +659,7 @@ var isFavorite = (feedbackId) => {
     $.each(favoriteList, function(key, id) {
       if (feedbackId == id)
         result = true;
+        return;
     });
   }
 
