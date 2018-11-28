@@ -94,7 +94,7 @@ var logout = () => {
 }
 
 // This function retrieves all feedback
-var getAllFeedback = (userId) => {
+var getAllFeedback = (userId, onlyFavorite) => {
   debug('getAllFeedback');
   $.ajax({
     "async": true,
@@ -113,6 +113,14 @@ var getAllFeedback = (userId) => {
       let hasData = false;
       $('.feedback-box').remove();
       $.each(response.data, function(key, feedback) {
+
+        // Filter favorites if necessary
+        if (onlyFavorite) {
+          if (!isFavorite(feedback.id)) {
+            return;
+          }
+        }
+
         let tag_class = '';
         switch (feedback.tag) {
           case 'AWESOME':
@@ -153,9 +161,13 @@ var getAllFeedback = (userId) => {
               <h3>${userName}</h3>
               <span class="title-company">${userJobTitle}</span>
               <span class="feedback-time">${feedback.date}</span>
-            </div>
-            <span class="favorite-icon selected${feedback.id}" onclick="addFavorite(${feedback.id})"></span>
-            <span class="repply-icon" onclick="goToFeedbackReply(${feedback.id})"></span>
+            </div> `;
+        if (feedback.type == 'received') {
+          html += `
+              <span class="favorite-icon selected${feedback.id}" onclick="toggleFavorite(${feedback.id})"></span>
+              <span class="repply-icon" onclick="goToFeedbackReply(${feedback.id})"></span> `;
+        }
+        html += `
           </div>
         `;
 
@@ -533,6 +545,7 @@ function urlParam(name){
 
 var toggleFavorite = (id) => {
   debug('toggleFavorite');
+
   // Retrieve the favorites list as JSON
   favoriteListAsJson = localStorage.favoriteList;
 
@@ -545,45 +558,54 @@ var toggleFavorite = (id) => {
   var index = favoriteList.indexOf(id);
   if (index > -1) {
     favoriteList.splice(index, 1);
+    $(`.selected${id}`).removeClass('selected');
+  } else { // Add a new favorite if it is not
+    // Add the new element
+    favoriteList.push(id);
+    $(`.selected${id}`).addClass('selected');
   }
-}
-
-var addFavorite = (id) => {
-  debug('addFavorite');
-  // Get the favorite list from local storage
-  favoriteListAsJson = localStorage.favoriteList;
-
-  // Initialize the array
-  let favoriteList = [];
-
-  // Create a new favorite list if it doesn't exist
-  if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
-    favoriteList = JSON.parse(favoriteListAsJson);
-  }
-
-  // Add the new element
-  favoriteList.push(id);
 
   // Store the favorite list again
   favoriteListAsJson = JSON.stringify(favoriteList);
   localStorage.favoriteList = favoriteListAsJson;
 }
 
-var removeFavorite = (id) => {
-  debug('removeFavorite');
-  favoriteList = localStorage.favoriteList;
+// var addFavorite = (id) => {
+//   debug('addFavorite');
+//   // Get the favorite list from local storage
+//   favoriteListAsJson = localStorage.favoriteList;
+//
+//   // Initialize the array
+//   let favoriteList = [];
+//
+//   // Create a new favorite list if it doesn't exist
+//   if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
+//     favoriteList = JSON.parse(favoriteListAsJson);
+//   }
+//
+//   // Add the new element
+//   favoriteList.push(id);
+//
+//   // Store the favorite list again
+//   favoriteListAsJson = JSON.stringify(favoriteList);
+//   localStorage.favoriteList = favoriteListAsJson;
+// }
 
-  // Stop if there is no list
-  if (favoriteList == null || favoriteList == undefined) {
-    return;
-  }
-
-  // Remove the element
-  var index = favoriteList.indexOf(id);
-  if (index > -1) {
-    favoriteList.splice(index, 1);
-  }
-}
+// var removeFavorite = (id) => {
+//   debug('removeFavorite');
+//   favoriteList = localStorage.favoriteList;
+//
+//   // Stop if there is no list
+//   if (favoriteList == null || favoriteList == undefined) {
+//     return;
+//   }
+//
+//   // Remove the element
+//   var index = favoriteList.indexOf(id);
+//   if (index > -1) {
+//     favoriteList.splice(index, 1);
+//   }
+// }
 
 var showFavorites = () => {
   debug('showFavorites');
@@ -601,4 +623,28 @@ var showFavorites = () => {
       $(`.selected${id}`).addClass('selected');
     });
   }
+}
+
+var isFavorite = (feedbackId) => {
+  debug('isFavorite');
+  // Get the favorite list from local storage
+  favoriteListAsJson = localStorage.favoriteList;
+
+  // Initialize the array
+  let favoriteList = [];
+
+  // The result variable
+  let result = false;
+
+  // Create a new favorite list if it doesn't exist
+  if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
+    favoriteList = JSON.parse(favoriteListAsJson);
+
+    $.each(favoriteList, function(key, id) {
+      if (feedbackId == id)
+        result = true;
+    });
+  }
+
+  return result;
 }
