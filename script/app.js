@@ -163,9 +163,10 @@ var getAllFeedback = (userId, onlyFavorite) => {
               <span class="feedback-time">${feedback.date}</span>
             </div> `;
         if (feedback.type == 'received') {
+          let replyIconClass = (feedback.user_replies > 0 ? 'selected' : '');
           html += `
               <span class="favorite-icon selected${feedback.id}" onclick="toggleFavorite(${feedback.id})"></span>
-              <span class="repply-icon" onclick="goToFeedbackReply(${feedback.id})"></span> `;
+              <span class="repply-icon ${replyIconClass}" onclick="goToFeedbackReply(${feedback.id})"></span> `;
         }
         html += `
           </div>
@@ -548,6 +549,9 @@ var toggleFavorite = (id) => {
 
   // Retrieve the favorites list as JSON
   favoriteListAsJson = localStorage.favoriteList;
+
+  // Initialize the array
+  let favoriteList = [];
 
   // Create a new favorite list if it doesn't exist
   if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
