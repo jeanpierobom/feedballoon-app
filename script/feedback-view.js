@@ -24,6 +24,8 @@ var getFeedbackInfo = (id) => {
         userInitials = feedback.user_to_initials;
         userName = feedback.user_to_name;
         userJobTitle = feedback.user_to_job_title;
+        $('.repply-icon').hide();
+        $('.favorite-icon').hide();
       }
 
       // Update the name of the person
@@ -75,17 +77,20 @@ var getFeedbackInfo = (id) => {
       if (feedback.type == 'received') {
         // Events
         $('.repply-icon').on('click', () => {
-          goToFeedbackReply(feedback.id);
+          // Maximum one feedback
+          if (feedback.user_replies < 1) {
+            goToFeedbackReply(feedback.id);
+          }
         })
 
-        $('.favorite-icon').on('click', () => {
+        $('.favorite-icon').on('click', function() {
           toggleFavorite(feedback.id);
           if (isFavorite(feedback.id)) {
             $('.favorite-icon').addClass('selected');
           } else {
             $('.favorite-icon').removeClass('selected');
           }
-        })
+        });
 
         //Design
         if (feedback.user_replies > 0) {

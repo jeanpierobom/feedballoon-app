@@ -7,6 +7,11 @@ $(document).ready(function() {
   $('.sign-up-page form').on('submit', (event) => {
     event.preventDefault();
 
+    //Remove error classes
+    $('#email').removeClass('error');
+    $('#password').removeClass('error');
+    $('#confirmPassword').removeClass('error');
+
     // Retrieve all information from user input
     var firstname = $('#firstname').val();
     var lastname = $('#lastname').val();
@@ -24,12 +29,21 @@ $(document).ready(function() {
     // Validate email format
     if (!validateEmail(username)) {
       errorMessage('Invalid e-mail address');
+      $('#email').addClass('error');
+      return;
+    }
+
+    // Validate the password minimum length
+    if (password.length < 6) {
+      errorMessage('The password must have at least 6 characters');
+      $('#password').addClass('error');
       return;
     }
 
     // Validate if password was confirmed properly
     if (password != confirmPassword) {
       errorMessage('Password was not confirmed properly');
+      $('#confirmPassword').addClass('error');
       return;
     }
 

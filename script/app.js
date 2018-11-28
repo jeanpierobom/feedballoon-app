@@ -168,9 +168,12 @@ var getAllFeedback = (userId, onlyFavorite) => {
             </div> `;
         if (feedback.type == 'received') {
           let replyIconClass = (feedback.user_replies > 0 ? 'selected' : '');
-          html += `
-              <span class="favorite-icon selected${feedback.id}" onclick="toggleFavorite(${feedback.id})"></span>
-              <span class="repply-icon ${replyIconClass}" onclick="goToFeedbackReply(${feedback.id})"></span> `;
+          html += `<span class="favorite-icon selected${feedback.id}" onclick="toggleFavorite(${feedback.id})"></span> `;
+          if (feedback.user_replies > 0) {
+            html += `<span class="repply-icon ${replyIconClass}"></span> `;
+          } else {
+            html += `<span class="repply-icon ${replyIconClass}" onclick="goToFeedbackReply(${feedback.id})"></span> `;
+          }
         }
         html += `
           </div>
@@ -556,6 +559,10 @@ function urlParam(name){
     }
 }
 
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
 var toggleFavorite = (id) => {
   debug(`toggleFavorite ${id}`);
 
@@ -572,6 +579,9 @@ var toggleFavorite = (id) => {
 
   // Remove the element if it already exist
   var index = favoriteList.indexOf(id);
+  if (index < 0) {
+    index = favoriteList.indexOf('"' + id + '"');
+  }
   if (index > -1) {
     favoriteList.splice(index, 1);
     $(`.selected${id}`).removeClass('selected');
@@ -583,8 +593,10 @@ var toggleFavorite = (id) => {
 
   // Store the favorite list again
   favoriteListAsJson = JSON.stringify(favoriteList);
+  favoriteListAsJson = favoriteListAsJson.replace(new RegExp(escapeRegExp('"'), 'g'), '');
   localStorage.favoriteList = favoriteListAsJson;
 }
+
 
 // var addFavorite = (id) => {
 //   debug('addFavorite');
@@ -654,6 +666,7 @@ var isFavorite = (feedbackId) => {
 
   // Create a new favorite list if it doesn't exist
   if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
+    alert(favoriteListAsJson);
     favoriteList = JSON.parse(favoriteListAsJson);
 
     $.each(favoriteList, function(key, id) {
