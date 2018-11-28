@@ -23,8 +23,9 @@ var getGroupMembers = (id, waiting, approved, admin) => {
         // Verify if the user is the same
         let sameUser = localStorage.userId == user.id;
         let approvedUser = user.approved > 0;
+        //approvedUser = approved;
         let adminUser = admin > 0;
-        let feedbackControl = (approvedUser && !sameUser ? '' : 'hide');
+        let feedbackControl = (approvedUser && approved > 0 && !sameUser ? '' : 'hide');
         let removeControl = (adminUser && approvedUser && !sameUser ? '' : 'hide');
         let approveDeclineControl = (adminUser && !approvedUser && !sameUser ? '' : 'hide');
         //

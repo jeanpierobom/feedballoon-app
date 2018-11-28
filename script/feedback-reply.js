@@ -42,7 +42,7 @@ var getFeedbackInfo = (id) => {
       $('.feedbackView-middle h3').text(response.data.tag);
 
       // Update the text of the feedback
-      $('.feedbackView-feedback').text(response.data.message);
+      // $('.feedbackView-feedback').text(response.data.message);
 
       // Hide the photo for now
       //$('.feedbackView-top img').hide();

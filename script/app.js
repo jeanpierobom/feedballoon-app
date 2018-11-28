@@ -155,7 +155,7 @@ var getAllFeedback = (userId) => {
               <span class="feedback-time">${feedback.date}</span>
             </div>
             <span class="favorite-icon selected${feedback.id}" onclick="addFavorite(${feedback.id})"></span>
-            <span class="repply-icon"></span>
+            <span class="repply-icon" onclick="goToFeedbackReply(${feedback.id})"></span>
           </div>
         `;
 
@@ -267,6 +267,11 @@ var goToFeedbackDetails = (id) => {
 var goToFeedbackNew = (userToId) => {
   debug('goToFeedbackNew');
   navigate(`feedback-new.html?userToId=${userToId}`);
+}
+
+var goToFeedbackReply = (id) => {
+  debug('goToFeedbackReply');
+  navigate(`feedback-reply.html?id=${id}`);
 }
 
 var goToGroupDetails = (id) => {
@@ -499,10 +504,8 @@ var setupFooterMenuActions = () => {
   });
 
   // Profile button
-  $('#settings-link').on('click', () => {
-    alert('clicked');
-  })
-
+  // $('#settings-link').on('click', () => {
+  // })
 
   $('.profile-label a').on('click', () => {
     navigate('profile.html');
@@ -526,6 +529,23 @@ function urlParam(name){
     else{
        return results[1] || 0;
     }
+}
+
+var toggleFavorite = (id) => {
+  debug('toggleFavorite');
+  // Retrieve the favorites list as JSON
+  favoriteListAsJson = localStorage.favoriteList;
+
+  // Create a new favorite list if it doesn't exist
+  if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
+    favoriteList = JSON.parse(favoriteListAsJson);
+  }
+
+  // Remove the element if it already exist
+  var index = favoriteList.indexOf(id);
+  if (index > -1) {
+    favoriteList.splice(index, 1);
+  }
 }
 
 var addFavorite = (id) => {

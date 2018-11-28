@@ -46,11 +46,24 @@ var getFeedbackInfo = (id) => {
 
       // Append the replies
       if (feedback.replies && feedback.replies.length > 0) {
+        $('.repply-icon').addClass('selected');
+
         $.each(feedback.replies, function(key, reply) {
           let replyHTML = `
-          <div>
-            <p>Date: ${reply.date}</p>
-            <p>${reply.message}</p>
+          <div class="feedbackView-container">
+            <div class="feedbackView-top">
+              <div class="initials_container_grey">
+                <span class="initials_text">${reply.user_from_initials}</span>
+              </div>
+              <div class="feedbackView-owner">
+                <h3>${reply.user_from_name}</h3>
+                <span class="title-company">${reply.user_from_job_title}</span>
+                <span class="feedback-time">${reply.date}</span>
+              </div>
+            </div>
+            <div class="feedbackView-bottom">
+              <p class='reply-text'>${reply.message}</p>
+            </div>
           </div>
           `;
 
