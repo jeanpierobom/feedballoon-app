@@ -98,7 +98,7 @@ var logout = () => {
 }
 
 // This function retrieves all feedback
-var getAllFeedback = (userId, onlyFavorite) => {
+var getAllFeedback = (userId, onlyFavorite, search) => {
   debug('getAllFeedback userId: ' + userId);
   $.ajax({
     "async": true,
@@ -122,6 +122,39 @@ var getAllFeedback = (userId, onlyFavorite) => {
         if (onlyFavorite) {
           if (!isFavorite(feedback.id)) {
             return;
+          }
+        }
+
+        // Filter by search
+        if (search != undefined && search != null) {
+          search = search.toLowerCase();
+
+          if (feedback.type == 'received') {
+            let matches = false;
+
+            // user from name
+            if (feedback.user_from_name != null && feedback.user_from_name != undefined && feedback.user_from_name.toLowerCase().includes(search)) {
+              matches = true;
+            }
+
+            // user from email
+            if (feedback.user_from_email != null && feedback.user_from_email != undefined && feedback.user_from_email.toLowerCase().includes(search)) {
+              matches = true;
+            }
+
+            // user from job title
+            if (feedback.user_from_job_title != null && feedback.user_from_job_title != undefined && feedback.user_from_job_title.toLowerCase().includes(search)) {
+              matches = true;
+            }
+
+            // message
+            if (feedback.message != null && feedback.message != undefined && feedback.message.toLowerCase().includes(search)) {
+              matches = true;
+            }
+
+            if (!matches) {
+              return;
+            }
           }
         }
 
@@ -666,7 +699,6 @@ var isFavorite = (feedbackId) => {
 
   // Create a new favorite list if it doesn't exist
   if (favoriteListAsJson != null && favoriteListAsJson != undefined && favoriteListAsJson != '') {
-    alert(favoriteListAsJson);
     favoriteList = JSON.parse(favoriteListAsJson);
 
     $.each(favoriteList, function(key, id) {

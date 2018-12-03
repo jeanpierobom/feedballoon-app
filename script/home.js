@@ -6,11 +6,26 @@ $(document).ready(function() {
   setupFooterMenuActions();
 
   // Search button
+  var searchBarOpened = false;
   $('.search-icon').on('click', () => {
     $('.header-top-home a').toggleClass('search-icon');
     $('.header-top-home a').toggleClass('searchClose');
     $('.searchBar').toggle();
     $('.wrapper-index').toggleClass('wrapper-index-search');
+
+    if (searchBarOpened) {
+      getAllFeedback(localStorage.userId);
+    }
+
+    searchBarOpened = !searchBarOpened;
+
+  });
+
+  // Second search Buttons
+  $('.searchIcon-Bar').on('click', () => {
+    // Load data based on search
+    let search = $('.group-search-field').val();
+    getAllFeedback(localStorage.userId, false, search);
   });
 
   // Sent button

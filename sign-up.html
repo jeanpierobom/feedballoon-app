@@ -111,6 +111,11 @@
         color: white;
       }
 
+      .error {
+        border: red;
+        color: red;
+      }
+
     </style>
 
   </head>
@@ -127,17 +132,17 @@
           <h3>Sign up</h3>
 
             <form>
-              <input class="sup-firstName sup-fields" type="text" id="firstname" name="firstname" placeholder="First Name">
+              <input class="sup-firstName sup-fields" type="text" id="firstname" name="firstname" placeholder="First Name" maxlength="50">
 
-              <input class="sup-lastName sup-fields" type="text" id="lastname" name="lastname" placeholder="Last Name">
+              <input class="sup-lastName sup-fields" type="text" id="lastname" name="lastname" placeholder="Last Name" maxlength="50">
 
-              <input class="sup-jobTitle sup-fields" type="text" id="jobTitle" name="jobTitle" placeholder="Job Title @Company">
+              <input class="sup-jobTitle sup-fields" type="text" id="jobTitle" name="jobTitle" placeholder="Job Title @Company" maxlength="100">
 
-              <input class="sup-email sup-fields" type="text" id="email" name="email" placeholder="Email">
+              <input class="sup-email sup-fields" type="text" id="email" name="email" placeholder="Email" maxlength="100">
 
-              <input class="sup-password sup-fields" type="password" id="password" name="password" placeholder="Password">
+              <input class="sup-password sup-fields" type="password" id="password" name="password" placeholder="Password" maxlength="30">
 
-              <input class="sup-confirmPassword sup-fields" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+              <input class="sup-confirmPassword sup-fields" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" maxlength="30">
 
               <p> You agree to the Feedballoon User Agreement, Privacy Policy and Cookie Policy </p>
 

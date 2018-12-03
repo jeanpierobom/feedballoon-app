@@ -70,8 +70,13 @@ $(document).ready(function() {
       },
 
       error: function(req, status, error) {
-        console.log('error', req, status, error);
-        errorMessage('An error occured: ' + JSON.parse(req.responseText).message);
+        debug('error', req, status, error);
+        try {
+          var userInfo = jQuery.parseJSON(req.responseText);
+          errorMessage(userInfo.message);
+        } catch (err) {
+          defaultErrorMessage();
+        }
       },
 
       fail: function() {

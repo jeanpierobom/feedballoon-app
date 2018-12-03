@@ -142,7 +142,7 @@
       color: rgb(150,150,150);
     }
 
-    .selected {
+    .selectedButton {
       color: white;
       background-image: linear-gradient(to left, #E10B90, #FFAC1B);
       font-weight: 700;
@@ -257,7 +257,7 @@
             <label class="feedbackWrite-title" for="">Type:</label>
 
             <div class="type-Btns">
-              <div class="feedbackWritePage-Border"><button class="keepBtn selected" type="button" name="button">AWESOME</button></div>
+              <div class="feedbackWritePage-Border"><button class="keepBtn selectedButton" type="button" name="button">AWESOME</button></div>
 
               <div class="feedbackWritePage-Border"><button class="reviseBtn" type="button" name="button">REVISE</button></div>
 
@@ -270,7 +270,7 @@
 
           <div class="feedbackWrite-bottom">
             <label class="feedbackWrite-title" for="">Feedback:</label>
-            <div class="feedbackWritePage-Border feedbackWrite-field grid"><textarea class="feedbackView-feedback" name="name"></textarea></div>
+            <div class="feedbackWritePage-Border feedbackWrite-field grid"><textarea class="feedbackView-feedback" name="name" maxlength="500"></textarea></div>
 
             <button class="feedbackWrite-feedbackBbutton" type="submit" id="submit" name="submit">Send</button>
           </div>
