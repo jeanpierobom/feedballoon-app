@@ -55,6 +55,10 @@ $(document).ready(function() {
     });
   });
 
+  $('#closePage, .wrapper-feedbackWritePage .close-icon').on('click', () => {
+    navigate('home.html');
+  });
+
   setupFooterMenuActions();
 
 });

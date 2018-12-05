@@ -78,7 +78,7 @@ var getFeedbackInfo = (id) => {
         // Events
         $('.repply-icon').on('click', () => {
           // Maximum one feedback
-          if (feedback.user_replies < 1) {
+          if (feedback.user_replies == undefined || feedback.user_replies < 1) {
             goToFeedbackReply(feedback.id);
           }
         })

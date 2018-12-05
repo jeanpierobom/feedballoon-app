@@ -373,7 +373,8 @@ var joinGroup = (groupId) => {
    success: function(response) {
      console.log('success', response);
      sucessMessage('You requested to join the group succesfully. Wait for the admin to approve your request.');
-     navigate(`group-view.html?id=${groupId}`);
+     //navigate(`group-view.html?id=${groupId}`);
+     navigate(`group-list.html`);
    },
 
    error: function(req, status, error) {
@@ -710,3 +711,20 @@ var isFavorite = (feedbackId) => {
 
   return result;
 }
+
+$.ajaxSetup({
+    beforeSend:function(){
+        // show gif here
+        let modal = $(".indicator-modal");
+        if (modal != undefined && modal != null) {
+          modal.show();
+        }
+    },
+    complete:function(){
+      // hide gif here
+      let modal = $(".indicator-modal");
+      if (modal != undefined && modal != null) {
+        modal.hide();
+      }
+    }
+});
